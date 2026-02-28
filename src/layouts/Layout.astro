@@ -14,7 +14,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
 		<meta name="keywords" content="incontinence, association, Toulon, 83000, Var, aide, soutien, handicap, santé" />
@@ -36,9 +36,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<header class="bg-white shadow-sm sticky top-0 z-50" role="banner">
 			<nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
 				<a href={base} class="flex items-center gap-3">
-					<div class="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center">
-						<span class="text-white font-bold text-lg">VI</span>
-					</div>
+					<img src={`${base}logo.svg`} alt="Logo Var Incontinence" class="w-10 h-10" width="40" height="40" />
 					<div>
 						<span class="text-xl font-bold text-teal-700">Var Incontinence</span>
 						<span class="hidden sm:block text-xs text-gray-500">Association loi 1901</span>
@@ -111,9 +109,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				<div class="grid md:grid-cols-5 gap-8">
 					<div>
 						<div class="flex items-center gap-3 mb-4">
-							<div class="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
-								<span class="text-white font-bold text-sm">VI</span>
-							</div>
+							<img src={`${base}logo.svg`} alt="Logo Var Incontinence" class="w-8 h-8" width="32" height="32" />
 							<span class="text-lg font-bold text-white">Var Incontinence</span>
 						</div>
 						<p class="text-sm text-gray-400 leading-relaxed mb-3">
@@ -154,7 +150,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 						<ul class="space-y-2 text-sm text-gray-400">
 							<li>720 avenue Joseph Louis Ortolan</li>
 							<li>83100 Toulon</li>
-							<li><a href="mailto:varincontinence@gmail.com" class="hover:text-teal-400 transition-colors">varincontinence@gmail.com</a></li>
+							<li><a href="mailto:association@var-incontinence.fr" class="hover:text-teal-400 transition-colors">association@var-incontinence.fr</a></li>
 							<li><a href="tel:0669525235" class="hover:text-teal-400 transition-colors">06 69 52 52 35</a></li>
 						</ul>
 						<a href={`${base}#contact`} class="inline-block mt-4 text-sm text-teal-400 hover:text-teal-300 transition-colors">Nous contacter &rarr;</a>
