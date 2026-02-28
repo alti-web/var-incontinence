@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Entraide incontinence à Toulon 83000 - Association Var Incontinence"
+	description="Groupe d'entraide pour les personnes souffrant d'incontinence à Toulon (83000). Échanges, soutien mutuel et conseils pratiques au sein de l'association Var Incontinence."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Entraide incontinence à Toulon</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Entraide incontinence à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				Parce que l'incontinence ne devrait jamais être vécue dans la solitude, notre association à Toulon 83000 propose des espaces d'entraide bienveillants et confidentiels.
+			</p>
+		</div>
+	</section>
+
+	<!-- Contenu principal -->
+	<section class="py-16 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Pourquoi rejoindre un groupe d'entraide ?</h2>
+			<p class="text-gray-600 leading-relaxed mb-6">
+				L'incontinence touche plus de 3 millions de personnes en France, pourtant le sujet reste tabou. À Toulon, l'association Var Incontinence a créé des groupes d'entraide pour briser l'isolement et permettre à chacun(e) de retrouver confiance.
+			</p>
+
+			<div class="grid md:grid-cols-2 gap-6 mb-12">
+				<div class="bg-teal-50 rounded-2xl p-6">
+					<h3 class="font-bold text-gray-900 mb-3">Groupes de parole mensuels</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Rencontres régulières à Toulon pour échanger librement entre personnes concernées. Un cadre sécurisé et bienveillant, animé par des bénévoles formés.</p>
+				</div>
+				<div class="bg-cyan-50 rounded-2xl p-6">
+					<h3 class="font-bold text-gray-900 mb-3">Partage d'expériences</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Conseils pratiques, astuces du quotidien, gestion des sorties et voyages. Les membres partagent ce qui fonctionne pour eux au quotidien.</p>
+				</div>
+				<div class="bg-blue-50 rounded-2xl p-6">
+					<h3 class="font-bold text-gray-900 mb-3">Soutien émotionnel</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">L'incontinence peut affecter l'estime de soi et les relations sociales. Nos groupes offrent un espace où l'on peut exprimer ses difficultés sans jugement.</p>
+				</div>
+				<div class="bg-purple-50 rounded-2xl p-6">
+					<h3 class="font-bold text-gray-900 mb-3">Information médicale</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">Des professionnels de santé interviennent régulièrement pour présenter les solutions existantes : rééducation, traitements, protections adaptées.</p>
+				</div>
+			</div>
+
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Comment participer à Toulon ?</h2>
+			<div class="space-y-4 mb-12">
+				<div class="flex gap-4 items-start">
+					<span class="w-8 h-8 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center text-sm font-bold shrink-0">1</span>
+					<div>
+						<h3 class="font-bold text-gray-900">Contactez-nous</h3>
+						<p class="text-gray-600 text-sm">Envoyez un message via notre formulaire de contact. Votre demande est traitée en toute confidentialité.</p>
+					</div>
+				</div>
+				<div class="flex gap-4 items-start">
+					<span class="w-8 h-8 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center text-sm font-bold shrink-0">2</span>
+					<div>
+						<h3 class="font-bold text-gray-900">Premier échange individuel</h3>
+						<p class="text-gray-600 text-sm">Un bénévole vous rappelle pour un échange confidentiel et vous présenter le fonctionnement des groupes.</p>
+					</div>
+				</div>
+				<div class="flex gap-4 items-start">
+					<span class="w-8 h-8 bg-teal-100 text-teal-700 rounded-full flex items-center justify-center text-sm font-bold shrink-0">3</span>
+					<div>
+						<h3 class="font-bold text-gray-900">Participation libre</h3>
+						<p class="text-gray-600 text-sm">Vous participez aux réunions à votre rythme, sans engagement. La participation est gratuite pour les adhérents.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Rejoignez notre groupe d'entraide à Toulon</h2>
+			<p class="text-gray-600 mb-8">Faites le premier pas. Contactez-nous en toute confidentialité, nous sommes là pour vous écouter.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Nous contacter</a>
+		</div>
+	</section>
+
+</Layout>

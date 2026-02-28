@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Aidants incontinence à Toulon 83000 - Soutien aux proches | Var Incontinence"
+	description="Soutien aux aidants familiaux de personnes souffrant d'incontinence à Toulon (83000). Conseils, accompagnement et répit pour les proches aidants dans le Var."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Aidants à Toulon 83000</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Soutien aux aidants à Toulon 83000</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				Accompagner un proche souffrant d'incontinence est un engagement quotidien. L'association Var Incontinence soutient les aidants familiaux à Toulon et dans le Var.
+			</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<section class="py-16 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Vous êtes aidant(e) d'une personne incontinente ?</h2>
+			<p class="text-gray-600 leading-relaxed mb-6">
+				En France, 8 à 11 millions de personnes accompagnent au quotidien un proche en perte d'autonomie. Quand l'incontinence s'ajoute aux difficultés, la charge peut devenir très lourde. À Toulon, notre association vous accompagne pour que vous ne restiez pas seul(e) face à cette situation.
+			</p>
+
+			<div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-12">
+				<h3 class="font-bold text-amber-900 mb-2">Le saviez-vous ?</h3>
+				<p class="text-amber-800 text-sm leading-relaxed">48 % des aidants déclarent ressentir de la fatigue morale et physique. L'accompagnement d'un proche incontinent peut entraîner épuisement, isolement social et difficultés professionnelles. Demander de l'aide n'est pas un signe de faiblesse, c'est un acte de responsabilité.</p>
+			</div>
+
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Ce que nous proposons aux aidants</h2>
+			<div class="grid md:grid-cols-2 gap-6 mb-12">
+				<div class="border border-gray-200 rounded-2xl p-6 hover:border-teal-300 transition-colors">
+					<div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Groupes de soutien</h3>
+					<p class="text-gray-600 text-sm">Espaces d'échange entre aidants pour partager vos expériences, vos difficultés et vos solutions. Vous n'êtes pas seul(e).</p>
+				</div>
+				<div class="border border-gray-200 rounded-2xl p-6 hover:border-teal-300 transition-colors">
+					<div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Formation pratique</h3>
+					<p class="text-gray-600 text-sm">Ateliers sur les gestes quotidiens, le choix des protections, l'hygiène, l'aménagement du domicile et la prévention des irritations cutanées.</p>
+				</div>
+				<div class="border border-gray-200 rounded-2xl p-6 hover:border-teal-300 transition-colors">
+					<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Orientation</h3>
+					<p class="text-gray-600 text-sm">Aide pour identifier les aides financières (APA, PCH), les services à domicile et les professionnels de santé spécialisés dans le Var.</p>
+				</div>
+				<div class="border border-gray-200 rounded-2xl p-6 hover:border-teal-300 transition-colors">
+					<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Écoute et répit</h3>
+					<p class="text-gray-600 text-sm">Ligne d'écoute confidentielle et orientation vers des solutions de répit pour prendre soin de vous aussi.</p>
+				</div>
+			</div>
+
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Vos droits en tant qu'aidant(e)</h2>
+			<div class="space-y-4 mb-8">
+				<div class="bg-gray-50 rounded-xl p-5">
+					<h3 class="font-bold text-gray-900 text-sm">Congé de proche aidant</h3>
+					<p class="text-gray-600 text-sm">Droit à un congé non rémunéré (indemnisé sous conditions) pour s'occuper d'un proche en perte d'autonomie.</p>
+				</div>
+				<div class="bg-gray-50 rounded-xl p-5">
+					<h3 class="font-bold text-gray-900 text-sm">Allocation journalière du proche aidant (AJPA)</h3>
+					<p class="text-gray-600 text-sm">Jusqu'à 66 jours d'indemnisation par la CAF pour les aidants qui réduisent ou cessent leur activité professionnelle.</p>
+				</div>
+				<div class="bg-gray-50 rounded-xl p-5">
+					<h3 class="font-bold text-gray-900 text-sm">Droit au répit</h3>
+					<p class="text-gray-600 text-sm">Jusqu'à 509,76 € par an pour financer des solutions de répit (accueil de jour, hébergement temporaire).</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Vous êtes aidant(e) à Toulon ?</h2>
+			<p class="text-gray-600 mb-8">Contactez-nous pour échanger sur votre situation. Nous sommes là pour vous aider, en toute confidentialité.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Nous contacter</a>
+		</div>
+	</section>
+
+</Layout>

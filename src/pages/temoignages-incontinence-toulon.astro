@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const temoignages = [
+	{
+		nom: "Marie-Claire, 62 ans",
+		ville: "Toulon",
+		texte: "Pendant des années, je n'ai osé en parler à personne, pas même à mon médecin. Quand j'ai découvert l'association Var Incontinence, j'ai compris que je n'étais pas seule. Les groupes de parole m'ont redonné confiance et j'ai enfin consulté un spécialiste.",
+		theme: "Briser le silence"
+	},
+	{
+		nom: "Jean-Pierre, 71 ans",
+		ville: "Draguignan",
+		texte: "Après mon opération de la prostate, l'incontinence a bouleversé mon quotidien. Les réunions de l'association m'ont permis de découvrir des solutions pratiques que je ne connaissais pas. Aujourd'hui, je vis beaucoup mieux avec cette situation.",
+		theme: "Post-opératoire"
+	},
+	{
+		nom: "Dr. Sophie L., kinésithérapeute",
+		ville: "Fréjus",
+		texte: "En tant que professionnelle de santé spécialisée en rééducation périnéale, je recommande cette association à mes patients. Le soutien entre pairs est un complément indispensable au parcours de soins.",
+		theme: "Regard professionnel"
+	},
+	{
+		nom: "Françoise, 58 ans",
+		ville: "La Seyne-sur-Mer",
+		texte: "J'étais devenue recluse chez moi, terrifiée à l'idée d'avoir un accident en public. L'association m'a orientée vers un urologue et m'a fait découvrir des protections discrètes. J'ai repris mes activités et je voyage à nouveau.",
+		theme: "Retrouver sa liberté"
+	},
+	{
+		nom: "Michel, 67 ans",
+		ville: "Hyères",
+		texte: "Mon épouse souffre d'incontinence liée à sa maladie d'Alzheimer. En tant qu'aidant, je me sentais démuni. L'association m'a apporté des conseils concrets et un soutien moral précieux. Je ne suis plus seul face à cette double difficulté.",
+		theme: "Aidant familial"
+	},
+	{
+		nom: "Catherine, 45 ans",
+		ville: "Toulon",
+		texte: "Après mes deux grossesses, les fuites urinaires sont devenues un problème quotidien. J'avais honte d'en parler à 45 ans. Grâce à l'association, j'ai appris que c'était courant et qu'il existait des solutions efficaces. La rééducation a tout changé.",
+		theme: "Incontinence post-partum"
+	}
+];
+---
+
+<Layout
+	title="Témoignages incontinence à Toulon - Histoires de patients | Var Incontinence"
+	description="Témoignages de personnes touchées par l'incontinence à Toulon et dans le Var (83000). Découvrez comment l'association Var Incontinence les a aidées à retrouver une vie normale."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Témoignages</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Témoignages incontinence à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				Ils et elles ont osé en parler. Découvrez les témoignages de personnes accompagnées par l'association Var Incontinence à Toulon et dans le Var.
+			</p>
+		</div>
+	</section>
+
+	<!-- Intro SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Des parcours qui inspirent</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Chaque témoignage est unique, mais tous partagent un point commun : le courage de briser le tabou. À Toulon (83000), l'association Var Incontinence accompagne hommes et femmes de tous âges pour retrouver une vie sociale et une confiance en soi.
+			</p>
+		</div>
+	</section>
+
+	<!-- Témoignages -->
+	<section class="py-16 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<div class="space-y-8">
+				{temoignages.map((t) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-8 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex items-center gap-2 mb-4">
+							<span class="bg-teal-50 text-teal-700 text-xs font-medium px-3 py-1 rounded-full">{t.theme}</span>
+						</div>
+						<blockquote class="text-gray-700 leading-relaxed mb-6 text-lg italic">
+							"{t.texte}"
+						</blockquote>
+						<div class="flex items-center gap-3">
+							<div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
+								<span class="text-teal-700 font-bold text-sm">{t.nom.charAt(0)}</span>
+							</div>
+							<div>
+								<p class="font-semibold text-gray-900">{t.nom}</p>
+								<p class="text-sm text-gray-500">{t.ville}</p>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA partager -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Vous souhaitez partager votre témoignage ?</h2>
+			<p class="text-gray-600 mb-8">Votre histoire peut aider d'autres personnes à oser franchir le pas. Contactez-nous en toute confidentialité.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Partager mon témoignage</a>
+		</div>
+	</section>
+
+</Layout>
