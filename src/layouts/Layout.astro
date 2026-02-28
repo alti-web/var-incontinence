@@ -59,6 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 							<li><a href={`${base}toulon-materiel-medical/`} class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Matériel médical - Toulon</a></li>
 							<li><a href={`${base}toulon-infirmiere/`} class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Infirmières - Toulon</a></li>
 							<li><a href={`${base}toulon-association/`} class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Associations - Toulon</a></li>
+							<li><a href={`${base}quartiers-toulon-incontinence/`} class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Quartiers de Toulon</a></li>
 						</ul>
 					</li>
 					<li class="relative group">
@@ -85,6 +86,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					<li><a href={`${base}toulon-materiel-medical/`} class="text-gray-600 hover:text-teal-700">Matériel médical</a></li>
 					<li><a href={`${base}toulon-infirmiere/`} class="text-gray-600 hover:text-teal-700">Infirmières</a></li>
 					<li><a href={`${base}toulon-association/`} class="text-gray-600 hover:text-teal-700">Associations</a></li>
+					<li><a href={`${base}quartiers-toulon-incontinence/`} class="text-gray-600 hover:text-teal-700">Quartiers de Toulon</a></li>
 					<li class="border-t border-gray-100 pt-2 text-xs text-gray-400 uppercase tracking-wider">L'association</li>
 					<li><a href={`${base}entraide-incontinence-toulon/`} class="text-gray-600 hover:text-teal-700">Entraide</a></li>
 					<li><a href={`${base}aidants-toulon-83000/`} class="text-gray-600 hover:text-teal-700">Soutien aux aidants</a></li>
@@ -121,6 +123,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 							<li><a href={`${base}toulon-materiel-medical/`} class="hover:text-teal-400 transition-colors">Matériel médical</a></li>
 							<li><a href={`${base}toulon-infirmiere/`} class="hover:text-teal-400 transition-colors">Infirmières</a></li>
 							<li><a href={`${base}toulon-association/`} class="hover:text-teal-400 transition-colors">Associations santé</a></li>
+							<li><a href={`${base}quartiers-toulon-incontinence/`} class="hover:text-teal-400 transition-colors">Quartiers de Toulon</a></li>
 						</ul>
 					</div>
 					<div>
@@ -138,7 +141,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 						<ul class="space-y-2 text-sm text-gray-400">
 							<li>Toulon 83000, Var</li>
 							<li>Provence-Alpes-Côte d'Azur</li>
-							<li>contact@var-incontinence.fr</li>
+							<li><a href="mailto:association@var-incontinence.fr" class="hover:text-teal-400 transition-colors">association@var-incontinence.fr</a></li>
 						</ul>
 						<a href={`${base}#contact`} class="inline-block mt-4 text-sm text-teal-400 hover:text-teal-300 transition-colors">Nous contacter &rarr;</a>
 					</div>

@@ -1,0 +1,289 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const quartiers = [
+	{
+		nom: "Centre-ville",
+		slug: "centre-ville",
+		description: "Cœur historique de Toulon avec le Vieux Port, le cours Lafayette et la cathédrale. Forte densité de cabinets médicaux, pharmacies et professionnels de santé.",
+		sousQuartiers: ["Ville-Basse (Le Port)", "Haute Ville - Place Liberté", "Haute Ville - La Gare", "Cathédrale", "Saint-Louis", "L'Oratoire", "Dutasta-Mayol", "Besagne", "Place d'Armes - Arsenal"],
+		hopital: "Accès rapide au CHITS Sainte-Musse et à la Clinique Saint-Martin",
+		population: "~15 000 hab.",
+		color: "teal"
+	},
+	{
+		nom: "Le Mourillon / Cap Brun",
+		slug: "mourillon",
+		description: "Quartier balnéaire prisé avec plages aménagées, ancien village de pêcheurs devenu résidentiel. Nombreux professionnels de santé libéraux.",
+		sousQuartiers: ["Le Mourillon I à IV", "La Mitre / Le Polygone", "Lamalgue", "Port Marchand", "La Sérinette - Le Cap Brun", "Champ de Mars"],
+		hopital: "HIA Sainte-Anne (hôpital militaire ouvert aux civils)",
+		population: "~20 000 hab.",
+		color: "cyan"
+	},
+	{
+		nom: "Saint-Jean-du-Var / Font-Pré",
+		slug: "saint-jean",
+		description: "Grand faubourg populaire de l'est toulonnais, mixité sociale, axe commercial Cuzin-Joffre. Hôpital privé Saint-Jean à proximité.",
+		sousQuartiers: ["Saint-Jean-du-Var I à III", "Font-Pré", "Brunet", "Élisa - La Pivotte", "Aguillon", "La Barre", "La Barre - Les Améniers"],
+		hopital: "Hôpital Privé Toulon Hyères - Saint Jean (chirurgie, maternité)",
+		population: "~18 000 hab.",
+		color: "blue"
+	},
+	{
+		nom: "Sainte-Musse / Beaulieu",
+		slug: "sainte-musse",
+		description: "Secteur mixte industriel et résidentiel du nord-est. Abrite le principal hôpital public de Toulon, inauguré en 2011.",
+		sousQuartiers: ["Sainte-Musse I à III", "Beaulieu", "Sainte-Catherine", "La Palasse - Collet de Gipon", "Pont de Suve", "Valbourdin"],
+		hopital: "CHITS Hôpital Sainte-Musse (principal hôpital public de Toulon)",
+		population: "~12 000 hab.",
+		color: "teal"
+	},
+	{
+		nom: "La Rode / Sainte-Anne",
+		slug: "la-rode",
+		description: "Quartier administratif et résidentiel du centre-est. Présence de l'hôpital militaire Sainte-Anne, ouvert aux civils.",
+		sousQuartiers: ["La Rode", "Sainte-Anne", "Les Lices"],
+		hopital: "HIA Sainte-Anne (boulevard Sainte-Anne)",
+		population: "~8 000 hab.",
+		color: "cyan"
+	},
+	{
+		nom: "Pont-du-Las / Rodeilhac",
+		slug: "pont-du-las",
+		description: "Faubourg populaire historique de l'ouest toulonnais. Quartier prioritaire avec des besoins importants en accompagnement santé.",
+		sousQuartiers: ["Pont du Las I et II", "Rodeilhac", "Bon Rencontre - Arsenal"],
+		hopital: "Accès au CHITS et à l'hôpital Saint-Roch",
+		population: "~10 000 hab.",
+		color: "blue"
+	},
+	{
+		nom: "Saint-Roch / Barbès / Claret",
+		slug: "saint-roch",
+		description: "Quartiers commerçants et résidentiels du nord-ouest. Présence de l'hôpital privé Saint-Roch spécialisé en chirurgie orthopédique.",
+		sousQuartiers: ["Saint-Roch I et II", "Barbès", "Claret", "Le Temple"],
+		hopital: "Hôpital Privé Saint-Roch (chirurgie orthopédique, 86 lits)",
+		population: "~10 000 hab.",
+		color: "teal"
+	},
+	{
+		nom: "Les Routes / Quatre Chemins",
+		slug: "les-routes",
+		description: "Secteur nord avec services administratifs, quartiers résidentiels et hameaux sur les pentes du Mont Faron.",
+		sousQuartiers: ["Les Routes I et II", "Les Pomets - Saint-Pierre - Les Moulins", "Monserrat - Bonnes Herbes", "Les Fours à Chaux"],
+		hopital: "Accès au CHITS Sainte-Musse",
+		population: "~8 000 hab.",
+		color: "cyan"
+	},
+	{
+		nom: "Siblas / Vert Coteau / La Loubière",
+		slug: "siblas",
+		description: "Quartiers résidentiels en hauteur sur les pentes du Mont Faron. Cadre verdoyant et calme.",
+		sousQuartiers: ["Siblas", "Siblas - La Loubière", "Vert Coteau", "Darboussède - La Bosquette"],
+		hopital: "Accès au CHITS Sainte-Musse et HIA Sainte-Anne",
+		population: "~6 000 hab.",
+		color: "blue"
+	},
+	{
+		nom: "Faron / Dardennes / Super Toulon",
+		slug: "faron",
+		description: "Quartiers les plus élevés de Toulon, sur le Mont Faron et la vallée de Dardennes. Habitat résidentiel et cités.",
+		sousQuartiers: ["Faron - Fort Blanc", "Faron - Fort Rouge - Favières", "Dardennes - Ubac", "Super Toulon / Mas du Faron"],
+		hopital: "Accès au CHITS Sainte-Musse",
+		population: "~5 000 hab.",
+		color: "teal"
+	},
+	{
+		nom: "La Beaucaire / La Florane / Valbertrand",
+		slug: "beaucaire",
+		description: "Secteur populaire du sud-ouest avec cités des années 1960. Quartier prioritaire avec des besoins renforcés en santé.",
+		sousQuartiers: ["La Beaucaire", "La Florane", "Valbertrand", "Les Arènes", "L'Escaillon"],
+		hopital: "Accès à l'hôpital Saint-Roch et au CHITS",
+		population: "~12 000 hab.",
+		color: "cyan"
+	},
+	{
+		nom: "Lagoubran / Pontcarral / Pont-Neuf",
+		slug: "lagoubran",
+		description: "Quartiers ouvriers historiques de l'ouest toulonnais. Pontcarral est classé quartier prioritaire.",
+		sousQuartiers: ["Lagoubran", "Pontcarral", "Pont-Neuf", "Pont de Bois"],
+		hopital: "Accès à l'hôpital Saint-Roch",
+		population: "~8 000 hab.",
+		color: "blue"
+	},
+	{
+		nom: "Le Jonquet / La Baume / Guynemer",
+		slug: "jonquet",
+		description: "Cités populaires du nord-ouest, quartier prioritaire de la politique de la ville. Besoins importants en accompagnement social et santé.",
+		sousQuartiers: ["Le Jonquet", "La Baume", "Guynemer"],
+		hopital: "Accès au CHITS Sainte-Musse",
+		population: "~4 000 hab.",
+		color: "teal"
+	}
+];
+---
+
+<Layout
+	title="Incontinence par Quartier à Toulon (83) – Aide Locale | Var Incontinence"
+	description="L'association Var Incontinence accompagne les habitants de tous les quartiers de Toulon (83000). Trouvez l'aide et les professionnels de santé près de chez vous : Centre-ville, Mourillon, Saint-Jean-du-Var, Sainte-Musse et plus."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Quartiers de Toulon</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Incontinence : aide par quartier à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				L'association Var Incontinence accompagne les habitants de tous les quartiers de Toulon (83000). Retrouvez les ressources santé, infirmières et associations près de chez vous.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{quartiers.length} quartiers couverts &bull; 70+ sous-quartiers</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Intro SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Accompagnement incontinence dans tous les quartiers de Toulon</h2>
+			<p class="text-gray-600 leading-relaxed mb-4">
+				Toulon compte plus de 170 000 habitants répartis dans 13 grands quartiers et 70 sous-quartiers. L'incontinence touche des personnes dans chaque secteur de la ville, des quartiers résidentiels du Mourillon aux quartiers prioritaires de La Beaucaire ou Pontcarral. Notre association intervient partout.
+			</p>
+			<p class="text-gray-600 leading-relaxed">
+				Que vous habitiez le centre-ville, Saint-Jean-du-Var, Sainte-Musse ou les hauteurs du Faron, nous vous orientons vers les <a href={`${base}toulon-infirmiere/`} class="text-teal-600 underline hover:text-teal-800">infirmières à domicile</a>, le <a href={`${base}toulon-materiel-medical/`} class="text-teal-600 underline hover:text-teal-800">matériel médical adapté</a> et les <a href={`${base}toulon-association/`} class="text-teal-600 underline hover:text-teal-800">associations de soutien</a> les plus proches de chez vous.
+			</p>
+		</div>
+	</section>
+
+	<!-- Navigation rapide -->
+	<section class="py-8 bg-white border-b border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<p class="text-sm font-medium text-gray-500 mb-3">Accès rapide :</p>
+			<div class="flex flex-wrap gap-2">
+				{quartiers.map(q => (
+					<a href={`#${q.slug}`} class="text-xs bg-teal-50 text-teal-700 px-3 py-1.5 rounded-full hover:bg-teal-100 transition-colors">{q.nom}</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Liste des quartiers -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="space-y-8">
+				{quartiers.map((q, i) => (
+					<article id={q.slug} class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-teal-300 hover:shadow-md transition-all scroll-mt-24">
+						<div class={`bg-gradient-to-r ${q.color === 'teal' ? 'from-teal-50 to-cyan-50' : q.color === 'cyan' ? 'from-cyan-50 to-blue-50' : 'from-blue-50 to-indigo-50'} px-6 md:px-8 py-5 border-b border-gray-100`}>
+							<div class="flex items-center justify-between flex-wrap gap-3">
+								<div class="flex items-center gap-3">
+									<span class={`w-10 h-10 ${q.color === 'teal' ? 'bg-teal-100 text-teal-700' : q.color === 'cyan' ? 'bg-cyan-100 text-cyan-700' : 'bg-blue-100 text-blue-700'} rounded-lg flex items-center justify-center text-sm font-bold`}>{i + 1}</span>
+									<h3 class="text-xl md:text-2xl font-bold text-gray-900">{q.nom}</h3>
+								</div>
+								<span class="text-xs text-gray-500 bg-white px-3 py-1 rounded-full border border-gray-200">{q.population}</span>
+							</div>
+						</div>
+						<div class="p-6 md:p-8">
+							<p class="text-gray-600 mb-5">{q.description}</p>
+
+							<div class="grid sm:grid-cols-2 gap-6">
+								<div>
+									<h4 class="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+										<svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+										Sous-quartiers
+									</h4>
+									<div class="flex flex-wrap gap-1.5">
+										{q.sousQuartiers.map(sq => (
+											<span class="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full">{sq}</span>
+										))}
+									</div>
+								</div>
+								<div>
+									<h4 class="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
+										<svg class="w-4 h-4 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+										Hôpital / Clinique
+									</h4>
+									<p class="text-sm text-gray-600">{q.hopital}</p>
+
+									<div class="mt-4 flex flex-wrap gap-2">
+										<a href={`${base}toulon-infirmiere/`} class="text-xs text-teal-600 bg-teal-50 px-3 py-1.5 rounded-full hover:bg-teal-100 transition-colors">Infirmières proches &rarr;</a>
+										<a href={`${base}toulon-materiel-medical/`} class="text-xs text-teal-600 bg-teal-50 px-3 py-1.5 rounded-full hover:bg-teal-100 transition-colors">Matériel médical &rarr;</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Ressources par thème -->
+	<section class="py-12 bg-gray-50">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">Ressources pour votre quartier</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+				<a href={`${base}toulon-infirmiere/`} class="bg-white rounded-xl p-6 border border-gray-100 hover:border-teal-300 hover:shadow-md transition-all group">
+					<div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-teal-200 transition-colors">
+						<svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-1">Infirmières à domicile</h3>
+					<p class="text-gray-600 text-sm">12 cabinets infirmiers couvrant tous les quartiers de Toulon</p>
+				</a>
+				<a href={`${base}toulon-materiel-medical/`} class="bg-white rounded-xl p-6 border border-gray-100 hover:border-teal-300 hover:shadow-md transition-all group">
+					<div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cyan-200 transition-colors">
+						<svg class="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-1">Matériel médical</h3>
+					<p class="text-gray-600 text-sm">8 fournisseurs avec livraison à domicile dans Toulon</p>
+				</a>
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-6 border border-gray-100 hover:border-teal-300 hover:shadow-md transition-all group">
+					<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
+						<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-1">Associations santé</h3>
+					<p class="text-gray-600 text-sm">12 associations de soutien et d'aide dans le Var</p>
+				</a>
+				<a href={`${base}aidants-toulon-83000/`} class="bg-white rounded-xl p-6 border border-gray-100 hover:border-teal-300 hover:shadow-md transition-all group">
+					<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+						<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-1">Soutien aux aidants</h3>
+					<p class="text-gray-600 text-sm">Accompagnement des aidants familiaux dans le Var</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Info SEO quartiers prioritaires -->
+	<section class="py-12 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Quartiers prioritaires : un accompagnement renforcé</h2>
+			<p class="text-gray-600 leading-relaxed mb-6">
+				Toulon compte 8 quartiers classés prioritaires par la politique de la ville, totalisant plus de 23 000 habitants. Dans ces quartiers (Centre-ville, La Beaucaire, Pont du Las, La Florane, Sainte-Musse, Le Jonquet, Pontcarral, Beaulieu), l'accès aux soins et à l'accompagnement pour l'incontinence est un enjeu majeur. Var Incontinence s'engage à rendre ses services accessibles à tous, quel que soit le quartier.
+			</p>
+			<div class="bg-teal-50 rounded-xl p-6">
+				<p class="text-sm text-teal-800 font-medium mb-2">Vous habitez un quartier prioritaire ?</p>
+				<p class="text-sm text-teal-700 mb-4">Des dispositifs d'aide spécifiques existent : PCH, APA, prise en charge à 100% en ALD. Nous vous aidons à constituer vos dossiers.</p>
+				<a href={`${base}#contact`} class="text-sm text-teal-600 font-semibold hover:text-teal-800 transition-colors">Contactez-nous pour en savoir plus &rarr;</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide dans votre quartier ?</h2>
+			<p class="text-gray-600 mb-8">Où que vous habitiez à Toulon, l'association Var Incontinence vous oriente gratuitement vers les professionnels et les ressources adaptés à votre situation.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-700 font-semibold px-8 py-3 rounded-full hover:bg-teal-50 transition-colors">Rejoindre l'association</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
