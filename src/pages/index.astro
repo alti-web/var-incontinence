@@ -349,10 +349,7 @@ import Layout from '../layouts/Layout.astro';
 				</p>
 			</div>
 			<div class="grid md:grid-cols-2 gap-12">
-				<form action="https://formsubmit.co/association@var-incontinence.fr" method="POST" class="space-y-6">
-					<input type="hidden" name="_subject" value="Nouveau message - Var Incontinence">
-					<input type="hidden" name="_captcha" value="true">
-					<input type="hidden" name="_template" value="table">
+				<form id="contact-form" class="space-y-6">
 					<input type="text" name="_honey" style="display:none">
 					<div class="grid sm:grid-cols-2 gap-4">
 						<div>
@@ -383,9 +380,10 @@ import Layout from '../layouts/Layout.astro';
 						<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
 						<textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none" placeholder="Votre message..."></textarea>
 					</div>
-					<button type="submit" class="w-full bg-teal-600 text-white font-semibold py-3 rounded-xl hover:bg-teal-700 transition-colors">
+					<button type="submit" id="contact-submit" class="w-full bg-teal-600 text-white font-semibold py-3 rounded-xl hover:bg-teal-700 transition-colors">
 						Envoyer le message
 					</button>
+					<p id="contact-msg" class="text-center text-sm hidden"></p>
 				</form>
 				<div class="space-y-8">
 					<div class="flex gap-4">
@@ -443,5 +441,27 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</div>
 	</section>
+
+	<script>
+		document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const form = e.target as HTMLFormElement;
+			const btn = document.getElementById('contact-submit') as HTMLButtonElement;
+			const msg = document.getElementById('contact-msg')!;
+			const data: Record<string, string> = {};
+			new FormData(form).forEach((v, k) => { data[k] = v as string; });
+			data._subject = 'Nouveau message - Var Incontinence';
+			btn.disabled = true;
+			btn.textContent = 'Envoi en cours...';
+			msg.classList.add('hidden');
+			try {
+				const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+				if (res.ok) { msg.textContent = 'Message envoyé avec succès !'; msg.className = 'text-center text-sm text-green-600 font-medium'; form.reset(); }
+				else { msg.textContent = 'Erreur lors de l\'envoi. Réessayez.'; msg.className = 'text-center text-sm text-red-600 font-medium'; }
+			} catch { msg.textContent = 'Erreur réseau. Vérifiez votre connexion.'; msg.className = 'text-center text-sm text-red-600 font-medium'; }
+			btn.disabled = false;
+			btn.textContent = 'Envoyer le message';
+		});
+	</script>
 
 </Layout>
