@@ -95,7 +95,7 @@ const cabinets = [
 	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
 		<div class="max-w-6xl mx-auto px-4">
 			<nav class="text-teal-200 text-sm mb-6">
-				<a href="/" class="hover:text-white transition-colors">Accueil</a>
+				<a href={import.meta.env.BASE_URL} class="hover:text-white transition-colors">Accueil</a>
 				<span class="mx-2">/</span>
 				<span class="text-white">Infirmières à Toulon</span>
 			</nav>
@@ -118,7 +118,7 @@ const cabinets = [
 				Les infirmiers et infirmières libéraux de Toulon assurent des soins à domicile essentiels pour les personnes souffrant d'incontinence : pose et changement de sondes, soins de stomie, injections, aide à la toilette et suivi post-opératoire. Les soins sur prescription médicale sont pris en charge à 60 % par l'Assurance Maladie (100 % en ALD).
 			</p>
 			<p class="text-gray-600 leading-relaxed">
-				Besoin d'être orienté(e) ? <a href="/#contact" class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a>, nous vous aidons à trouver le professionnel adapté.
+				Besoin d'être orienté(e) ? <a href={`${import.meta.env.BASE_URL}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a>, nous vous aidons à trouver le professionnel adapté.
 			</p>
 		</div>
 	</section>
@@ -179,7 +179,7 @@ const cabinets = [
 		<div class="max-w-4xl mx-auto px-4 text-center">
 			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'orientation vers un(e) infirmier(e) ?</h2>
 			<p class="text-gray-600 mb-8">L'association Var Incontinence vous aide à trouver le professionnel adapté à vos besoins, en toute confidentialité.</p>
-			<a href="/#contact" class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+			<a href={`${import.meta.env.BASE_URL}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
 		</div>
 	</section>
 
