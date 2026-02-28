@@ -1,0 +1,140 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { etablissements } from '../../data/etablissements';
+import { toSlug } from '../../data/utils';
+
+export function getStaticPaths() {
+	return etablissements.map((e) => ({
+		params: { slug: toSlug(e.nom) },
+		props: { etablissement: e }
+	}));
+}
+
+const { etablissement: e } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={`${e.nom} – Matériel Médical à Toulon | Var Incontinence`} description={`${e.nom} à Toulon : ${e.description}`}>
+
+	<!-- Breadcrumb -->
+	<section class="bg-gray-50 border-b border-gray-100 py-4">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-sm text-gray-500 flex flex-wrap items-center gap-1">
+				<a href={base} class="hover:text-teal-600 transition-colors">Accueil</a>
+				<span>/</span>
+				<a href={`${base}toulon-materiel-medical/`} class="hover:text-teal-600 transition-colors">Matériel médical</a>
+				<span>/</span>
+				<span class="text-gray-900 font-medium">{e.nom}</span>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Fiche détaillée -->
+	<section class="py-12 md:py-16">
+		<div class="max-w-4xl mx-auto px-4">
+			<div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-10 shadow-sm">
+				<h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">{e.nom}</h1>
+				<p class="text-gray-600 text-lg leading-relaxed mb-6">{e.description}</p>
+
+				<div class="flex flex-wrap gap-2 mb-8">
+					{e.specialites.map((s: string) => (
+						<span class="bg-teal-50 text-teal-700 text-sm font-medium px-4 py-1.5 rounded-full">{s}</span>
+					))}
+				</div>
+
+				<div class="space-y-4 border-t border-gray-100 pt-6">
+					<div class="flex items-start gap-3">
+						<svg class="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+						<div>
+							<p class="text-sm text-gray-500">Adresse</p>
+							<p class="text-gray-900 font-medium">{e.adresse}</p>
+						</div>
+					</div>
+					{e.telephone && (
+						<div class="flex items-start gap-3">
+							<svg class="w-5 h-5 text-teal-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+							<div>
+								<p class="text-sm text-gray-500">Téléphone</p>
+								<a href={`tel:${e.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800 text-lg">{e.telephone}</a>
+							</div>
+						</div>
+					)}
+				</div>
+
+				<!-- Actions -->
+				<div class="flex flex-wrap gap-3 mt-8 pt-6 border-t border-gray-100">
+					<button id="open-modal" class="inline-flex items-center gap-2 bg-teal-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-teal-700 transition-colors">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+						Modifier cette fiche
+					</button>
+					<a href={`${base}toulon-materiel-medical/`} class="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-medium px-6 py-3 rounded-full hover:bg-gray-50 transition-colors">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+						Retour à l'annuaire
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-12 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-xl font-bold text-gray-900 mb-3">Besoin d'aide pour choisir votre matériel ?</h2>
+			<p class="text-gray-600 mb-6">L'association Var Incontinence vous oriente gratuitement vers les solutions adaptées.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+		</div>
+	</section>
+
+	<!-- Modal -->
+	<div id="modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50">
+		<div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 relative">
+			<button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+			</button>
+			<h3 class="text-xl font-bold text-gray-900 mb-2">Modifier cette fiche</h3>
+			<p class="text-gray-500 text-sm mb-6">Remplissez ce formulaire et nous mettrons à jour votre fiche gratuitement.</p>
+			<form action="https://formsubmit.co/association@var-incontinence.fr" method="POST" class="space-y-4">
+				<input type="hidden" name="_subject" value={`Modification fiche : ${e.nom}`}>
+				<input type="hidden" name="_captcha" value="true">
+				<input type="text" name="_honey" style="display:none">
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Nom du magasin</label>
+					<input type="text" name="magasin" value={e.nom} required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all">
+				</div>
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+					<input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all" placeholder="votre@email.fr">
+				</div>
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Modifications demandées</label>
+					<textarea name="modifications" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none" placeholder="Décrivez les modifications..."></textarea>
+				</div>
+				<button type="submit" class="w-full bg-teal-600 text-white font-semibold py-3 rounded-xl hover:bg-teal-700 transition-colors">Envoyer la demande</button>
+			</form>
+		</div>
+	</div>
+
+	<!-- Schema.org -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "MedicalBusiness",
+		"name": e.nom,
+		"description": e.description,
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": e.adresse.split(',')[0],
+			"addressLocality": "Toulon",
+			"postalCode": "83000",
+			"addressCountry": "FR"
+		},
+		"telephone": e.telephone || undefined
+	})} />
+
+	<script>
+		const modal = document.getElementById('modal');
+		document.getElementById('open-modal')?.addEventListener('click', () => { modal?.classList.remove('hidden'); modal?.classList.add('flex'); });
+		document.getElementById('close-modal')?.addEventListener('click', () => { modal?.classList.add('hidden'); modal?.classList.remove('flex'); });
+		modal?.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); } });
+	</script>
+
+</Layout>

@@ -1,92 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { cabinets } from '../data/cabinets';
+import { toSlug } from '../data/utils';
 
-const cabinets = [
-	{
-		nom: "Infirmerie Centrale",
-		adresse: "22 rue Paul Lendrin, 83000 Toulon",
-		telephone: "04 94 93 18 97",
-		description: "Cabinet conventionné, carte Vitale acceptée. Soins infirmiers au cabinet et à domicile. Très bien noté par les patients.",
-		quartier: "Centre-ville"
-	},
-	{
-		nom: "Cabinet Infirmières Toulon Ouest",
-		adresse: "7 place d'Armes, 83000 Toulon",
-		telephone: "06 33 91 38 52",
-		description: "Soins infirmiers couvrant les quartiers Toulon Ouest, centre-ville et Pont du Las. Cabinet très bien noté.",
-		quartier: "Toulon Ouest"
-	},
-	{
-		nom: "Cabinet Infirmier Caroline Laffond-Fabre",
-		adresse: "71 avenue François Cuzin, 83000 Toulon",
-		telephone: "04 94 20 08 11",
-		description: "Injections, pansements, prises de sang, vaccins, HAD, aide à la toilette, soins palliatifs. Visites à domicile 7j/7 de 5h à 20h.",
-		quartier: "Saint-Jean-du-Var"
-	},
-	{
-		nom: "Cabinet Infirmier Hélène Giroud",
-		adresse: "71 avenue François Cuzin, 83000 Toulon",
-		telephone: "04 94 20 08 11",
-		description: "Soins infirmiers au cabinet et à domicile : injections, pansements, prises de sang, perfusions, suivi diabète, stomies, soins palliatifs.",
-		quartier: "Saint-Jean-du-Var"
-	},
-	{
-		nom: "Cabinet Infirmier du Mourillon",
-		adresse: "311 boulevard de Bazeilles, 83000 Toulon",
-		telephone: "",
-		description: "Soins à domicile 7j/7. Permanence au cabinet : lundi-vendredi 10h-12h et 17h-18h15, samedi 10h-11h30.",
-		quartier: "Mourillon"
-	},
-	{
-		nom: "ABT Jean Philippe - Infirmier Libéral",
-		adresse: "8 rue Garibaldi, 83000 Toulon",
-		telephone: "06 20 99 85 34",
-		description: "Soins infirmiers en centre-ville de Toulon. Horaires : lundi au dimanche 7h30-12h00 et 16h30-20h00.",
-		quartier: "Centre-ville"
-	},
-	{
-		nom: "L'Infirmerie - Cap Brun / Sérinette",
-		adresse: "1000 boulevard Jean-Baptiste Abel, 83000 Toulon",
-		telephone: "06 44 10 84 27",
-		description: "Cabinet couvrant les quartiers Cap Brun, Améniers et Sérinette. Soins à domicile et au cabinet.",
-		quartier: "Cap Brun"
-	},
-	{
-		nom: "Cabinet de Siblas",
-		adresse: "909 avenue de la Victoire du 8 Mai 1945, 83000 Toulon",
-		telephone: "06 61 94 39 13",
-		description: "Cabinet infirmier du quartier Siblas. Soins à domicile et au cabinet.",
-		quartier: "Siblas"
-	},
-	{
-		nom: "Infirmerie Saint-Roch",
-		adresse: "162 avenue Saint-Roch, 83000 Toulon",
-		telephone: "04 94 24 01 45",
-		description: "Cabinet conventionné, carte Vitale acceptée. Soins infirmiers à domicile et au cabinet.",
-		quartier: "Saint-Roch"
-	},
-	{
-		nom: "Cabinet Brochant de Villiers & Miguel",
-		adresse: "55 chemin de Montzey, 83000 Toulon",
-		telephone: "06 85 07 59 60",
-		description: "Cabinet de deux infirmières libérales. Soins infirmiers à domicile et au cabinet.",
-		quartier: "Montzey"
-	},
-	{
-		nom: "Cabinet Chaud & Szaniawski",
-		adresse: "145 rue Alexandre Borelly, 83000 Toulon",
-		telephone: "06 60 47 38 96",
-		description: "Cabinet de deux infirmières libérales. Soins à domicile et au cabinet.",
-		quartier: "Toulon"
-	},
-	{
-		nom: "Cabinet Gharbi & Godard",
-		adresse: "142 rue Émile Ollivier, 83000 Toulon",
-		telephone: "04 94 87 18 54",
-		description: "Cabinet d'infirmiers libéraux. Soins infirmiers à domicile et au cabinet.",
-		quartier: "Toulon"
-	}
-];
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Infirmières à Toulon – Annuaire Cabinets (83) | Association Var Incontinence">
@@ -95,7 +12,7 @@ const cabinets = [
 	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
 		<div class="max-w-6xl mx-auto px-4">
 			<nav class="text-teal-200 text-sm mb-6">
-				<a href={import.meta.env.BASE_URL} class="hover:text-white transition-colors">Accueil</a>
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
 				<span class="mx-2">/</span>
 				<span class="text-white">Infirmières à Toulon</span>
 			</nav>
@@ -118,7 +35,7 @@ const cabinets = [
 				Les infirmiers et infirmières libéraux de Toulon assurent des soins à domicile essentiels pour les personnes souffrant d'incontinence : pose et changement de sondes, soins de stomie, injections, aide à la toilette et suivi post-opératoire. Les soins sur prescription médicale sont pris en charge à 60 % par l'Assurance Maladie (100 % en ALD).
 			</p>
 			<p class="text-gray-600 leading-relaxed">
-				Besoin d'être orienté(e) ? <a href={`${import.meta.env.BASE_URL}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a>, nous vous aidons à trouver le professionnel adapté.
+				Besoin d'être orienté(e) ? <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a>, nous vous aidons à trouver le professionnel adapté.
 			</p>
 		</div>
 	</section>
@@ -149,10 +66,16 @@ const cabinets = [
 										<a href={`tel:${c.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800">{c.telephone}</a>
 									</div>
 								)}
-								<button data-nom={c.nom} class="btn-modifier mt-2 inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
-									<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-									Modifier cette fiche
-								</button>
+								<div class="flex flex-wrap gap-2 mt-2">
+									<a href={`${base}infirmiere/${toSlug(c.nom)}/`} class="inline-flex items-center gap-1 text-xs text-white bg-teal-600 hover:bg-teal-700 font-medium px-3 py-1.5 rounded-full transition-all">
+										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+										Voir la fiche
+									</a>
+									<button data-nom={c.nom} class="btn-modifier inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
+										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+										Modifier cette fiche
+									</button>
+								</div>
 							</div>
 						</div>
 					</article>
@@ -166,16 +89,16 @@ const cabinets = [
 		<div class="max-w-6xl mx-auto px-4">
 			<h2 class="text-xl font-bold text-gray-900 mb-4">Voir aussi</h2>
 			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-				<a href={`${import.meta.env.BASE_URL}quartiers-toulon-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Quartiers de Toulon</p><p class="text-xs text-gray-500">Infirmières par quartier</p>
 				</a>
-				<a href={`${import.meta.env.BASE_URL}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Matériel médical</p><p class="text-xs text-gray-500">Fournisseurs à Toulon</p>
 				</a>
-				<a href={`${import.meta.env.BASE_URL}aidants-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}aidants-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Soutien aux aidants</p><p class="text-xs text-gray-500">Accompagnement des proches</p>
 				</a>
-				<a href={`${import.meta.env.BASE_URL}entraide-incontinence-toulon/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}entraide-incontinence-toulon/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Groupes d'entraide</p><p class="text-xs text-gray-500">Échanges entre personnes concernées</p>
 				</a>
 			</div>
@@ -240,7 +163,7 @@ const cabinets = [
 		<div class="max-w-4xl mx-auto px-4 text-center">
 			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'orientation vers un(e) infirmier(e) ?</h2>
 			<p class="text-gray-600 mb-8">L'association Var Incontinence vous aide à trouver le professionnel adapté à vos besoins, en toute confidentialité.</p>
-			<a href={`${import.meta.env.BASE_URL}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
 		</div>
 	</section>
 

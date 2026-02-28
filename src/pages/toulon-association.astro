@@ -1,92 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { associations } from '../data/associations';
+import { toSlug } from '../data/utils';
 
-const associations = [
-	{
-		nom: "Croix-Rouge française - Antenne de Toulon",
-		adresse: "10 rue Roche, 83000 Toulon",
-		telephone: "04 94 41 50 15",
-		description: "Aide sociale, soutien aux familles, soins médicaux, accompagnement des personnes âgées et en situation de handicap, distribution alimentaire et vestimentaire.",
-		domaines: ["Aide sociale", "Soins", "Personnes âgées"]
-	},
-	{
-		nom: "APF France Handicap - Délégation du Var",
-		adresse: "58 rue Antoine Fourcroy, 83130 La Garde",
-		telephone: "04 98 01 30 50",
-		description: "Défense des droits des personnes en situation de handicap, accompagnement social, groupes de parole, orientation et soutien aux familles. Plus de 90 ans d'engagement.",
-		domaines: ["Handicap", "Droits", "Groupes de parole"]
-	},
-	{
-		nom: "LADAPT Var",
-		adresse: "281 rue Jean Jaurès, 83000 Toulon",
-		telephone: "04 86 87 24 80",
-		description: "Réinsertion professionnelle des personnes reconnues travailleurs handicapés. Accompagnement par une équipe pluridisciplinaire (psychologues, ergothérapeutes, formateurs).",
-		domaines: ["Insertion pro", "Handicap", "Formation"]
-	},
-	{
-		nom: "Association AVENS",
-		adresse: "100 avenue Antoine Sénequier, 83000 Toulon",
-		telephone: "",
-		description: "Gestion de 16 établissements varois pour l'accompagnement des personnes en situation de handicap : scolarisation, formation, hébergement, accompagnement médical. Environ 500 salariés.",
-		domaines: ["Handicap", "Hébergement", "Médical"]
-	},
-	{
-		nom: "Entr'aide Sociale du Var",
-		adresse: "2 rue Gimelli, 83000 Toulon",
-		telephone: "04 94 92 27 08",
-		description: "Aide et maintien à domicile des personnes âgées, handicapées et des familles depuis plus de 50 ans. Plus de 44 permanences dans le Var.",
-		domaines: ["Maintien à domicile", "Personnes âgées", "Handicap"]
-	},
-	{
-		nom: "France Alzheimer Var",
-		adresse: "36 rue Henri Poincaré, 83000 Toulon",
-		telephone: "04 94 09 30 30",
-		description: "Soutien aux malades d'Alzheimer et à leurs aidants : groupes de parole, formation des aidants familiaux, café mémoire, activités de stimulation cognitive.",
-		domaines: ["Alzheimer", "Aidants", "Groupes de parole"]
-	},
-	{
-		nom: "Alzheimer Aidants Var (AA83)",
-		adresse: "168 avenue Semper Oliva, 83190 Ollioules",
-		telephone: "04 94 94 94 94",
-		description: "Prise en soin des personnes atteintes de maladies neurodégénératives et accompagnement des familles. Équipe de professionnels : neuropsychologue, ergothérapeute, infirmier.",
-		domaines: ["Neurodégénératif", "Aidants", "Accueil de jour"]
-	},
-	{
-		nom: "ASPA - Aide Sociale aux Personnes Âgées",
-		adresse: "185 avenue Franklin Roosevelt, 83000 Toulon",
-		telephone: "04 94 46 04 60",
-		description: "Accompagnement et services aux personnes âgées dont l'autonomie décline. Aide à domicile et soutien social.",
-		domaines: ["Personnes âgées", "Aide à domicile", "Autonomie"]
-	},
-	{
-		nom: "Association Solidom",
-		adresse: "11 rue Revel, 83000 Toulon",
-		telephone: "",
-		description: "Aide à domicile pour personnes âgées et personnes en situation de handicap dans le Var. Intervention 7j/7 et 24h/24 selon les besoins.",
-		domaines: ["Aide à domicile", "Personnes âgées", "Handicap"]
-	},
-	{
-		nom: "Secours Populaire Français - Var",
-		adresse: "672 avenue du 15ème Corps, 83200 Toulon",
-		telephone: "04 94 41 50 15",
-		description: "Aide humanitaire et sociale, accès à l'alimentation, au logement, à la santé, à l'éducation et aux loisirs pour les personnes en difficulté.",
-		domaines: ["Aide sociale", "Alimentation", "Santé"]
-	},
-	{
-		nom: "AMFD 83 - Aide aux Mères et aux Familles",
-		adresse: "25 place Albert 1er, 83000 Toulon",
-		telephone: "04 94 89 59 95",
-		description: "Service d'aide et d'accompagnement à domicile dédié aux personnes âgées, dépendantes ou en situation de handicap, ainsi qu'aux familles. En activité depuis 1940.",
-		domaines: ["Familles", "Personnes âgées", "Aide à domicile"]
-	},
-	{
-		nom: "Toulon Var Sport Adapté (TVSA)",
-		adresse: "Toulon, 83000",
-		telephone: "",
-		description: "Affiliée à la Fédération Française de Sport Adapté. Offre sportive variée, adaptée et régulière pour toute personne en situation de handicap mental ou psychique.",
-		domaines: ["Sport adapté", "Handicap mental", "Inclusion"]
-	}
-];
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Associations Santé et Handicap à Toulon – Annuaire (83) | Association Var Incontinence">
@@ -95,7 +12,7 @@ const associations = [
 	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
 		<div class="max-w-6xl mx-auto px-4">
 			<nav class="text-teal-200 text-sm mb-6">
-				<a href={import.meta.env.BASE_URL} class="hover:text-white transition-colors">Accueil</a>
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
 				<span class="mx-2">/</span>
 				<span class="text-white">Associations à Toulon</span>
 			</nav>
@@ -118,7 +35,7 @@ const associations = [
 				De nombreuses associations toulonnaises accompagnent les personnes touchées par la maladie, le handicap ou la perte d'autonomie. Qu'il s'agisse de groupes de parole, d'aide à domicile, d'insertion professionnelle ou de défense des droits, ces structures offrent un soutien précieux et souvent gratuit.
 			</p>
 			<p class="text-gray-600 leading-relaxed">
-				L'association Var Incontinence travaille en lien avec ces acteurs locaux. <a href={`${import.meta.env.BASE_URL}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez-nous</a> pour être orienté(e) vers la structure la plus adaptée.
+				L'association Var Incontinence travaille en lien avec ces acteurs locaux. <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez-nous</a> pour être orienté(e) vers la structure la plus adaptée.
 			</p>
 		</div>
 	</section>
@@ -153,10 +70,16 @@ const associations = [
 										<a href={`tel:${a.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800">{a.telephone}</a>
 									</div>
 								)}
-								<button data-nom={a.nom} class="btn-modifier mt-2 inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
-									<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-									Modifier cette fiche
-								</button>
+								<div class="flex flex-wrap gap-2 mt-2">
+									<a href={`${base}association/${toSlug(a.nom)}/`} class="inline-flex items-center gap-1 text-xs text-white bg-teal-600 hover:bg-teal-700 font-medium px-3 py-1.5 rounded-full transition-all">
+										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+										Voir la fiche
+									</a>
+									<button data-nom={a.nom} class="btn-modifier inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
+										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+										Modifier cette fiche
+									</button>
+								</div>
 							</div>
 						</div>
 					</article>
@@ -170,16 +93,16 @@ const associations = [
 		<div class="max-w-6xl mx-auto px-4">
 			<h2 class="text-xl font-bold text-gray-900 mb-4">Voir aussi</h2>
 			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-				<a href={`${import.meta.env.BASE_URL}quartiers-toulon-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Quartiers de Toulon</p><p class="text-xs text-gray-500">Aide par quartier</p>
 				</a>
-				<a href={`${import.meta.env.BASE_URL}toulon-infirmiere/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}toulon-infirmiere/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Infirmières à Toulon</p><p class="text-xs text-gray-500">12 cabinets référencés</p>
 				</a>
-				<a href={`${import.meta.env.BASE_URL}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Matériel médical</p><p class="text-xs text-gray-500">Fournisseurs à Toulon</p>
 				</a>
-				<a href={`${import.meta.env.BASE_URL}rejoindre-association-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Rejoindre l'association</p><p class="text-xs text-gray-500">Adhésion, bénévolat, don</p>
 				</a>
 			</div>
@@ -227,7 +150,7 @@ const associations = [
 		<div class="max-w-4xl mx-auto px-4 text-center">
 			<h2 class="text-2xl font-bold text-gray-900 mb-4">Vous souhaitez être orienté(e) ?</h2>
 			<p class="text-gray-600 mb-8">Var Incontinence collabore avec les associations locales pour vous orienter vers la structure la plus adaptée à votre situation.</p>
-			<a href={`${import.meta.env.BASE_URL}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
 		</div>
 	</section>
 
