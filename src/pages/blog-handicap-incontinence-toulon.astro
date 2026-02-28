@@ -7,49 +7,57 @@ const articles = [
 		titre: "Incontinence urinaire : comprendre les différents types",
 		resume: "Incontinence d'effort, par urgence, mixte ou fonctionnelle : chaque type a ses causes et ses solutions. Apprenez à identifier votre situation pour mieux vous orienter vers le bon traitement.",
 		categorie: "Comprendre",
-		date: "15 février 2026"
+		date: "15 février 2026",
+		slug: "types-incontinence-urinaire"
 	},
 	{
 		titre: "Rééducation périnéale : quand et comment consulter à Toulon ?",
 		resume: "La rééducation périnéale est le traitement de première intention pour l'incontinence d'effort. Découvrez comment elle fonctionne, quand consulter et où trouver un spécialiste à Toulon.",
 		categorie: "Traitements",
-		date: "8 février 2026"
+		date: "8 février 2026",
+		slug: "reeducation-perineale-toulon"
 	},
 	{
 		titre: "Incontinence et handicap : quelles aides dans le Var ?",
 		resume: "PCH, APA, MDPH... Les personnes en situation de handicap avec incontinence ont droit à des aides spécifiques. Tour d'horizon des dispositifs disponibles dans le département du Var (83).",
 		categorie: "Handicap",
-		date: "1 février 2026"
+		date: "1 février 2026",
+		slug: "incontinence-handicap-aides-var"
 	},
 	{
 		titre: "Protections urinaires : guide comparatif pour bien choisir",
 		resume: "Couches, protections anatomiques, sous-vêtements absorbants, étuis péniens... Comment choisir la protection adaptée à votre situation et votre mode de vie ?",
 		categorie: "Pratique",
-		date: "25 janvier 2026"
+		date: "25 janvier 2026",
+		slug: "protections-urinaires-guide"
 	},
 	{
 		titre: "Incontinence masculine : briser le tabou après 60 ans",
 		resume: "L'incontinence masculine touche 1 homme sur 10 après 65 ans, souvent après une chirurgie de la prostate. Pourtant, beaucoup n'osent pas en parler. Conseils pour surmonter la gêne.",
 		categorie: "Hommes",
-		date: "18 janvier 2026"
+		date: "18 janvier 2026",
+		slug: "incontinence-masculine-tabou"
 	},
 	{
 		titre: "Alimentation et incontinence : les aliments à privilégier et à éviter",
 		resume: "Certains aliments et boissons peuvent aggraver l'incontinence. Découvrez les recommandations alimentaires pour réduire les symptômes au quotidien.",
 		categorie: "Nutrition",
-		date: "10 janvier 2026"
+		date: "10 janvier 2026",
+		slug: "alimentation-incontinence"
 	},
 	{
 		titre: "Sport et incontinence : quelles activités pratiquer ?",
 		resume: "L'activité physique est essentielle mais certains sports peuvent aggraver les fuites. Yoga, natation, marche : découvrez les activités recommandées et celles à adapter.",
 		categorie: "Sport",
-		date: "3 janvier 2026"
+		date: "3 janvier 2026",
+		slug: "sport-incontinence"
 	},
 	{
 		titre: "Aidants et incontinence : prendre soin de soi pour mieux aider",
 		resume: "Accompagner un proche incontinent est éprouvant. Conseils pratiques pour les aidants : gestion du quotidien, prévention de l'épuisement et ressources dans le Var.",
 		categorie: "Aidants",
-		date: "20 décembre 2025"
+		date: "20 décembre 2025",
+		slug: "aidants-incontinence-conseils"
 	}
 ];
 ---
@@ -79,7 +87,7 @@ const articles = [
 		<div class="max-w-6xl mx-auto px-4">
 			<div class="grid md:grid-cols-2 gap-8">
 				{articles.map((a) => (
-					<article class="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-teal-300 hover:shadow-md transition-all">
+					<a href={`${base}blog/${a.slug}/`} class="block bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-teal-300 hover:shadow-md transition-all">
 						<div class="bg-gradient-to-r from-teal-50 to-cyan-50 px-6 py-4 border-b border-gray-100">
 							<div class="flex items-center justify-between">
 								<span class="bg-teal-100 text-teal-700 text-xs font-medium px-3 py-1 rounded-full">{a.categorie}</span>
@@ -88,9 +96,10 @@ const articles = [
 						</div>
 						<div class="p-6">
 							<h3 class="text-lg font-bold text-gray-900 mb-3 leading-snug">{a.titre}</h3>
-							<p class="text-gray-600 text-sm leading-relaxed">{a.resume}</p>
+							<p class="text-gray-600 text-sm leading-relaxed mb-4">{a.resume}</p>
+							<span class="text-teal-600 text-sm font-medium hover:text-teal-800">Lire l'article &rarr;</span>
 						</div>
-					</article>
+					</a>
 				))}
 			</div>
 		</div>

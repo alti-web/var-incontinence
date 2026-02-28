@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Types d'incontinence urinaire : comprendre pour mieux agir | Var Incontinence"
+	description="Incontinence d'effort, par urgence, mixte ou fonctionnelle : découvrez les différents types d'incontinence urinaire, leurs causes et les solutions adaptées à Toulon (83)."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Types d'incontinence</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Comprendre</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Incontinence urinaire : comprendre les différents types</h1>
+			<p class="text-teal-200 text-sm">15 février 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">
+				L'incontinence urinaire touche plus de 3 millions de personnes en France. Pourtant, elle reste un sujet tabou. Comprendre les différents types d'incontinence est la première étape pour trouver une solution adaptée.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">L'incontinence d'effort</h2>
+			<p class="text-gray-600 leading-relaxed">
+				C'est la forme la plus fréquente chez la femme. Les fuites surviennent lors d'efforts physiques : toux, éternuement, rire, port de charges ou activité sportive. Le mécanisme en cause est un affaiblissement des muscles du périnée, souvent lié aux grossesses, à la ménopause ou au vieillissement.
+			</p>
+			<p class="text-gray-600 leading-relaxed">
+				La rééducation périnéale est le traitement de première intention. Elle est efficace dans 60 à 70 % des cas.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">L'incontinence par urgence (ou par impériosité)</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Elle se caractérise par un besoin soudain et irrépressible d'uriner, parfois accompagné de fuites avant d'atteindre les toilettes. Elle est liée à une hyperactivité de la vessie. Ce type touche aussi bien les hommes que les femmes et peut être lié à des pathologies neurologiques, des infections urinaires ou au vieillissement.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">L'incontinence mixte</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Elle associe les symptômes de l'incontinence d'effort et de l'incontinence par urgence. C'est une forme fréquente, notamment chez les femmes après 50 ans. La prise en charge combine souvent rééducation et traitement médicamenteux.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">L'incontinence fonctionnelle</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Elle survient lorsque la personne est physiquement ou mentalement incapable d'atteindre les toilettes à temps, bien que le système urinaire fonctionne normalement. C'est fréquent chez les personnes âgées à mobilité réduite ou atteintes de troubles cognitifs comme la maladie d'Alzheimer.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">L'incontinence par regorgement</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Plus fréquente chez l'homme, elle est due à un obstacle à l'évacuation de la vessie (souvent un adénome de la prostate). La vessie ne se vide pas complètement et déborde. Le traitement est souvent chirurgical.
+			</p>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Que faire ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					Le premier pas est d'en parler à un professionnel de santé. À Toulon, l'association Var Incontinence peut vous orienter vers le bon spécialiste et vous accompagner dans votre parcours.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/reeducation-perineale-toulon/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Rééducation périnéale à Toulon</p><p class="text-xs text-gray-500">Quand et comment consulter</p>
+				</a>
+				<a href={`${base}blog/incontinence-masculine-tabou/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Incontinence masculine</p><p class="text-xs text-gray-500">Briser le tabou après 60 ans</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

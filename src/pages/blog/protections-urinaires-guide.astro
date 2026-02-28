@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Protections urinaires : guide comparatif pour bien choisir | Var Incontinence"
+	description="Couches, protections anatomiques, sous-vêtements absorbants, étuis péniens : comment choisir la protection adaptée à votre incontinence ? Guide pratique."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Protections urinaires</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Pratique</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Protections urinaires : guide comparatif pour bien choisir</h1>
+			<p class="text-teal-200 text-sm">25 janvier 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">
+				Choisir la bonne protection urinaire est essentiel pour maintenir son confort et sa dignité au quotidien. Voici un guide pour vous aider à faire le bon choix en fonction de votre situation.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les protections anatomiques</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Semblables à des serviettes hygiéniques mais plus absorbantes, elles se glissent dans les sous-vêtements classiques. Idéales pour les fuites légères à modérées. Discrètes et faciles à utiliser, elles existent en différentes tailles et niveaux d'absorption.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les sous-vêtements absorbants (pants)</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Ils se portent comme des sous-vêtements classiques et offrent une protection intégrale. Recommandés pour les fuites modérées à importantes, ils sont très discrets sous les vêtements et permettent de maintenir une vie active.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les changes complets (couches)</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Avec des attaches latérales, ils sont adaptés aux personnes à mobilité réduite ou souffrant d'incontinence sévère. Ils offrent la plus grande capacité d'absorption et sont souvent utilisés la nuit ou en établissement.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les étuis péniens (pour les hommes)</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Alternative aux protections absorbantes, l'étui pénien se place autour du pénis et est relié à une poche de recueil. Discret sous les vêtements, il convient aux hommes souffrant d'incontinence modérée à sévère.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Comment choisir ?</h2>
+			<div class="space-y-3 text-gray-600">
+				<p><strong>Selon le volume de fuites :</strong> légères (protections anatomiques), modérées (pants), importantes (changes complets).</p>
+				<p><strong>Selon votre mobilité :</strong> si vous êtes autonome, les pants sont souvent préférés. Pour les personnes alitées, les changes complets sont plus pratiques.</p>
+				<p><strong>Selon votre mode de vie :</strong> pour le sport et les sorties, privilégiez les protections discrètes et bien ajustées.</p>
+				<p><strong>Selon votre peau :</strong> choisissez des protections hypoallergéniques si vous avez la peau sensible.</p>
+			</div>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Où trouver des protections à Toulon ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					Consultez notre <a href={`${base}toulon-materiel-medical/`} class="underline hover:text-teal-600">annuaire des fournisseurs de matériel médical à Toulon</a> pour trouver un point de vente près de chez vous.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/types-incontinence-urinaire/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Types d'incontinence</p><p class="text-xs text-gray-500">Comprendre les différentes formes</p>
+				</a>
+				<a href={`${base}blog/incontinence-handicap-aides-var/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Handicap et aides</p><p class="text-xs text-gray-500">Les dispositifs dans le Var</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

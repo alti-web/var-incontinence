@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Aidants et incontinence : prendre soin de soi pour mieux aider | Var Incontinence"
+	description="Conseils pratiques pour les aidants de personnes incontinentes : gestion du quotidien, prévention de l'épuisement et ressources dans le Var (83)."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Conseils aidants</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Aidants</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Aidants et incontinence : prendre soin de soi pour mieux aider</h1>
+			<p class="text-teal-200 text-sm">20 décembre 2025</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">
+				Accompagner un proche souffrant d'incontinence est un engagement quotidien qui peut être éprouvant physiquement et émotionnellement. En tant qu'aidant, prendre soin de vous n'est pas un luxe, c'est une nécessité.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Le quotidien de l'aidant</h2>
+			<p class="text-gray-600 leading-relaxed">
+				L'accompagnement d'une personne incontinente implique des gestes quotidiens parfois lourds : aide à la toilette, changement de protections, gestion du linge, aménagement du domicile. À cela s'ajoutent la charge mentale et les contraintes sur la vie sociale et professionnelle.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Prévenir l'épuisement</h2>
+			<p class="text-gray-600 leading-relaxed">
+				48 % des aidants déclarent ressentir de la fatigue morale et physique. Voici des signaux d'alerte à ne pas ignorer :
+			</p>
+			<ul class="text-gray-600 space-y-2 mt-4">
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Fatigue persistante, troubles du sommeil</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Irritabilité, sentiment de culpabilité</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Isolement social progressif</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Négligence de sa propre santé</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Difficultés à maintenir son activité professionnelle</li>
+			</ul>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Conseils pratiques au quotidien</h2>
+			<div class="space-y-4 text-gray-600">
+				<p><strong>Organisez les changes :</strong> préparez le matériel à l'avance, utilisez des alèses jetables, gardez des protections accessibles dans chaque pièce.</p>
+				<p><strong>Préservez la dignité :</strong> maintenez l'intimité de votre proche lors des soins. Favorisez son autonomie autant que possible.</p>
+				<p><strong>Protégez votre dos :</strong> apprenez les bons gestes de manutention, utilisez du matériel adapté (lit médicalisé, lève-personne si besoin).</p>
+				<p><strong>Acceptez l'aide :</strong> services à domicile, accueil de jour, hébergement temporaire. Vous avez droit au répit.</p>
+			</div>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les ressources dans le Var</h2>
+			<ul class="text-gray-600 space-y-2 mt-4">
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> <strong>L'association Var Incontinence :</strong> groupes de soutien dédiés aux aidants</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> <strong>La plateforme de répit du Var :</strong> pour organiser des solutions de relais</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> <strong>Le CCAS de Toulon :</strong> aide ménagère, portage de repas</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> <strong>L'AJPA (Allocation Journalière du Proche Aidant) :</strong> jusqu'à 66 jours d'indemnisation</li>
+			</ul>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Vous êtes aidant(e) à Toulon ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					Notre page <a href={`${base}aidants-toulon-83000/`} class="underline hover:text-teal-600">Soutien aux aidants</a> détaille tous les services et droits auxquels vous pouvez prétendre. N'hésitez pas à nous contacter.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/incontinence-handicap-aides-var/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Handicap et aides</p><p class="text-xs text-gray-500">Les dispositifs dans le Var</p>
+				</a>
+				<a href={`${base}blog/protections-urinaires-guide/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Protections urinaires</p><p class="text-xs text-gray-500">Guide comparatif</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

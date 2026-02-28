@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Alimentation et incontinence : aliments à privilégier et à éviter | Var Incontinence"
+	description="Certains aliments et boissons aggravent l'incontinence. Découvrez les recommandations alimentaires pour réduire les symptômes au quotidien."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Alimentation</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Nutrition</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Alimentation et incontinence : les aliments à privilégier et à éviter</h1>
+			<p class="text-teal-200 text-sm">10 janvier 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">
+				L'alimentation joue un rôle souvent sous-estimé dans la gestion de l'incontinence. Certains aliments et boissons peuvent irriter la vessie et aggraver les fuites, tandis que d'autres contribuent à améliorer la situation.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les aliments et boissons à limiter</h2>
+			<div class="space-y-4 text-gray-600">
+				<p><strong>La caféine :</strong> café, thé, sodas au cola. La caféine est un diurétique et un stimulant vésical. Elle augmente la fréquence des envies et peut provoquer des contractions involontaires de la vessie.</p>
+				<p><strong>L'alcool :</strong> comme la caféine, l'alcool est un diurétique. Il augmente la production d'urine et réduit la capacité de contrôle de la vessie.</p>
+				<p><strong>Les agrumes et jus acides :</strong> oranges, citrons, pamplemousses, tomates. Leur acidité peut irriter la vessie et aggraver l'incontinence par urgence.</p>
+				<p><strong>Les plats épicés :</strong> le piment et les épices fortes peuvent stimuler la vessie chez certaines personnes sensibles.</p>
+				<p><strong>Les édulcorants artificiels :</strong> aspartame, saccharine et autres édulcorants peuvent irriter la vessie.</p>
+			</div>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les aliments à privilégier</h2>
+			<div class="space-y-4 text-gray-600">
+				<p><strong>Les fibres :</strong> fruits, légumes, céréales complètes. Une bonne digestion prévient la constipation, qui aggrave l'incontinence en exerçant une pression sur la vessie.</p>
+				<p><strong>L'eau :</strong> contrairement à une idée reçue, il ne faut pas réduire sa consommation d'eau. Buvez 1,5 L par jour en répartissant les prises. Une urine trop concentrée irrite la vessie.</p>
+				<p><strong>Les protéines maigres :</strong> poisson, volaille, tofu. Elles contribuent au maintien de la masse musculaire, y compris le périnée.</p>
+				<p><strong>Le magnésium :</strong> bananes, amandes, légumes verts. Il contribue au bon fonctionnement musculaire et nerveux.</p>
+			</div>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Conseils pratiques au quotidien</h2>
+			<ul class="text-gray-600 space-y-2 mt-4">
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Répartissez vos boissons sur la journée plutôt que de boire beaucoup d'un coup</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Réduisez les boissons 2 heures avant le coucher pour limiter les fuites nocturnes</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Tenez un journal alimentaire pour identifier vos aliments déclencheurs</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Maintenez un poids santé : le surpoids augmente la pression sur la vessie</li>
+			</ul>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Besoin de conseils personnalisés ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					Chaque situation est différente. Un diététicien ou votre médecin traitant peut vous aider à adapter votre alimentation. L'association Var Incontinence organise des ateliers d'information sur ces sujets.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/sport-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Sport et incontinence</p><p class="text-xs text-gray-500">Quelles activités pratiquer ?</p>
+				</a>
+				<a href={`${base}blog/types-incontinence-urinaire/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Types d'incontinence</p><p class="text-xs text-gray-500">Comprendre les différentes formes</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

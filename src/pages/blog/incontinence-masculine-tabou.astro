@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Incontinence masculine : briser le tabou après 60 ans | Var Incontinence"
+	description="L'incontinence masculine touche 1 homme sur 10 après 65 ans. Causes, solutions et conseils pour surmonter la gêne. Association à Toulon (83)."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Incontinence masculine</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Hommes</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Incontinence masculine : briser le tabou après 60 ans</h1>
+			<p class="text-teal-200 text-sm">18 janvier 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">
+				L'incontinence n'est pas réservée aux femmes. Environ 1 homme sur 10 est concerné après 65 ans, un chiffre qui augmente avec l'âge. Pourtant, les hommes osent encore moins en parler que les femmes.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les causes principales chez l'homme</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Chez l'homme, l'incontinence est le plus souvent liée à des problèmes de prostate. L'adénome (hypertrophie bénigne) peut provoquer des difficultés à uriner et une incontinence par regorgement. La chirurgie de la prostate (prostatectomie) pour un cancer peut entraîner une incontinence temporaire ou persistante.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Après une prostatectomie</h2>
+			<p class="text-gray-600 leading-relaxed">
+				L'incontinence post-opératoire est fréquente mais souvent temporaire. Dans la majorité des cas, la continence se rétablit progressivement dans les 3 à 12 mois suivant l'intervention. La rééducation périnéale, idéalement commencée avant l'opération, accélère la récupération.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Surmonter la gêne</h2>
+			<p class="text-gray-600 leading-relaxed">
+				L'incontinence peut affecter l'estime de soi, la vie intime et les activités sociales. Voici quelques conseils pour mieux vivre avec cette situation :
+			</p>
+			<ul class="text-gray-600 space-y-2 mt-4">
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> En parler à votre médecin : c'est un problème médical, pas une honte</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Consulter un kinésithérapeute pour la rééducation périnéale</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Utiliser des protections adaptées (étuis péniens, protections anatomiques masculines)</li>
+				<li class="flex items-start gap-2"><span class="text-teal-600 mt-1">&#8226;</span> Rejoindre un groupe de parole pour partager son vécu</li>
+			</ul>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les solutions médicales</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Selon le type et la sévérité de l'incontinence, plusieurs traitements existent : rééducation périnéale, médicaments (anticholinergiques), injections de toxine botulique, bandelettes sous-urétrales ou sphincter urinaire artificiel. Votre urologue vous orientera vers la solution adaptée.
+			</p>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Vous n'êtes pas seul</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					L'association Var Incontinence accueille les hommes comme les femmes. Nos groupes de parole sont un espace bienveillant pour échanger en toute confidentialité.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/reeducation-perineale-toulon/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Rééducation périnéale</p><p class="text-xs text-gray-500">Quand et comment consulter à Toulon</p>
+				</a>
+				<a href={`${base}blog/protections-urinaires-guide/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Protections urinaires</p><p class="text-xs text-gray-500">Guide comparatif</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

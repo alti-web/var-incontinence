@@ -45,8 +45,8 @@ import Layout from '../layouts/Layout.astro';
 					<p class="text-sm text-gray-500 mt-1">N'osent pas en parler</p>
 				</div>
 				<div>
-					<p class="text-3xl md:text-4xl font-bold text-teal-700">83</p>
-					<p class="text-sm text-gray-500 mt-1">Département du Var</p>
+					<p class="text-3xl md:text-4xl font-bold text-teal-700">2018</p>
+					<p class="text-sm text-gray-500 mt-1">Année de création</p>
 				</div>
 			</div>
 		</div>
@@ -272,6 +272,72 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 
+	<!-- FAQ -->
+	<section id="faq" class="py-20 bg-gray-50">
+		<div class="max-w-4xl mx-auto px-4">
+			<div class="text-center mb-12">
+				<p class="text-teal-600 font-semibold text-sm uppercase tracking-wider mb-2">Questions fréquentes</p>
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900">FAQ</h2>
+			</div>
+			<div class="space-y-4">
+				<details class="bg-white rounded-2xl border border-gray-200 overflow-hidden group">
+					<summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors">
+						Qu'est-ce que l'incontinence urinaire ?
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
+						L'incontinence urinaire se définit par une perte involontaire d'urine. Elle peut être d'effort (lors de toux, rire, sport), par urgence (envie soudaine et irrépressible), mixte ou fonctionnelle. Elle touche plus de 3 millions de personnes en France, hommes et femmes de tous âges.
+					</div>
+				</details>
+				<details class="bg-white rounded-2xl border border-gray-200 overflow-hidden group">
+					<summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors">
+						L'incontinence est-elle une fatalité ?
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
+						Non. Dans la majorité des cas, des solutions existent : rééducation périnéale, traitements médicamenteux, chirurgie mini-invasive. La première étape est d'en parler à un professionnel de santé. Notre association peut vous orienter.
+					</div>
+				</details>
+				<details class="bg-white rounded-2xl border border-gray-200 overflow-hidden group">
+					<summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors">
+						Comment rejoindre l'association Var Incontinence ?
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
+						Il suffit de nous contacter par email ou téléphone. La cotisation annuelle est de 25 €. L'adhésion est ouverte à toute personne concernée ou souhaitant soutenir notre action. Rendez-vous sur notre page <a href={`${import.meta.env.BASE_URL}rejoindre-association-toulon-83000/`} class="text-teal-600 underline hover:text-teal-800">Nous rejoindre</a>.
+					</div>
+				</details>
+				<details class="bg-white rounded-2xl border border-gray-200 overflow-hidden group">
+					<summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors">
+						Les échanges sont-ils confidentiels ?
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
+						Oui, absolument. Toutes les demandes, échanges et participations aux groupes de parole sont strictement confidentiels. Votre anonymat est respecté si vous le souhaitez.
+					</div>
+				</details>
+				<details class="bg-white rounded-2xl border border-gray-200 overflow-hidden group">
+					<summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors">
+						Proposez-vous des consultations médicales ?
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
+						Notre association ne réalise pas de consultations médicales. Nous informons, orientons et soutenons. Nous pouvons vous diriger vers des urologues, gynécologues et kinésithérapeutes spécialisés à Toulon et dans le Var.
+					</div>
+				</details>
+				<details class="bg-white rounded-2xl border border-gray-200 overflow-hidden group">
+					<summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors">
+						L'incontinence concerne-t-elle aussi les hommes ?
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-5 text-gray-600 text-sm leading-relaxed">
+						Oui. L'incontinence masculine touche environ 1 homme sur 10 après 65 ans, souvent après une chirurgie de la prostate. Notre association accompagne hommes et femmes sans distinction.
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
 	<!-- Contact -->
 	<section id="contact" class="py-20 bg-white">
 		<div class="max-w-6xl mx-auto px-4">
@@ -297,6 +363,10 @@ import Layout from '../layouts/Layout.astro';
 							<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
 							<input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all" placeholder="votre@email.fr" />
 						</div>
+					</div>
+					<div>
+						<label for="telephone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone</label>
+						<input type="tel" id="telephone" name="telephone" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all" placeholder="06 00 00 00 00" />
 					</div>
 					<div>
 						<label for="sujet" class="block text-sm font-medium text-gray-700 mb-1">Sujet</label>

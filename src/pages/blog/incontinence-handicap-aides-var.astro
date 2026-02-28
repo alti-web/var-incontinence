@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Incontinence et handicap : quelles aides dans le Var (83) ? | Var Incontinence"
+	description="PCH, APA, MDPH : découvrez les aides financières et dispositifs disponibles dans le Var pour les personnes en situation de handicap souffrant d'incontinence."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Handicap et aides</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Handicap</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Incontinence et handicap : quelles aides dans le Var ?</h1>
+			<p class="text-teal-200 text-sm">1 février 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">
+				L'incontinence associée à un handicap peut représenter un double fardeau. Heureusement, plusieurs dispositifs d'aide existent dans le département du Var (83) pour soulager les personnes concernées et leurs familles.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">La Prestation de Compensation du Handicap (PCH)</h2>
+			<p class="text-gray-600 leading-relaxed">
+				La PCH est versée par le Département du Var. Elle peut couvrir les aides humaines (aide à la toilette, au change), les aides techniques (protections, matériel d'adaptation) et l'aménagement du logement (salle de bain adaptée). La demande se fait auprès de la MDPH du Var à Toulon.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">L'Allocation Personnalisée d'Autonomie (APA)</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Destinée aux personnes de 60 ans et plus en perte d'autonomie, l'APA peut financer des heures d'aide à domicile incluant la gestion de l'incontinence. Le montant dépend du degré de dépendance (GIR 1 à 4). La demande s'effectue auprès du Département du Var.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">La MDPH du Var</h2>
+			<p class="text-gray-600 leading-relaxed">
+				La Maison Départementale des Personnes Handicapées du Var est votre interlocuteur principal pour toutes les demandes liées au handicap. Elle évalue vos besoins et vous oriente vers les aides adaptées. Elle est située à Toulon et dispose d'antennes dans le département.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Le remboursement des protections</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Depuis 2020, certaines protections urinaires sont partiellement prises en charge par la Sécurité sociale sur prescription médicale. Les complémentaires santé peuvent compléter le remboursement. Renseignez-vous auprès de votre médecin et de votre mutuelle.
+			</p>
+
+			<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les aides locales dans le Var</h2>
+			<p class="text-gray-600 leading-relaxed">
+				Le CCAS de Toulon et les services sociaux des communes du Var peuvent proposer des aides complémentaires : portage de repas, aide ménagère, transport adapté. N'hésitez pas à les contacter pour connaître vos droits.
+			</p>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">L'association vous accompagne</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					Var Incontinence peut vous aider à constituer vos dossiers et vous orienter vers les bons interlocuteurs à Toulon et dans le Var. Contactez-nous pour un accompagnement personnalisé.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/protections-urinaires-guide/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Protections urinaires</p><p class="text-xs text-gray-500">Guide comparatif pour bien choisir</p>
+				</a>
+				<a href={`${base}blog/aidants-incontinence-conseils/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Conseils pour les aidants</p><p class="text-xs text-gray-500">Prendre soin de soi pour mieux aider</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
