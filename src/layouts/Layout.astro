@@ -37,22 +37,31 @@ const { title } = Astro.props;
 					</svg>
 				</button>
 				<!-- Desktop nav -->
-				<ul class="hidden md:flex items-center gap-8 text-sm font-medium">
-					<li><a href="#accueil" class="text-gray-600 hover:text-teal-700 transition-colors">Accueil</a></li>
-					<li><a href="#mission" class="text-gray-600 hover:text-teal-700 transition-colors">Notre mission</a></li>
-					<li><a href="#actions" class="text-gray-600 hover:text-teal-700 transition-colors">Nos actions</a></li>
-					<li><a href="#temoignages" class="text-gray-600 hover:text-teal-700 transition-colors">Témoignages</a></li>
-					<li><a href="#contact" class="bg-teal-600 text-white px-5 py-2 rounded-full hover:bg-teal-700 transition-colors">Contact</a></li>
+				<ul class="hidden md:flex items-center gap-6 text-sm font-medium">
+					<li><a href="/" class="text-gray-600 hover:text-teal-700 transition-colors">Accueil</a></li>
+					<li class="relative group">
+						<button class="text-gray-600 hover:text-teal-700 transition-colors flex items-center gap-1">
+							Annuaires
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+						</button>
+						<ul class="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-xl border border-gray-100 py-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+							<li><a href="/toulon-materiel-medical/" class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Matériel médical - Toulon</a></li>
+							<li><a href="/toulon-infirmiere/" class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Infirmières - Toulon</a></li>
+							<li><a href="/toulon-association/" class="block px-4 py-2 text-gray-600 hover:bg-teal-50 hover:text-teal-700">Associations - Toulon</a></li>
+						</ul>
+					</li>
+					<li><a href="/#contact" class="bg-teal-600 text-white px-5 py-2 rounded-full hover:bg-teal-700 transition-colors">Contact</a></li>
 				</ul>
 			</nav>
 			<!-- Mobile nav -->
 			<div id="mobile-menu" class="hidden md:hidden border-t border-gray-100">
 				<ul class="flex flex-col px-4 py-4 gap-4 text-sm font-medium">
-					<li><a href="#accueil" class="text-gray-600 hover:text-teal-700">Accueil</a></li>
-					<li><a href="#mission" class="text-gray-600 hover:text-teal-700">Notre mission</a></li>
-					<li><a href="#actions" class="text-gray-600 hover:text-teal-700">Nos actions</a></li>
-					<li><a href="#temoignages" class="text-gray-600 hover:text-teal-700">Témoignages</a></li>
-					<li><a href="#contact" class="text-teal-700 font-semibold">Contact</a></li>
+					<li><a href="/" class="text-gray-600 hover:text-teal-700">Accueil</a></li>
+					<li class="border-t border-gray-100 pt-2 text-xs text-gray-400 uppercase tracking-wider">Annuaires Toulon</li>
+					<li><a href="/toulon-materiel-medical/" class="text-gray-600 hover:text-teal-700">Matériel médical</a></li>
+					<li><a href="/toulon-infirmiere/" class="text-gray-600 hover:text-teal-700">Infirmières</a></li>
+					<li><a href="/toulon-association/" class="text-gray-600 hover:text-teal-700">Associations</a></li>
+					<li class="border-t border-gray-100 pt-2"><a href="/#contact" class="text-teal-700 font-semibold">Contact</a></li>
 				</ul>
 			</div>
 		</header>
@@ -77,11 +86,12 @@ const { title } = Astro.props;
 						</p>
 					</div>
 					<div>
-						<h4 class="text-white font-semibold mb-4">Liens rapides</h4>
+						<h4 class="text-white font-semibold mb-4">Annuaires Toulon</h4>
 						<ul class="space-y-2 text-sm">
-							<li><a href="#mission" class="hover:text-teal-400 transition-colors">Notre mission</a></li>
-							<li><a href="#actions" class="hover:text-teal-400 transition-colors">Nos actions</a></li>
-							<li><a href="#contact" class="hover:text-teal-400 transition-colors">Nous contacter</a></li>
+							<li><a href="/toulon-materiel-medical/" class="hover:text-teal-400 transition-colors">Matériel médical</a></li>
+							<li><a href="/toulon-infirmiere/" class="hover:text-teal-400 transition-colors">Infirmières</a></li>
+							<li><a href="/toulon-association/" class="hover:text-teal-400 transition-colors">Associations santé</a></li>
+							<li><a href="/#contact" class="hover:text-teal-400 transition-colors">Nous contacter</a></li>
 						</ul>
 					</div>
 					<div>

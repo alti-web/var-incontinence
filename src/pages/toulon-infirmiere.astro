@@ -1,0 +1,186 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const cabinets = [
+	{
+		nom: "Infirmerie Centrale",
+		adresse: "22 rue Paul Lendrin, 83000 Toulon",
+		telephone: "04 94 93 18 97",
+		description: "Cabinet conventionné, carte Vitale acceptée. Soins infirmiers au cabinet et à domicile. Très bien noté par les patients.",
+		quartier: "Centre-ville"
+	},
+	{
+		nom: "Cabinet Infirmières Toulon Ouest",
+		adresse: "7 place d'Armes, 83000 Toulon",
+		telephone: "06 33 91 38 52",
+		description: "Soins infirmiers couvrant les quartiers Toulon Ouest, centre-ville et Pont du Las. Cabinet très bien noté.",
+		quartier: "Toulon Ouest"
+	},
+	{
+		nom: "Cabinet Infirmier Caroline Laffond-Fabre",
+		adresse: "71 avenue François Cuzin, 83000 Toulon",
+		telephone: "04 94 20 08 11",
+		description: "Injections, pansements, prises de sang, vaccins, HAD, aide à la toilette, soins palliatifs. Visites à domicile 7j/7 de 5h à 20h.",
+		quartier: "Saint-Jean-du-Var"
+	},
+	{
+		nom: "Cabinet Infirmier Hélène Giroud",
+		adresse: "71 avenue François Cuzin, 83000 Toulon",
+		telephone: "04 94 20 08 11",
+		description: "Soins infirmiers au cabinet et à domicile : injections, pansements, prises de sang, perfusions, suivi diabète, stomies, soins palliatifs.",
+		quartier: "Saint-Jean-du-Var"
+	},
+	{
+		nom: "Cabinet Infirmier du Mourillon",
+		adresse: "311 boulevard de Bazeilles, 83000 Toulon",
+		telephone: "",
+		description: "Soins à domicile 7j/7. Permanence au cabinet : lundi-vendredi 10h-12h et 17h-18h15, samedi 10h-11h30.",
+		quartier: "Mourillon"
+	},
+	{
+		nom: "ABT Jean Philippe - Infirmier Libéral",
+		adresse: "8 rue Garibaldi, 83000 Toulon",
+		telephone: "06 20 99 85 34",
+		description: "Soins infirmiers en centre-ville de Toulon. Horaires : lundi au dimanche 7h30-12h00 et 16h30-20h00.",
+		quartier: "Centre-ville"
+	},
+	{
+		nom: "L'Infirmerie - Cap Brun / Sérinette",
+		adresse: "1000 boulevard Jean-Baptiste Abel, 83000 Toulon",
+		telephone: "06 44 10 84 27",
+		description: "Cabinet couvrant les quartiers Cap Brun, Améniers et Sérinette. Soins à domicile et au cabinet.",
+		quartier: "Cap Brun"
+	},
+	{
+		nom: "Cabinet de Siblas",
+		adresse: "909 avenue de la Victoire du 8 Mai 1945, 83000 Toulon",
+		telephone: "06 61 94 39 13",
+		description: "Cabinet infirmier du quartier Siblas. Soins à domicile et au cabinet.",
+		quartier: "Siblas"
+	},
+	{
+		nom: "Infirmerie Saint-Roch",
+		adresse: "162 avenue Saint-Roch, 83000 Toulon",
+		telephone: "04 94 24 01 45",
+		description: "Cabinet conventionné, carte Vitale acceptée. Soins infirmiers à domicile et au cabinet.",
+		quartier: "Saint-Roch"
+	},
+	{
+		nom: "Cabinet Brochant de Villiers & Miguel",
+		adresse: "55 chemin de Montzey, 83000 Toulon",
+		telephone: "06 85 07 59 60",
+		description: "Cabinet de deux infirmières libérales. Soins infirmiers à domicile et au cabinet.",
+		quartier: "Montzey"
+	},
+	{
+		nom: "Cabinet Chaud & Szaniawski",
+		adresse: "145 rue Alexandre Borelly, 83000 Toulon",
+		telephone: "06 60 47 38 96",
+		description: "Cabinet de deux infirmières libérales. Soins à domicile et au cabinet.",
+		quartier: "Toulon"
+	},
+	{
+		nom: "Cabinet Gharbi & Godard",
+		adresse: "142 rue Émile Ollivier, 83000 Toulon",
+		telephone: "04 94 87 18 54",
+		description: "Cabinet d'infirmiers libéraux. Soins infirmiers à domicile et au cabinet.",
+		quartier: "Toulon"
+	}
+];
+---
+
+<Layout title="Infirmières à Toulon - Annuaire des cabinets | Var Incontinence">
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href="/" class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Infirmières à Toulon</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Infirmières et infirmiers à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				Annuaire des cabinets d'infirmiers libéraux à Toulon. Soins à domicile, injections, pansements, suivi de stomies et accompagnement des personnes souffrant d'incontinence.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{cabinets.length} cabinets référencés</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Intro SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Trouver une infirmière à domicile à Toulon</h2>
+			<p class="text-gray-600 leading-relaxed mb-4">
+				Les infirmiers et infirmières libéraux de Toulon assurent des soins à domicile essentiels pour les personnes souffrant d'incontinence : pose et changement de sondes, soins de stomie, injections, aide à la toilette et suivi post-opératoire. Les soins sur prescription médicale sont pris en charge à 60 % par l'Assurance Maladie (100 % en ALD).
+			</p>
+			<p class="text-gray-600 leading-relaxed">
+				Besoin d'être orienté(e) ? <a href="/#contact" class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a>, nous vous aidons à trouver le professionnel adapté.
+			</p>
+		</div>
+	</section>
+
+	<!-- Liste des cabinets -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="grid gap-6">
+				{cabinets.map((c, i) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="w-8 h-8 bg-cyan-100 text-cyan-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+									<h3 class="text-xl font-bold text-gray-900">{c.nom}</h3>
+								</div>
+								<p class="text-gray-600 mb-4">{c.description}</p>
+								<span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">{c.quartier}</span>
+							</div>
+							<div class="md:text-right shrink-0 space-y-2">
+								<div class="flex items-center gap-2 text-sm text-gray-600">
+									<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{c.adresse}</span>
+								</div>
+								{c.telephone && (
+									<div class="flex items-center gap-2 text-sm">
+										<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+										<a href={`tel:${c.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800">{c.telephone}</a>
+									</div>
+								)}
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Info pratique -->
+	<section class="py-12 bg-gray-50">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Bon à savoir</h2>
+			<div class="grid sm:grid-cols-2 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Prise en charge</h3>
+					<p class="text-gray-600 text-sm">Les soins infirmiers sur prescription sont remboursés à 60 % par la Sécurité sociale. Prise en charge à 100 % en cas d'ALD (Affection Longue Durée).</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Soins à domicile</h3>
+					<p class="text-gray-600 text-sm">La plupart des cabinets proposent des visites à domicile 7j/7, y compris le week-end et les jours fériés, sur prescription médicale.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'orientation vers un(e) infirmier(e) ?</h2>
+			<p class="text-gray-600 mb-8">L'association Var Incontinence vous aide à trouver le professionnel adapté à vos besoins, en toute confidentialité.</p>
+			<a href="/#contact" class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+		</div>
+	</section>
+
+</Layout>
