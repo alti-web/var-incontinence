@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Incontinence chez les personnes âgées à Toulon : accompagnement et solutions | Var Incontinence"
+	description="L'incontinence touche plus de 50 % des personnes âgées en institution. À Toulon, des solutions d'accompagnement existent pour préserver l'autonomie et la dignité."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Seniors</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Seniors</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Incontinence chez les personnes âgées à Toulon : accompagnement et solutions</h1>
+			<p class="text-teal-200 text-sm">1 mars 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">Le vieillissement est l'un des principaux facteurs de risque de l'incontinence urinaire. À Toulon et dans le Var, les structures d'accompagnement se mobilisent pour offrir des solutions adaptées aux seniors.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Pourquoi l'incontinence augmente avec l'âge ?</h2>
+<p class="text-gray-600 leading-relaxed">Avec le temps, les muscles du plancher pelvien perdent de leur tonicité. Chez la femme, la ménopause entraîne une baisse des oestrogènes qui fragilise les tissus. Chez l'homme, l'hypertrophie de la prostate peut provoquer des troubles mictionnels. Les pathologies neurologiques (AVC, Parkinson, Alzheimer) aggravent ces difficultés.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les solutions à Toulon</h2>
+<p class="text-gray-600 leading-relaxed">Le Centre Hospitalier de Toulon dispose de consultations spécialisées en urologie et gériatrie. Les EHPAD du Var mettent en place des protocoles de gestion de l'incontinence. Les services d'aide à domicile (SAAD) proposent une assistance quotidienne pour les personnes maintenues chez elles.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Maintenir l'autonomie</h2>
+<p class="text-gray-600 leading-relaxed">Adapter le logement (barres d'appui, rehausseur WC, éclairage nocturne), choisir les bonnes protections et maintenir une activité physique douce sont des leviers essentiels pour préserver la qualité de vie des seniors incontinents.</p>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Besoin d'accompagnement ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					L'association Var Incontinence à Toulon est là pour vous écouter et vous orienter. Contactez-nous en toute confidentialité.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/types-incontinence-urinaire/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Types d'incontinence</p><p class="text-xs text-gray-500">Comprendre les différentes formes</p>
+				</a>
+				<a href={`${base}blog/aidants-incontinence-conseils/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Conseils aidants</p><p class="text-xs text-gray-500">Prendre soin de soi pour mieux aider</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
