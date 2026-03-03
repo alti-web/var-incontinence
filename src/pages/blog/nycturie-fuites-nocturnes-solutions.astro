@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Fuites urinaires nocturnes : comprendre la nycturie et ses solutions | Var Incontinence"
+	description="Se lever plusieurs fois la nuit pour uriner perturbe le sommeil et la qualité de vie. Causes, diagnostic et solutions pour la nycturie."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Comprendre</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Comprendre</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Fuites urinaires nocturnes : comprendre la nycturie et ses solutions</h1>
+			<p class="text-teal-200 text-sm">3 mars 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">La nycturie, ou besoin d'uriner la nuit, touche de nombreuses personnes, surtout après 60 ans. Quand les levers nocturnes deviennent fréquents, il est temps de consulter.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Qu'est-ce que la nycturie ?</h2>
+<p class="text-gray-600 leading-relaxed">On parle de nycturie lorsqu'une personne se réveille une ou plusieurs fois par nuit pour uriner. Au-delà de deux levers, l'impact sur le sommeil et la santé devient significatif : fatigue, risque de chute nocturne, dépression.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Les causes</h2>
+<p class="text-gray-600 leading-relaxed">La nycturie peut avoir de multiples origines : surproduction d'urine la nuit (polyurie nocturne), capacité vésicale réduite, apnée du sommeil, insuffisance cardiaque, diabète, hypertrophie prostatique ou simplement une consommation excessive de liquides le soir.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Solutions pratiques</h2>
+<p class="text-gray-600 leading-relaxed">Réduisez les boissons 2 heures avant le coucher. Évitez alcool et caféine en soirée. Surélevez les jambes en fin de journée si vous avez des oedèmes. Consultez votre médecin pour un bilan : un traitement adapté peut transformer vos nuits.</p>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Besoin d'accompagnement ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					L'association Var Incontinence à Toulon est là pour vous écouter et vous orienter. Contactez-nous en toute confidentialité.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/types-incontinence-urinaire/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Types d'incontinence</p><p class="text-xs text-gray-500">Comprendre les formes</p>
+				</a>
+				<a href={`${base}blog/alimentation-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Alimentation</p><p class="text-xs text-gray-500">Les aliments à privilégier</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
