@@ -7,14 +7,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://var-incontinence.vercel.app',
+  site: 'https://var-incontinence.fr',
   adapter: vercel(),
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/api/'),
       serialize: (item) => {
         const url = item.url.replace(/\/$/, '');
-        const path = url.replace('https://var-incontinence.vercel.app', '');
+        const path = url.replace('https://var-incontinence.fr', '');
 
         // Homepage
         if (path === '' || path === '/') {
