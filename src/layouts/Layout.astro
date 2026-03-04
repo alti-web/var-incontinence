@@ -29,6 +29,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:site_name" content="Var Incontinence - Association à Toulon 83000" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<Analytics />
 	</head>
 	<body class="bg-white text-gray-800 font-sans antialiased">
 		<!-- Skip to content -->
@@ -221,6 +222,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			});
 		</script>
 		<SpeedInsights />
-		<Analytics />
 	</body>
 </html>
