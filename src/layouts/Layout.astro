@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 interface Props {
 	title: string;
@@ -218,5 +219,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 				window.scrollTo({ top: 0, behavior: 'smooth' });
 			});
 		</script>
+		<SpeedInsights />
 	</body>
 </html>
