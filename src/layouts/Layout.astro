@@ -244,6 +244,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			</div>
 		</div>
 
+		<!-- Sticker preuve sociale bas gauche -->
+		<div id="social-proof" class="fixed bottom-4 left-4 z-50 bg-white/95 backdrop-blur-sm border border-gray-200 text-gray-700 px-4 py-3 rounded-2xl shadow-lg text-sm flex items-center gap-3 max-w-xs opacity-0 invisible translate-y-2 transition-all duration-500" aria-live="polite">
+			<span class="text-teal-600 text-lg shrink-0" id="sp-icon" aria-hidden="true"></span>
+			<p class="leading-snug text-xs" id="sp-text"></p>
+		</div>
+
 		<!-- Bouton retour en haut -->
 		<button id="back-to-top" class="fixed bottom-20 right-4 z-50 bg-teal-600 text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center hover:bg-teal-700 transition-all opacity-0 invisible" aria-label="Retour en haut de page">
 			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
@@ -365,6 +371,57 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 					closePopup();
 				}
 			});
+
+			// Sticker preuve sociale (bas gauche)
+			const spEl = document.getElementById('social-proof');
+			const spIcon = document.getElementById('sp-icon');
+			const spText = document.getElementById('sp-text');
+
+			const spMessages = [
+				{ icon: '\uD83D\uDC65', tpl: (n) => `<strong class="text-teal-700">${n} personnes</strong> de la région toulonnaise consultent l'annuaire des infirmières.` },
+				{ icon: '\uD83D\uDC65', tpl: (n) => `<strong class="text-teal-700">${n} visiteurs</strong> s'informent sur les solutions contre l'incontinence.` },
+				{ icon: '\uD83E\uDD1D', tpl: (n) => `<strong class="text-teal-700">${n} professionnels de santé</strong> parcourent notre annuaire en ce moment.` },
+				{ icon: '\uD83D\uDC41\uFE0F', tpl: (n) => `<strong class="text-teal-700">${n} membres</strong> consultent la page Matériel médical à Toulon.` },
+				{ icon: '\uD83D\uDC65', tpl: (n) => `<strong class="text-teal-700">${n} Varois</strong> lisent nos conseils de prévention aujourd'hui.` },
+				{ icon: '\uD83D\uDC41\uFE0F', tpl: (n) => `<strong class="text-teal-700">${n} personnes</strong> consultent le forum d'entraide en ce moment.` },
+				{ icon: '\uD83E\uDD1D', tpl: (n) => `<strong class="text-teal-700">${n} associations</strong> partenaires sont actives sur le réseau ce mois-ci.` },
+				{ icon: '\uD83D\uDC65', tpl: (n) => `<strong class="text-teal-700">${n} aidants</strong> trouvent du soutien sur notre plateforme cette semaine.` },
+				{ icon: '\uD83D\uDC41\uFE0F', tpl: (n) => `<strong class="text-teal-700">${n} personnes</strong> recherchent du matériel médical dans le Var.` },
+				{ icon: '\uD83E\uDD1D', tpl: (n) => `<strong class="text-teal-700">${n} nouveaux membres</strong> ont rejoint l'association ce mois-ci.` }
+			];
+
+			function getVisitorCount() {
+				const hour = new Date().getHours();
+				let base = 12, range = 15;
+				if (hour >= 8 && hour <= 12) { base = 18; range = 17; }
+				else if (hour >= 14 && hour <= 19) { base = 15; range = 15; }
+				else if (hour >= 20 || hour < 7) { base = 5; range = 8; }
+				return base + Math.floor(Math.random() * range);
+			}
+
+			let spIndex = Math.floor(Math.random() * spMessages.length);
+
+			function showSocialProof() {
+				if (!spEl || !spIcon || !spText) return;
+				const msg = spMessages[spIndex];
+				spIcon.textContent = msg.icon;
+				spText.innerHTML = msg.tpl(getVisitorCount());
+				spEl.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+				spEl.classList.add('opacity-100', 'visible', 'translate-y-0');
+				spIndex = (spIndex + 1) % spMessages.length;
+
+				setTimeout(() => {
+					spEl.classList.add('opacity-0', 'translate-y-2');
+					spEl.classList.remove('opacity-100', 'translate-y-0');
+					setTimeout(() => {
+						spEl.classList.add('invisible');
+						const next = 7000 + Math.floor(Math.random() * 28000);
+						setTimeout(showSocialProof, next);
+					}, 500);
+				}, 5500);
+			}
+
+			setTimeout(showSocialProof, 15000);
 		</script>
 		<SpeedInsights />
 		<Analytics />
