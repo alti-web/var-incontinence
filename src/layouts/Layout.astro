@@ -249,6 +249,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
 		</button>
 
+		<!-- Popup de bienvenue -->
+		<div id="welcome-overlay" class="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center p-4 opacity-0 invisible transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+			<div id="welcome-modal" class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 md:p-10 transform scale-95 opacity-0 transition-all duration-300">
+				<!-- Bouton fermer -->
+				<button id="welcome-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 transition-colors p-1" aria-label="Fermer">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+				</button>
+
+				<!-- Contenu -->
+				<div class="text-center">
+					<div class="flex justify-center mb-5">
+						<img src={`${base}logo.svg`} alt="Logo Var Incontinence" class="w-16 h-16" width="64" height="64" />
+					</div>
+					<p class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-2">Bienvenue</p>
+					<h2 id="welcome-title" class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+						Déjà <span class="text-teal-600">3 775</span> Varois unis par la solidarité
+					</h2>
+					<p class="text-gray-500 text-sm mb-5">
+						Le premier réseau d'entraide autour de l'incontinence à Toulon et dans le Var.
+					</p>
+					<p class="text-gray-600 text-sm leading-relaxed mb-8">
+						Que vous soyez un <strong>patient</strong> en quête de solutions, une <strong>infirmière</strong> dévouée, une <strong>association partenaire</strong> ou un <strong>professionnel du matériel médical</strong>, ce réseau est le vôtre. Ensemble, nous faisons reculer les tabous chaque jour.
+					</p>
+					<button id="welcome-enter" class="w-full bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors text-sm">
+						Découvrir le site
+					</button>
+					<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block mt-4 text-teal-600 hover:text-teal-800 text-xs font-medium transition-colors" id="welcome-join">
+						Rejoindre l'association &rarr;
+					</a>
+				</div>
+			</div>
+		</div>
+
 		<script>
 			const toggle = document.getElementById('menu-toggle');
 			const menu = document.getElementById('mobile-menu');
@@ -274,6 +307,63 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 			});
 			backToTop?.addEventListener('click', () => {
 				window.scrollTo({ top: 0, behavior: 'smooth' });
+			});
+
+			// Popup de bienvenue (une seule fois, expire après 30 jours)
+			const overlay = document.getElementById('welcome-overlay');
+			const modal = document.getElementById('welcome-modal');
+			const STORAGE_KEY = 'vi_popup_seen';
+			const EXPIRY_DAYS = 30;
+
+			function shouldShowPopup() {
+				const stored = localStorage.getItem(STORAGE_KEY);
+				if (!stored) return true;
+				const timestamp = parseInt(stored, 10);
+				const elapsed = Date.now() - timestamp;
+				return elapsed > EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+			}
+
+			function showPopup() {
+				if (!overlay || !modal) return;
+				overlay.classList.remove('invisible', 'opacity-0');
+				overlay.classList.add('opacity-100');
+				modal.classList.remove('scale-95', 'opacity-0');
+				modal.classList.add('scale-100', 'opacity-100');
+				document.body.style.overflow = 'hidden';
+			}
+
+			function closePopup() {
+				if (!overlay || !modal) return;
+				modal.classList.add('scale-95', 'opacity-0');
+				modal.classList.remove('scale-100', 'opacity-100');
+				overlay.classList.add('opacity-0');
+				setTimeout(() => {
+					overlay.classList.add('invisible');
+					document.body.style.overflow = '';
+				}, 300);
+				localStorage.setItem(STORAGE_KEY, Date.now().toString());
+			}
+
+			if (shouldShowPopup()) {
+				setTimeout(showPopup, 800);
+			} else if (overlay) {
+				overlay.remove();
+			}
+
+			document.getElementById('welcome-close')?.addEventListener('click', closePopup);
+			document.getElementById('welcome-enter')?.addEventListener('click', closePopup);
+			document.getElementById('welcome-join')?.addEventListener('click', () => {
+				localStorage.setItem(STORAGE_KEY, Date.now().toString());
+			});
+
+			overlay?.addEventListener('click', (e) => {
+				if (e.target === overlay) closePopup();
+			});
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape' && overlay && !overlay.classList.contains('invisible')) {
+					closePopup();
+				}
 			});
 		</script>
 		<SpeedInsights />
