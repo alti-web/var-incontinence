@@ -4,3 +4,6 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://var-incontinence.fr/sitemap-index.xml
+
+# LLMs
+llms.txt: https://var-incontinence.fr/llms.txt

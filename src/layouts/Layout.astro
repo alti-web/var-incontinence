@@ -29,6 +29,62 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:site_name" content="Var Incontinence - Association à Toulon 83000" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "NGO",
+			"@id": "https://var-incontinence.fr/#organization",
+			"name": "Var Incontinence",
+			"alternateName": "Association Var Incontinence",
+			"url": "https://var-incontinence.fr",
+			"logo": "https://var-incontinence.fr/logo.svg",
+			"description": "Association loi 1901 d'aide et de soutien pour les personnes touchées par l'incontinence urinaire et fécale à Toulon et dans le Var (83). Groupes de parole, information, prévention et accompagnement personnalisé.",
+			"foundingDate": "2018-08-23",
+			"nonprofitStatus": "FR_AssociationDeclaree",
+			"taxID": "W8320222250",
+			"areaServed": {
+				"@type": "AdministrativeArea",
+				"name": "Var",
+				"address": {
+					"@type": "PostalAddress",
+					"addressRegion": "Provence-Alpes-Côte d'Azur",
+					"addressCountry": "FR"
+				}
+			},
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "720 avenue Joseph Louis Ortolan",
+				"addressLocality": "Toulon",
+				"postalCode": "83100",
+				"addressRegion": "Var",
+				"addressCountry": "FR"
+			},
+			"contactPoint": [
+				{
+					"@type": "ContactPoint",
+					"telephone": "+33-6-69-52-52-35",
+					"email": "association@var-incontinence.fr",
+					"contactType": "customer service",
+					"availableLanguage": "French",
+					"areaServed": "FR"
+				}
+			],
+			"sameAs": [
+				"https://www.facebook.com/varincontinence",
+				"https://share.google/zZNlQEKxdpZgHRzrS"
+			],
+			"knowsAbout": [
+				"Incontinence urinaire",
+				"Incontinence fécale",
+				"Rééducation périnéale",
+				"Protections urinaires",
+				"Accompagnement des aidants",
+				"Groupes de parole santé"
+			],
+			"memberOf": {
+				"@type": "Organization",
+				"name": "Associations loi 1901"
+			}
+		})} />
 	</head>
 	<body class="bg-white text-gray-800 font-sans antialiased">
 		<!-- Skip to content -->
