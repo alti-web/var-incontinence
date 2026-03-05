@@ -20,7 +20,9 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Générer un nouvel article
+      - name: Générer un nouvel article via IA
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node scripts/generate-blog-article.mjs
 
       - name: Vérifier s'il y a des changements
