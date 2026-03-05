@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+	title="Incontinence et vie professionnelle : gérer au quotidien | Var Incontinence"
+	description="Comment gérer l'incontinence au travail ? Protections discrètes, droits des salariés et conseils pratiques pour maintenir sa vie professionnelle."
+>
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-4xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="hover:text-white transition-colors">Blog</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Pratique</span>
+			</nav>
+			<span class="bg-white/20 text-white text-xs font-medium px-3 py-1 rounded-full">Pratique</span>
+			<h1 class="text-3xl md:text-5xl font-bold mt-4 mb-4">Incontinence et vie professionnelle : gérer au quotidien</h1>
+			<p class="text-teal-200 text-sm">5 mars 2026</p>
+		</div>
+	</section>
+
+	<!-- Contenu -->
+	<article class="py-16 bg-white">
+		<div class="max-w-3xl mx-auto px-4 prose prose-gray prose-lg">
+			<p class="text-gray-600 leading-relaxed text-lg">L'incontinence au travail est une réalité pour de nombreuses personnes. Entre la gêne, la peur d'être découvert(e) et les contraintes professionnelles, la situation peut devenir très stressante.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Conseils pratiques au bureau</h2>
+<p class="text-gray-600 leading-relaxed">Utilisez des protections discrètes et performantes, adaptées à votre niveau de fuites. Gardez un kit de change dans votre casier ou sac. Repérez les toilettes les plus proches de votre poste. Programmez des passages réguliers aux toilettes toutes les 2-3 heures.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Vos droits en tant que salarié(e)</h2>
+<p class="text-gray-600 leading-relaxed">L'incontinence peut être reconnue comme handicap si elle est invalidante. Le médecin du travail peut recommander des aménagements : poste proche des sanitaires, pauses supplémentaires, télétravail partiel. La RQTH (Reconnaissance de la Qualité de Travailleur Handicapé) peut ouvrir des droits complémentaires.</p>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Ne pas s'isoler</h2>
+<p class="text-gray-600 leading-relaxed">Si votre incontinence impacte votre travail, parlez-en à votre médecin traitant et au médecin du travail. Des solutions existent pour concilier vie professionnelle et gestion de l'incontinence.</p>
+
+			<div class="bg-teal-50 rounded-2xl p-6 mt-10">
+				<h3 class="font-bold text-teal-900 mb-2">Besoin d'accompagnement ?</h3>
+				<p class="text-teal-800 text-sm leading-relaxed">
+					L'association Var Incontinence à Toulon est là pour vous écouter et vous orienter. Contactez-nous en toute confidentialité.
+				</p>
+			</div>
+		</div>
+	</article>
+
+	<!-- Navigation articles -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Lire aussi</h2>
+			<div class="grid sm:grid-cols-2 gap-4">
+				<a href={`${base}blog/protections-urinaires-guide/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Guide protections</p><p class="text-xs text-gray-500">Bien choisir sa protection</p>
+				</a>
+				<a href={`${base}blog/incontinence-handicap-aides-var/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Handicap et aides</p><p class="text-xs text-gray-500">Les dispositifs dans le Var</p>
+				</a>
+			</div>
+			<div class="mt-6 text-center">
+				<a href={`${base}blog-handicap-incontinence-toulon/`} class="text-teal-600 font-medium hover:text-teal-800 text-sm">&larr; Retour au blog</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
