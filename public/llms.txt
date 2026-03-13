@@ -29,12 +29,39 @@ Var Incontinence accompagne les personnes souffrant d'incontinence urinaire ou f
 
 L'association maintient des annuaires de professionnels et structures à Toulon :
 
+- [Associations santé à Toulon](https://var-incontinence.fr/toulon-association/) : 55 associations classées en 7 catégories (handicap, santé, aidants, seniors, sport adapté, solidarité, incontinence)
 - [Matériel médical à Toulon](https://var-incontinence.fr/toulon-materiel-medical/) : 8 établissements référencés
 - [Infirmières à Toulon](https://var-incontinence.fr/toulon-infirmiere/) : 12 cabinets référencés
-- [Associations santé à Toulon](https://var-incontinence.fr/toulon-association/) : 12 associations partenaires
 - [Quartiers de Toulon](https://var-incontinence.fr/quartiers-toulon-incontinence/) : guide par quartier
+- [Annuaire des associations du Var](https://var-incontinence.fr/annuaire-associations-var-83/) : annuaire départemental par ville (Toulon, Hyères, Fréjus, Draguignan, La Seyne-sur-Mer, etc.)
+
+## Cocon sémantique — Associations à Toulon
+
+### Pages thématiques
+
+- [Associations handicap à Toulon](https://var-incontinence.fr/association-handicap-toulon/) : 12 associations pour le handicap moteur, sensoriel, mental et psychique. Informations MDPH du Var.
+- [Associations santé à Toulon](https://var-incontinence.fr/association-sante-toulon/) : 10 associations pour les maladies chroniques (cancer, diabète, Parkinson, AVC, etc.).
+- [Associations aidants à Toulon](https://var-incontinence.fr/association-aidants-toulon/) : 7 associations de soutien aux aidants familiaux. Répit, groupes de parole, droits des aidants.
+- [Associations seniors à Toulon](https://var-incontinence.fr/association-seniors-toulon/) : 9 associations pour les personnes âgées. Autonomie, lien social, APA.
+
+### Pages par quartier
+
+- [Associations au Mourillon](https://var-incontinence.fr/association-mourillon-toulon/) : quartier balnéaire, familles et seniors.
+- [Associations Centre-Ville](https://var-incontinence.fr/association-centre-ville-toulon/) : concentration associative, Maison des Associations.
+- [Associations à La Rode](https://var-incontinence.fr/association-la-rode-toulon/) : proximité hôpital Sainte-Musse, focus santé.
+- [Associations au Cap Brun](https://var-incontinence.fr/association-cap-brun-toulon/) : quartier littoral, nature et environnement.
+- [Associations à Saint-Jean-du-Var](https://var-incontinence.fr/association-saint-jean-du-var-toulon/) : quartier populaire, solidarité et insertion.
+
+### Guides pratiques
+
+- [Créer une association à Toulon](https://var-incontinence.fr/comment-creer-association-toulon/) : guide complet des démarches loi 1901 dans le Var (statuts, préfecture, JOAFE).
+- [Subventions associations à Toulon](https://var-incontinence.fr/subventions-associations-toulon/) : aides municipales, départementales, régionales, FDVA, fonds européens.
+- [Maison des Associations de Toulon](https://var-incontinence.fr/maison-associations-toulon/) : services, domiciliation, salles, accompagnement.
+- [Bénévolat à Toulon](https://var-incontinence.fr/benevolat-toulon/) : missions disponibles, plateformes, engagement.
 
 ## Articles et ressources
+
+### Santé et incontinence
 
 - [Types d'incontinence urinaire](https://var-incontinence.fr/blog/types-incontinence-urinaire/) : incontinence d'effort, par urgenturie, mixte, par regorgement, fonctionnelle.
 - [Rééducation périnéale à Toulon](https://var-incontinence.fr/blog/reeducation-perineale-toulon/) : techniques, professionnels et prise en charge.
@@ -44,28 +71,31 @@ L'association maintient des annuaires de professionnels et structures à Toulon 
 - [Incontinence des personnes âgées](https://var-incontinence.fr/blog/incontinence-personnes-agees-toulon/) : solutions et accompagnement.
 - [Incontinence masculine](https://var-incontinence.fr/blog/incontinence-masculine-tabou/) : briser le tabou chez l'homme.
 - [Alimentation et incontinence](https://var-incontinence.fr/blog/alimentation-incontinence/) : aliments à privilégier et à éviter.
-- [Conseils pour les aidants](https://var-incontinence.fr/blog/aidants-incontinence-conseils/) : accompagner un proche incontinent.
 - [Nycturie et fuites nocturnes](https://var-incontinence.fr/blog/nycturie-fuites-nocturnes-solutions/) : causes et solutions.
 - [Incontinence et handicap](https://var-incontinence.fr/blog/incontinence-handicap-aides-var/) : aides et dispositifs dans le Var.
 - [Briser le silence](https://var-incontinence.fr/blog/tabou-incontinence-briser-silence/) : dépasser la honte et le tabou.
+- [Associations incontinence en France](https://var-incontinence.fr/blog/incontinence-association-soutien/) : où trouver du soutien partout en France et dans le Var.
 
-- [Parcours de soins pour l'incontinence à Toulon : guide complet des professionnels et structures du Var](https://var-incontinence.fr/blog/parcours-soins-incontinence-toulon-var/) : Découvrez le parcours de soins complet pour traiter l'incontinence à Toulon et dans le Var : médecins, centres spécialisés et associations.
+### Vie pratique
 
-- [Ateliers et groupes de parole pour l'incontinence : le soutien collectif à Toulon dans le Var](https://var-incontinence.fr/blog/ateliers-groupes-parole-incontinence-toulon-var/) : Découvrez les ateliers et groupes de parole pour personnes incontinentes à Toulon. Support psychologique et conseils pratiques dans le Var.
+- [Conseils pour les aidants](https://var-incontinence.fr/blog/aidants-incontinence-conseils/) : accompagner un proche incontinent.
+- [Parcours de soins incontinence](https://var-incontinence.fr/blog/parcours-soins-incontinence-toulon-var/) : médecins, centres spécialisés et associations dans le Var.
+- [Ateliers et groupes de parole](https://var-incontinence.fr/blog/ateliers-groupes-parole-incontinence-toulon-var/) : soutien collectif à Toulon.
+- [Incontinence en été](https://var-incontinence.fr/blog/incontinence-ete-chaleur-conseils-toulon/) : conseils face à la chaleur.
+- [Financement et aides](https://var-incontinence.fr/blog/financement-aides-incontinence-toulon-var/) : remboursements et subventions.
+- [Incontinence et isolement social](https://var-incontinence.fr/blog/incontinence-seniors-isolement-social-toulon-var/) : briser la solitude chez les seniors.
+- [Incontinence et vie de couple](https://var-incontinence.fr/blog/vie-couple-intimite-incontinence-toulon-var/) : préserver l'intimité.
+- [Incontinence et vacances](https://var-incontinence.fr/blog/incontinence-vacances-voyage-conseils-toulon-var/) : voyager sereinement.
+- [Incontinence au travail](https://var-incontinence.fr/blog/incontinence-travail-vie-professionnelle/) : gérer au quotidien.
+- [Incontinence chez l'enfant](https://var-incontinence.fr/blog/incontinence-retour-ecole-enfants-adolescents-toulon-var/) : accompagner la rentrée scolaire.
 
-- [Gérer l'incontinence en été : conseils pratiques face à la chaleur à Toulon](https://var-incontinence.fr/blog/incontinence-ete-chaleur-conseils-toulon/) : Découvrez comment bien vivre avec l'incontinence pendant l'été toulonnais : hydratation, protections adaptées et astuces contre la chaleur.
+### Vie associative et droits
 
-- [Financement et aides pour l'incontinence à Toulon : guide complet des solutions dans le Var](https://var-incontinence.fr/blog/financement-aides-incontinence-toulon-var/) : Découvrez toutes les aides financières disponibles à Toulon pour l'incontinence : remboursements, subventions et accompagnement Var Incontinence.
-
-- [Incontinence et isolement social chez les seniors : briser la solitude à Toulon](https://var-incontinence.fr/blog/incontinence-seniors-isolement-social-toulon-var/) : L'incontinence pousse de nombreux seniors à l'isolement. Découvrez les solutions d'accompagnement social à Toulon pour retrouver une vie sociale épanouie.
-
-- [Incontinence et vie de couple : préserver l'intimité avec le soutien d'une association à Toulon](https://var-incontinence.fr/blog/vie-couple-intimite-incontinence-toulon-var/) : Comment l'incontinence affecte la vie de couple et l'intimité. Solutions et accompagnement par Var Incontinence à Toulon pour retrouver l'équilibre.
-
-- [Réseau d'associations partenaires pour l'incontinence à Toulon et dans le Var : créer des synergies](https://var-incontinence.fr/blog/associations-partenaires-incontinence-toulon-var-reseau/) : Découvrez comment l'association Var Incontinence développe un réseau de partenaires à Toulon pour mieux accompagner les personnes incontinentes.
-
-- [Incontinence et vacances : conseils pratiques pour voyager sereinement depuis Toulon](https://var-incontinence.fr/blog/incontinence-vacances-voyage-conseils-toulon-var/) : Découvrez nos conseils d'experts pour voyager en toute sérénité malgré l'incontinence. Association Var Incontinence à Toulon vous accompagne.
-
-- [Incontinence chez l'enfant et l'adolescent : accompagner la rentrée scolaire à Toulon](https://var-incontinence.fr/blog/incontinence-retour-ecole-enfants-adolescents-toulon-var/) : Conseils pour gérer l'incontinence infantile à l'école. Association Var Incontinence accompagne familles et établissements scolaires à Toulon.
+- [Vie associative à Toulon](https://var-incontinence.fr/blog/vie-associative-toulon-guide/) : guide complet pour s'engager dans les 4 400+ associations.
+- [Association loi 1901 dans le Var](https://var-incontinence.fr/blog/association-loi-1901-var/) : droits et obligations des associations.
+- [Droits des personnes handicapées dans le Var](https://var-incontinence.fr/blog/droits-handicap-toulon-var/) : MDPH, AAH, PCH, carte mobilité inclusion.
+- [Forum des associations de Toulon](https://var-incontinence.fr/blog/forum-associations-toulon/) : édition 2026, date et programme.
+- [Partenaires incontinence](https://var-incontinence.fr/blog/associations-partenaires-incontinence-toulon-var-reseau/) : réseau de partenaires dans le Var.
 
 ## Pages principales
 
