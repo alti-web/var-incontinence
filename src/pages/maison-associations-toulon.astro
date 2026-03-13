@@ -1,0 +1,448 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Maison des Associations de Toulon (83) — Infos et Services | Var Incontinence">
+
+	<meta slot="head" name="description" content="La Maison des Associations de Toulon : adresse, horaires, services, prêt de salles. Tout pour les associations du Var." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "LocalBusiness",
+		"name": "Maison des Associations de Toulon",
+		"description": "Lieu d'accueil, d'accompagnement et de ressources pour les associations du Var à Toulon.",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Toulon",
+			"postalCode": "83000",
+			"addressRegion": "Provence-Alpes-Côte d'Azur",
+			"addressCountry": "FR"
+		},
+		"areaServed": {
+			"@type": "City",
+			"name": "Toulon"
+		},
+		"url": "https://var-incontinence.fr/maison-associations-toulon/"
+	})} />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Quels services propose la Maison des Associations de Toulon ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "La Maison des Associations de Toulon propose la domiciliation postale, le prêt de salles de réunion, un accompagnement juridique et administratif, des formations pour les bénévoles et dirigeants, ainsi qu'un accès à du matériel informatique et bureautique."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Qui peut bénéficier des services de la Maison des Associations ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Toute association loi 1901 déclarée en préfecture et ayant son siège social ou une activité régulière à Toulon peut bénéficier des services de la Maison des Associations. Les porteurs de projet associatif en phase de création sont également accueillis."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Comment réserver une salle à la Maison des Associations de Toulon ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "La réservation d'une salle se fait généralement auprès de l'accueil de la Maison des Associations, sur présentation d'un justificatif d'existence de l'association (récépissé de déclaration ou numéro RNA). Il est recommandé de s'y prendre à l'avance, surtout en période de forte demande."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "La domiciliation à la Maison des Associations est-elle gratuite ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "La domiciliation postale à la Maison des Associations de Toulon est généralement proposée à titre gratuit ou à un coût très modique pour les associations toulonnaises. Les conditions exactes peuvent varier, il est conseillé de contacter directement la structure."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Où se trouve la Maison des Associations de Toulon ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "La Maison des Associations est située dans le centre-ville de Toulon (83000). Elle est accessible en transports en commun via le réseau Mistral. Il est recommandé de vérifier l'adresse exacte auprès de la mairie de Toulon ou du site officiel de la ville."
+				}
+			}
+		]
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Maison des Associations</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Maison des Associations de Toulon : services et accès</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				La Maison des Associations de Toulon est le lieu de référence pour toutes les associations du Var. Domiciliation, prêt de salles, accompagnement juridique, formations : découvrez l'ensemble des services proposés aux associations toulonnaises.
+			</p>
+		</div>
+	</section>
+
+	<!-- Sommaire -->
+	<section class="py-8 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-lg font-bold text-gray-900 mb-4">Sommaire</h2>
+			<nav class="grid sm:grid-cols-2 gap-2 text-sm">
+				<a href="#presentation" class="text-teal-600 hover:text-teal-800">1. Présentation et localisation</a>
+				<a href="#services" class="text-teal-600 hover:text-teal-800">2. Services proposés</a>
+				<a href="#salles" class="text-teal-600 hover:text-teal-800">3. Prêt de salles de réunion</a>
+				<a href="#domiciliation" class="text-teal-600 hover:text-teal-800">4. Domiciliation postale</a>
+				<a href="#accompagnement" class="text-teal-600 hover:text-teal-800">5. Accompagnement et formations</a>
+				<a href="#beneficier" class="text-teal-600 hover:text-teal-800">6. Comment en bénéficier</a>
+				<a href="#infos-pratiques" class="text-teal-600 hover:text-teal-800">Informations pratiques</a>
+				<a href="#faq" class="text-teal-600 hover:text-teal-800">Questions fréquentes</a>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Contenu principal -->
+	<section class="py-12 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<div class="text-gray-600 leading-relaxed space-y-8">
+
+				<div>
+					<p class="text-lg">
+						La <strong>Maison des Associations de Toulon</strong> est un équipement municipal dédié à la vie associative locale. Elle constitue un point d'ancrage essentiel pour les quelque <strong>4 400 associations</strong> actives sur le territoire toulonnais. Que vous soyez une association bien établie ou un porteur de projet en phase de création, la maison associative de Toulon met à votre disposition des locaux, des ressources et un accompagnement adapté à vos besoins.
+					</p>
+					<p class="mt-4">
+						Cet espace mutualisé a pour vocation de faciliter le fonctionnement quotidien des associations, de favoriser les échanges entre structures et de renforcer le tissu associatif du Var. C'est un lieu vivant, ouvert à toutes les associations déclarées, quel que soit leur domaine d'activité : social, santé, culture, sport, environnement, solidarité internationale ou encore éducation.
+					</p>
+				</div>
+
+				<!-- Section 1 : Présentation -->
+				<div id="presentation" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">1</span>
+						<h2 class="text-2xl font-bold text-gray-900">Présentation et localisation</h2>
+					</div>
+					<p>
+						Située dans le <strong>centre-ville de Toulon (83000)</strong>, la Maison des Associations bénéficie d'un emplacement central et facilement accessible. Sa localisation en coeur de ville permet aux bénévoles et aux adhérents de s'y rendre aisément, que ce soit en transports en commun via le réseau Mistral, en voiture ou à pied.
+					</p>
+					<p class="mt-4">
+						La structure est gérée par la <strong>Ville de Toulon</strong> dans le cadre de sa politique de soutien à la vie associative. Elle est ouverte du lundi au vendredi, généralement aux horaires de bureau. Il est recommandé de vérifier les horaires exacts auprès de la mairie de Toulon ou du site officiel de la ville, car ils peuvent varier selon les périodes de l'année (horaires réduits en été, fermeture pendant les vacances scolaires).
+					</p>
+					<div class="bg-gray-50 rounded-xl p-5 border border-gray-200 mt-4">
+						<h3 class="font-bold text-gray-900 mb-2">Accès et transports</h3>
+						<ul class="list-disc pl-6 space-y-2 text-sm">
+							<li><strong>Adresse</strong> : Centre-ville de Toulon, 83000 Toulon (contactez la mairie pour l'adresse exacte)</li>
+							<li><strong>Bus</strong> : Plusieurs lignes du réseau Mistral desservent le centre-ville de Toulon</li>
+							<li><strong>Stationnement</strong> : Parkings publics à proximité dans le centre-ville</li>
+							<li><strong>Horaires habituels</strong> : Du lundi au vendredi, en journée (se renseigner pour les horaires précis)</li>
+						</ul>
+					</div>
+					<p class="mt-4">
+						Le bâtiment dispose de plusieurs salles de capacités variées, d'un espace d'accueil et d'information, ainsi que de bureaux dédiés à l'accompagnement des associations. L'accessibilité aux personnes à mobilité réduite est assurée conformément à la réglementation en vigueur.
+					</p>
+				</div>
+
+				<!-- Section 2 : Services -->
+				<div id="services" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">2</span>
+						<h2 class="text-2xl font-bold text-gray-900">Services proposés aux associations</h2>
+					</div>
+					<p>
+						La Maison des Associations de Toulon offre une gamme complète de services destinés à simplifier la gestion et le développement des associations locales. Ces services sont pensés pour répondre aux besoins concrets des structures, qu'elles soient petites ou grandes, récentes ou anciennes.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Les services principaux</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Domiciliation postale</strong> : possibilité de domicilier le siège social de votre association à l'adresse de la Maison des Associations, avec un service de réception du courrier.</li>
+						<li><strong>Prêt de salles</strong> : mise à disposition de salles de réunion et d'espaces de travail pour les assemblées générales, réunions de bureau, ateliers et formations.</li>
+						<li><strong>Accompagnement administratif</strong> : aide à la rédaction des statuts, aux formalités de déclaration en préfecture, aux modifications statutaires et à la gestion courante.</li>
+						<li><strong>Conseil juridique</strong> : permanences d'information juridique sur le droit associatif, la responsabilité des dirigeants, les obligations comptables et fiscales.</li>
+						<li><strong>Formations</strong> : sessions de formation pour les bénévoles et dirigeants associatifs (comptabilité, communication, gestion de projet, recherche de financements).</li>
+						<li><strong>Mise en réseau</strong> : mise en relation entre associations complémentaires, organisation de rencontres thématiques et d'événements inter-associatifs.</li>
+						<li><strong>Accès au matériel</strong> : mise à disposition de matériel informatique, de reprographie et de bureautique pour les associations qui n'en disposent pas.</li>
+						<li><strong>Information et orientation</strong> : point d'information sur les dispositifs d'aide aux associations, les appels à projets et les subventions disponibles.</li>
+					</ul>
+					<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-blue-800"><strong>Bon à savoir :</strong> La plupart de ces services sont gratuits ou proposés à des tarifs très réduits pour les associations déclarées à Toulon. Certains services peuvent nécessiter une inscription préalable ou une adhésion annuelle à la Maison des Associations.</p>
+					</div>
+				</div>
+
+				<!-- Section 3 : Salles -->
+				<div id="salles" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">3</span>
+						<h2 class="text-2xl font-bold text-gray-900">Prêt de salles de réunion</h2>
+					</div>
+					<p>
+						Le <strong>prêt de salles</strong> est l'un des services les plus sollicités de la Maison des Associations de Toulon. Pour de nombreuses structures, disposer d'un <strong>local associatif à Toulon</strong> représente un défi financier. La mise à disposition de salles gratuites ou à faible coût constitue donc une aide précieuse.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Types d'espaces disponibles</h3>
+					<p>
+						La Maison des Associations dispose généralement de plusieurs types d'espaces adaptés aux besoins variés des associations :
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-4">
+						<li><strong>Petites salles de réunion</strong> (10 à 20 places) : idéales pour les réunions de bureau, les entretiens individuels ou les petits ateliers.</li>
+						<li><strong>Salles moyennes</strong> (20 à 50 places) : adaptées aux réunions de conseil d'administration, aux formations et aux ateliers collectifs.</li>
+						<li><strong>Grande salle</strong> (50 places et plus) : pour les assemblées générales, les conférences, les forums associatifs et les événements de plus grande envergure.</li>
+					</ul>
+					<p class="mt-4">
+						Les salles sont équipées du mobilier de base (tables, chaises) et peuvent disposer de matériel de projection (vidéoprojecteur, écran). Certaines salles bénéficient d'un accès Wi-Fi. La configuration des espaces peut être modulable selon les besoins de l'événement.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Modalités de réservation</h3>
+					<p>
+						La réservation d'une <strong>salle d'association à Toulon (83)</strong> au sein de la Maison des Associations suit une procédure simple. L'association doit être déclarée en préfecture et fournir un justificatif d'existence (récépissé de déclaration ou extrait RNA). La demande se fait auprès de l'accueil, idéalement plusieurs semaines à l'avance pour les grands événements.
+					</p>
+					<div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-amber-800"><strong>Conseil :</strong> Les salles sont très demandées, notamment en soirée et le week-end. Anticipez vos réservations et prévoyez des dates alternatives. En cas de besoin ponctuel de grande capacité, la mairie de Toulon peut également mettre d'autres équipements municipaux à disposition.</p>
+					</div>
+				</div>
+
+				<!-- Section 4 : Domiciliation -->
+				<div id="domiciliation" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">4</span>
+						<h2 class="text-2xl font-bold text-gray-900">Domiciliation postale des associations</h2>
+					</div>
+					<p>
+						La domiciliation du siège social est une obligation légale pour toute association déclarée. La <strong>Maison des Associations de Toulon</strong> offre la possibilité aux structures locales de fixer leur siège social à son adresse. Ce service est particulièrement utile pour les associations qui ne disposent pas de locaux propres et dont les dirigeants ne souhaitent pas utiliser leur adresse personnelle.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Avantages de la domiciliation</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Adresse officielle en centre-ville</strong> : une adresse reconnue et facilement identifiable, qui renforce la crédibilité de l'association.</li>
+						<li><strong>Réception du courrier</strong> : le courrier adressé à l'association est réceptionné et mis à disposition dans un casier dédié.</li>
+						<li><strong>Stabilité administrative</strong> : en cas de changement de dirigeants, l'adresse du siège social reste inchangée, évitant les formalités de modification en préfecture.</li>
+						<li><strong>Gratuité ou coût modique</strong> : le service est proposé à titre gratuit ou pour une participation symbolique.</li>
+					</ul>
+					<p class="mt-4">
+						Pour bénéficier de la domiciliation, l'association doit généralement signer une convention avec la Maison des Associations. Cette convention précise les droits et obligations de chaque partie, notamment en matière de retrait du courrier et de respect du règlement intérieur.
+					</p>
+					<div class="bg-green-50 border border-green-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-green-800"><strong>Important :</strong> La domiciliation à la Maison des Associations est reconnue par les administrations (préfecture, impôts, URSSAF) et les banques. Elle figure sur le récépissé de déclaration et peut être utilisée pour toutes les démarches officielles de l'association.</p>
+					</div>
+				</div>
+
+				<!-- Section 5 : Accompagnement -->
+				<div id="accompagnement" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">5</span>
+						<h2 class="text-2xl font-bold text-gray-900">Accompagnement et formations</h2>
+					</div>
+					<p>
+						Au-delà de la mise à disposition de locaux, la Maison des Associations de Toulon remplit une mission essentielle d'accompagnement des structures associatives dans leur développement. Cet accompagnement prend plusieurs formes et s'adresse aussi bien aux associations en création qu'aux structures bien établies.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Aide à la création d'association</h3>
+					<p>
+						Si vous envisagez de <a href={`${base}comment-creer-association-toulon/`} class="text-teal-600 underline hover:text-teal-800">créer une association à Toulon</a>, la Maison des Associations est votre premier interlocuteur. Les conseillers peuvent vous aider à :
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-4">
+						<li>Clarifier votre projet associatif et vérifier sa pertinence sur le territoire</li>
+						<li>Rédiger vos statuts conformément à la loi de 1901</li>
+						<li>Préparer votre dossier de déclaration en préfecture</li>
+						<li>Comprendre les obligations légales et fiscales des associations</li>
+						<li>Identifier les partenaires et financements potentiels</li>
+					</ul>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Conseil juridique et administratif</h3>
+					<p>
+						Des permanences régulières sont organisées pour répondre aux questions des dirigeants associatifs. Ces permanences couvrent des thématiques variées : droit du travail dans le cadre associatif, responsabilité civile et pénale des dirigeants, obligations comptables, fiscalité des associations, protection des données personnelles (RGPD) et gestion des litiges.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Formations pour les bénévoles et dirigeants</h3>
+					<p>
+						La maison associative de Toulon organise ou relaie des sessions de formation tout au long de l'année. Ces formations sont adaptées aux besoins des associations et couvrent des sujets pratiques :
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-4">
+						<li><strong>Gestion comptable</strong> : tenue de la comptabilité, obligations déclaratives, bilan financier</li>
+						<li><strong>Communication</strong> : création d'un site web, réseaux sociaux, relation presse, supports de communication</li>
+						<li><strong>Recherche de financements</strong> : réponse aux appels à projets, montage de dossiers de <a href={`${base}subventions-associations-toulon/`} class="text-teal-600 underline hover:text-teal-800">subventions à Toulon</a>, mécénat, crowdfunding</li>
+						<li><strong>Gestion de projet</strong> : planification, suivi, évaluation des actions associatives</li>
+						<li><strong>Vie associative</strong> : animation de réunions, recrutement et fidélisation des bénévoles, organisation d'événements</li>
+					</ul>
+					<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-blue-800"><strong>Conseil :</strong> Les formations sont souvent gratuites pour les associations adhérentes. Les places étant limitées, inscrivez-vous dès l'ouverture des inscriptions. Consultez régulièrement le programme proposé par la Maison des Associations ou la mairie de Toulon.</p>
+					</div>
+				</div>
+
+				<!-- Section 6 : Comment en bénéficier -->
+				<div id="beneficier" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">6</span>
+						<h2 class="text-2xl font-bold text-gray-900">Comment bénéficier des services</h2>
+					</div>
+					<p>
+						L'accès aux services de la Maison des Associations de Toulon est ouvert à toutes les associations loi 1901 déclarées sur le territoire. Voici les conditions et démarches pour en bénéficier.
+					</p>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Conditions d'éligibilité</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Être une association loi 1901</strong> déclarée en préfecture (disposer d'un récépissé de déclaration ou d'un numéro RNA).</li>
+						<li><strong>Avoir son siège social ou une activité régulière à Toulon</strong> (83000) ou dans les communes limitrophes selon les cas.</li>
+						<li><strong>Être à jour de ses obligations</strong> : comptes à jour, assemblée générale tenue, assurance responsabilité civile souscrite.</li>
+						<li><strong>Respecter le règlement intérieur</strong> de la Maison des Associations.</li>
+					</ul>
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Démarches d'inscription</h3>
+					<ol class="list-decimal pl-6 space-y-2">
+						<li><strong>Se présenter à l'accueil</strong> de la Maison des Associations avec les documents de l'association (statuts, récépissé, liste des dirigeants).</li>
+						<li><strong>Remplir le formulaire d'inscription</strong> ou de demande de service (domiciliation, prêt de salle, accompagnement).</li>
+						<li><strong>Signer la convention</strong> correspondant au(x) service(s) demandé(s).</li>
+						<li><strong>Fournir les pièces justificatives</strong> : pièce d'identité du représentant légal, attestation d'assurance, dernier rapport d'activité (le cas échéant).</li>
+					</ol>
+					<p class="mt-4">
+						Les porteurs de projet qui n'ont pas encore créé leur association peuvent également être accueillis pour un premier rendez-vous d'information et d'orientation. Aucun justificatif n'est nécessaire à ce stade : il suffit de se présenter à l'accueil ou de prendre rendez-vous par téléphone.
+					</p>
+					<div class="bg-green-50 border border-green-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-green-800"><strong>Délai :</strong> L'inscription est généralement traitée sous quelques jours. Pour la domiciliation, prévoyez un délai de 1 à 2 semaines. Le prêt de salle peut être accordé rapidement si des créneaux sont disponibles.</p>
+					</div>
+				</div>
+
+				<!-- Informations pratiques -->
+				<div id="infos-pratiques" class="scroll-mt-24">
+					<h2 class="text-2xl font-bold text-gray-900 mb-4">Informations pratiques</h2>
+					<p>
+						Pour faciliter votre visite à la Maison des Associations de Toulon, voici un récapitulatif des informations essentielles. Ces informations étant susceptibles d'évoluer, nous vous recommandons de vérifier les données les plus récentes auprès de la mairie de Toulon.
+					</p>
+					<div class="grid sm:grid-cols-2 gap-4 mt-6">
+						<div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+							<h3 class="font-bold text-gray-900 mb-2">Localisation</h3>
+							<p class="text-sm text-gray-600">Centre-ville de Toulon<br>83000 Toulon</p>
+							<p class="text-xs text-gray-500 mt-2">Accessible en transports en commun (réseau Mistral)</p>
+						</div>
+						<div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+							<h3 class="font-bold text-gray-900 mb-2">Horaires d'ouverture</h3>
+							<p class="text-sm text-gray-600">Du lundi au vendredi<br>En journée (horaires de bureau)</p>
+							<p class="text-xs text-gray-500 mt-2">Vérifier les horaires précis auprès de la mairie</p>
+						</div>
+						<div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+							<h3 class="font-bold text-gray-900 mb-2">Contact</h3>
+							<p class="text-sm text-gray-600">Mairie de Toulon - Service vie associative</p>
+							<p class="text-xs text-gray-500 mt-2">Standard mairie : 04 94 36 30 00</p>
+						</div>
+						<div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
+							<h3 class="font-bold text-gray-900 mb-2">Public accueilli</h3>
+							<p class="text-sm text-gray-600">Associations loi 1901 déclarées<br>Porteurs de projets associatifs</p>
+							<p class="text-xs text-gray-500 mt-2">Accueil libre ou sur rendez-vous</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Pourquoi la Maison des Associations -->
+				<div>
+					<h2 class="text-2xl font-bold text-gray-900 mb-4">Pourquoi passer par la Maison des Associations de Toulon ?</h2>
+					<p>
+						La Maison des Associations n'est pas un simple lieu de passage. C'est un véritable outil au service de la vie associative toulonnaise. Voici les principales raisons pour lesquelles les associations du Var ont intérêt à s'y inscrire et à utiliser ses services.
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-4">
+						<li><strong>Réduire les coûts de fonctionnement</strong> : la mise à disposition gratuite de locaux et de matériel permet aux associations de consacrer leurs ressources à leurs missions plutôt qu'à la logistique.</li>
+						<li><strong>Gagner en crédibilité</strong> : disposer d'une adresse officielle en centre-ville de Toulon renforce l'image de l'association auprès des partenaires, des financeurs et du grand public.</li>
+						<li><strong>Accéder à un réseau</strong> : la Maison des Associations favorise les rencontres entre structures complémentaires. Des collaborations fructueuses naissent régulièrement de ces échanges.</li>
+						<li><strong>Monter en compétences</strong> : grâce aux formations proposées, les bénévoles et dirigeants peuvent développer leurs compétences en gestion, communication et recherche de financements.</li>
+						<li><strong>Bénéficier d'un accompagnement personnalisé</strong> : les conseillers de la Maison des Associations connaissent le tissu local et peuvent orienter efficacement les associations vers les bons interlocuteurs.</li>
+						<li><strong>Être informé des opportunités</strong> : appels à projets, subventions, événements, partenariats... La Maison des Associations est un relais d'information indispensable pour ne manquer aucune opportunité.</li>
+					</ul>
+				</div>
+
+				<!-- Associations santé -->
+				<div>
+					<h2 class="text-2xl font-bold text-gray-900 mb-4">Associations de santé et solidarité à la Maison des Associations</h2>
+					<p>
+						Le domaine de la santé et de la solidarité est particulièrement bien représenté parmi les associations qui fréquentent la Maison des Associations de Toulon. Les structures oeuvrant dans l'accompagnement des personnes malades, handicapées ou en situation de fragilité trouvent dans cet espace un soutien adapté à leurs spécificités.
+					</p>
+					<p class="mt-4">
+						Les associations spécialisées dans l'incontinence, le handicap, l'aide aux aidants ou le soutien psychologique peuvent y domicilier leur siège, organiser des groupes de parole dans les salles de réunion, proposer des permanences d'accueil et rencontrer d'autres structures du secteur médico-social. Consulter notre <a href={`${base}toulon-association/`} class="text-teal-600 underline hover:text-teal-800">annuaire des associations de Toulon</a> permet de découvrir l'ensemble des structures actives dans le domaine de la santé.
+					</p>
+					<div class="bg-teal-50 border border-teal-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-teal-800"><strong>À noter :</strong> Les associations de santé bénéficient de dispositifs de financement spécifiques (ARS, CPAM, Département du Var). La Maison des Associations peut vous orienter vers les bons interlocuteurs pour monter vos dossiers de <a href={`${base}subventions-associations-toulon/`} class="text-teal-600 underline hover:text-teal-800">subventions</a>.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section id="faq" class="py-12 bg-gray-50 border-t border-gray-100 scroll-mt-24">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes</h2>
+			<div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Quels services propose la Maison des Associations de Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La Maison des Associations de Toulon propose la domiciliation postale, le prêt de salles de réunion, un accompagnement juridique et administratif, des formations pour les bénévoles et dirigeants, ainsi qu'un accès à du matériel informatique et bureautique. La plupart de ces services sont gratuits pour les associations déclarées.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Qui peut bénéficier des services de la Maison des Associations ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Toute association loi 1901 déclarée en préfecture et ayant son siège social ou une activité régulière à Toulon peut bénéficier des services de la Maison des Associations. Les porteurs de projet associatif en phase de création sont également accueillis pour un premier rendez-vous d'information.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Comment réserver une salle à la Maison des Associations de Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La réservation d'une salle se fait auprès de l'accueil de la Maison des Associations, sur présentation d'un justificatif d'existence de l'association (récépissé de déclaration ou numéro RNA). Il est recommandé de s'y prendre à l'avance, notamment pour les événements en soirée ou le week-end.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">La domiciliation à la Maison des Associations est-elle gratuite ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La domiciliation postale à la Maison des Associations de Toulon est généralement proposée à titre gratuit ou à un coût très modique pour les associations toulonnaises. Les conditions exactes peuvent varier selon les cas, il est conseillé de contacter directement la structure pour obtenir les informations à jour.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Où se trouve la Maison des Associations de Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La Maison des Associations est située dans le centre-ville de Toulon (83000). Elle est accessible en transports en commun via le réseau Mistral et en voiture avec des parkings publics à proximité. Pour l'adresse exacte et les horaires à jour, contactez la mairie de Toulon ou consultez le site officiel de la ville.</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Ressources complémentaires</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-gray-50 rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Annuaire complet des associations</p>
+					<p class="text-xs text-gray-500 mt-1">Toutes les associations santé et solidarité à Toulon</p>
+				</a>
+				<a href={`${base}comment-creer-association-toulon/`} class="bg-gray-50 rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Guide de création d'association</p>
+					<p class="text-xs text-gray-500 mt-1">Étapes et démarches pour créer votre association à Toulon</p>
+				</a>
+				<a href={`${base}subventions-associations-toulon/`} class="bg-gray-50 rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Subventions pour les associations</p>
+					<p class="text-xs text-gray-500 mt-1">Financements municipaux, FDVA, aides départementales</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide pour votre association ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence peut vous orienter vers la Maison des Associations de Toulon et les structures d'accompagnement adaptées à votre projet.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+		</div>
+	</section>
+
+</Layout>

@@ -1,0 +1,539 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Subventions Associations à Toulon (83) — Aides et Financements | Var Incontinence">
+
+	<meta slot="head" name="description" content="Quelles subventions pour votre association à Toulon ? Aides municipales, départementales, régionales. Dossiers et calendrier 2026." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Quelles subventions une association peut-elle obtenir à Toulon ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Une association à Toulon peut solliciter des subventions municipales auprès de la Mairie, des aides du Conseil Départemental du Var, des financements de la Région Sud PACA, le FDVA (deux niveaux), ainsi que des fonds européens (FEDER, FSE). Des fondations privées et le mécénat d'entreprise complètent ces dispositifs."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Quand déposer une demande de subvention à Toulon ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Les calendriers varient selon les financeurs. La Mairie de Toulon lance ses appels à projets entre janvier et mars. Le FDVA ouvre ses campagnes en février-mars. La Région Sud publie ses appels tout au long de l'année. Il est conseillé de préparer son dossier dès l'automne précédent."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Quels documents faut-il pour demander une subvention associative ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Les documents requis incluent le formulaire Cerfa n°12156*06, les statuts de l'association, le récépissé de déclaration en préfecture, la liste des dirigeants, le rapport d'activité, les comptes financiers (bilan et compte de résultat), le budget prévisionnel, le RIB de l'association et un numéro SIRET."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Peut-on cumuler plusieurs subventions pour une même association ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Oui, une association peut cumuler plusieurs subventions de différents financeurs (commune, département, région, État, Europe). Cependant, le total des financements publics ne peut pas dépasser 80 % du coût total du projet. Chaque financeur doit être informé des autres aides obtenues."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Une association nouvellement créée peut-elle demander une subvention ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Oui, certaines aides sont accessibles dès la première année, notamment le FDVA 1 (formation des bénévoles) et certains appels à projets municipaux. Cependant, la plupart des financeurs demandent au moins un exercice comptable complet. Il est recommandé de commencer par le FDVA et les aides municipales de fonctionnement."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "Comment obtenir un numéro SIRET pour son association à Toulon ?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Le numéro SIRET est obligatoire pour recevoir des subventions publiques. Il s'obtient gratuitement en remplissant le formulaire Cerfa n°11680 auprès de l'INSEE ou de la DDETS du Var. Le délai est d'environ 2 à 3 semaines. Certains organismes, comme la CAF, déclenchent automatiquement l'attribution du SIRET."
+				}
+			}
+		]
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Subventions</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Subventions et financements pour associations à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Guide complet des aides financières disponibles pour les associations à Toulon (83) : subventions municipales, départementales, régionales, FDVA, fonds européens et mécénat privé. Calendrier 2026 et conseils pour monter votre dossier.
+			</p>
+		</div>
+	</section>
+
+	<!-- Sommaire -->
+	<section class="py-8 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-lg font-bold text-gray-900 mb-4">Sommaire</h2>
+			<nav class="grid sm:grid-cols-2 gap-2 text-sm">
+				<a href="#mairie" class="text-teal-600 hover:text-teal-800">1. Subventions de la Mairie de Toulon</a>
+				<a href="#departement" class="text-teal-600 hover:text-teal-800">2. Aides du Conseil Départemental du Var</a>
+				<a href="#region" class="text-teal-600 hover:text-teal-800">3. Financements Région Sud PACA</a>
+				<a href="#fdva" class="text-teal-600 hover:text-teal-800">4. FDVA : Fonds pour la Vie Associative</a>
+				<a href="#europe" class="text-teal-600 hover:text-teal-800">5. Fonds européens (FEDER, FSE)</a>
+				<a href="#prive" class="text-teal-600 hover:text-teal-800">6. Fondations privées et mécénat</a>
+				<a href="#calendrier" class="text-teal-600 hover:text-teal-800">Calendrier des appels à projets 2026</a>
+				<a href="#dossier" class="text-teal-600 hover:text-teal-800">Préparer votre dossier de subvention</a>
+				<a href="#documents" class="text-teal-600 hover:text-teal-800">Checklist des documents requis</a>
+				<a href="#faq" class="text-teal-600 hover:text-teal-800">Questions fréquentes</a>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Contenu principal -->
+	<section class="py-12 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<div class="text-gray-600 leading-relaxed space-y-8">
+
+				<div>
+					<p class="text-lg">
+						Obtenir un financement est un enjeu majeur pour les associations toulonnaises. Avec plus de <strong>4 400 associations actives</strong> sur le territoire, la concurrence est forte, mais les sources de financement sont nombreuses et variées. La ville de Toulon, le Conseil Départemental du Var, la Région Sud PACA, l'État et l'Union Européenne proposent chacun des dispositifs de soutien aux associations.
+					</p>
+					<p class="mt-4">
+						Ce guide recense toutes les <strong>subventions et aides financières</strong> accessibles aux associations loi 1901 basées à Toulon et dans le Var. Que vous soyez une association de santé, de solidarité, sportive, culturelle ou environnementale, vous trouverez ici les dispositifs adaptés à votre projet ainsi que les conseils pratiques pour maximiser vos chances d'obtenir un financement.
+					</p>
+					<p class="mt-4">
+						Avant de solliciter une subvention, assurez-vous que votre association est correctement déclarée. Si ce n'est pas encore fait, consultez notre <a href={`${base}comment-creer-association-toulon/`} class="text-teal-600 underline hover:text-teal-800">guide pour créer une association à Toulon</a>.
+					</p>
+				</div>
+
+				<!-- Section 1 : Mairie de Toulon -->
+				<div id="mairie" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">1</span>
+						<h2 class="text-2xl font-bold text-gray-900">Subventions de la Mairie de Toulon</h2>
+					</div>
+					<p>
+						La Mairie de Toulon est le premier financeur local des associations. Elle distribue chaque année des subventions de fonctionnement et des subventions sur projet aux associations domiciliées sur la commune. Le budget alloué aux associations couvre des domaines variés : sport, culture, solidarité, santé, jeunesse, environnement et vie de quartier.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Types de subventions municipales</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Subvention de fonctionnement</strong> : aide récurrente destinée à soutenir l'activité courante de l'association (loyer, assurance, fournitures, communication). Elle est renouvelée chaque année sous réserve du bilan d'activité.</li>
+						<li><strong>Subvention sur projet</strong> : financement ponctuel accordé pour une action spécifique (événement, programme d'accompagnement, formation, achat de matériel). Le montant est proportionnel au budget du projet.</li>
+						<li><strong>Mise à disposition de locaux</strong> : la ville met gratuitement à disposition des salles et des espaces au sein des équipements municipaux (maisons de quartier, gymnases, salles polyvalentes).</li>
+						<li><strong>Aide en nature</strong> : prêt de matériel, impression de supports de communication, mise à disposition de personnel technique pour des événements.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Procédure de demande</h3>
+					<p>
+						Les demandes de subvention municipale se font via le portail en ligne de la Mairie de Toulon ou par dépôt physique au service Vie Associative. Le dossier doit être déposé chaque année, généralement entre janvier et mars, pour un examen lors du conseil municipal du printemps. La décision est notifiée par courrier et le versement intervient après signature de la convention.
+					</p>
+
+					<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-blue-800"><strong>Conseil :</strong> Prenez rendez-vous avec le service Vie Associative de la Mairie de Toulon avant de déposer votre dossier. Les agents peuvent vous aider à identifier le bon dispositif et à optimiser votre demande. Contactez la <a href={`${base}maison-associations-toulon/`} class="text-blue-600 underline hover:text-blue-800">Maison des Associations</a> pour un accompagnement personnalisé.</p>
+					</div>
+				</div>
+
+				<!-- Section 2 : Département du Var -->
+				<div id="departement" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">2</span>
+						<h2 class="text-2xl font-bold text-gray-900">Aides du Conseil Départemental du Var</h2>
+					</div>
+					<p>
+						Le Conseil Départemental du Var propose des financements aux associations varoises dans plusieurs domaines de compétence : action sociale, solidarité, insertion, sport, culture et environnement. Ces subventions départementales complètent les aides municipales et permettent de financer des projets d'envergure intercommunale.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Dispositifs départementaux</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Aide aux associations sportives</strong> : soutien aux clubs et comités sportifs du Var pour l'organisation de compétitions, l'achat de matériel, la formation d'éducateurs. Les associations affiliées à une fédération sont prioritaires.</li>
+						<li><strong>Aide aux associations culturelles</strong> : subventions pour les festivals, saisons culturelles, résidences d'artistes et actions de médiation culturelle sur le territoire varois.</li>
+						<li><strong>Aide à l'insertion et à la solidarité</strong> : financements pour les structures accompagnant les publics en difficulté (insertion professionnelle, aide alimentaire, hébergement d'urgence, accompagnement des personnes handicapées).</li>
+						<li><strong>Contrats de territoire</strong> : le Département signe des conventions pluriannuelles avec les associations structurantes qui portent des missions d'intérêt départemental.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Modalités de demande</h3>
+					<p>
+						Les dossiers sont à déposer en ligne sur la plateforme du Conseil Départemental du Var. Chaque direction thématique (sport, culture, social) dispose de son propre calendrier et de ses critères d'éligibilité. Le formulaire Cerfa n°12156*06 est généralement requis, accompagné des pièces justificatives habituelles.
+					</p>
+
+					<div class="bg-green-50 border border-green-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-green-800"><strong>Bon à savoir :</strong> Le Conseil Départemental du Var accorde une attention particulière aux projets qui couvrent plusieurs communes du département. Si votre association intervient au-delà de Toulon (La Seyne, Hyères, Draguignan, Fréjus), mettez en avant cette dimension territoriale dans votre dossier.</p>
+					</div>
+				</div>
+
+				<!-- Section 3 : Région Sud PACA -->
+				<div id="region" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">3</span>
+						<h2 class="text-2xl font-bold text-gray-900">Financements de la Région Sud PACA</h2>
+					</div>
+					<p>
+						La Région Sud Provence-Alpes-Côte d'Azur finance les associations intervenant dans ses domaines de compétence : formation professionnelle, développement économique, aménagement du territoire, transports, lycées, environnement et santé. Les montants accordés sont souvent plus élevés que les aides communales ou départementales.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Principaux dispositifs régionaux</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Appels à projets thématiques</strong> : la Région lance régulièrement des appels à projets dans des domaines ciblés (santé, jeunesse, innovation sociale, transition écologique, économie sociale et solidaire). Les associations de Toulon peuvent candidater en ligne.</li>
+						<li><strong>Soutien à l'économie sociale et solidaire (ESS)</strong> : accompagnement et financement des structures de l'ESS, y compris les associations employeuses qui développent une activité économique d'utilité sociale.</li>
+						<li><strong>Plan régional santé</strong> : financement d'actions de prévention, d'éducation à la santé et d'accompagnement des malades chroniques. Ce dispositif concerne directement les associations de santé varoises.</li>
+						<li><strong>Programme régional de formation des bénévoles</strong> : co-financement de formations destinées aux bénévoles associatifs (gestion comptable, management associatif, communication digitale).</li>
+						<li><strong>Subventions aux associations environnementales</strong> : soutien aux projets de préservation de la biodiversité, de sensibilisation à l'environnement et de transition énergétique.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Comment candidater ?</h3>
+					<p>
+						Toutes les demandes passent par la plateforme de subventions en ligne de la Région Sud (subventions.maregionsud.fr). La création d'un compte est nécessaire. Les appels à projets sont publiés sur le site officiel de la Région avec les cahiers des charges détaillés, les critères de sélection et les dates limites de dépôt.
+					</p>
+				</div>
+
+				<!-- Section 4 : FDVA -->
+				<div id="fdva" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">4</span>
+						<h2 class="text-2xl font-bold text-gray-900">Le FDVA : Fonds pour le Développement de la Vie Associative</h2>
+					</div>
+					<p>
+						Le FDVA est un dispositif de l'État géré au niveau départemental par la DDETS (Direction Départementale de l'Emploi, du Travail et des Solidarités) du Var. Il constitue l'un des financements les plus accessibles pour les petites et moyennes associations. Le FDVA se décline en deux volets complémentaires.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">FDVA 1 : Formation des bénévoles</h3>
+					<p>
+						Ce premier volet finance les actions de formation destinées aux bénévoles associatifs. Il peut s'agir de formations techniques (comptabilité, gestion de projet, premiers secours), de formations thématiques liées à l'objet de l'association, ou de formations transversales (communication, numérique, gouvernance associative).
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-3">
+						<li>Ouvert à toutes les associations déclarées, y compris les associations récemment créées.</li>
+						<li>Montant moyen accordé : entre 500 et 3 000 euros par action de formation.</li>
+						<li>Taux de financement maximal : 80 % du coût total de la formation.</li>
+						<li>Campagne annuelle : dépôt des dossiers en ligne entre février et mars sur Le Compte Asso.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">FDVA 2 : Fonctionnement et innovation</h3>
+					<p>
+						Le second volet, issu de la réforme des réserves parlementaires, soutient le fonctionnement courant des associations et leurs projets innovants. Ce dispositif cible particulièrement les associations de petite taille, celles qui ne bénéficient pas d'autres financements publics importants.
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-3">
+						<li><strong>Fonctionnement</strong> : aide au financement des charges courantes (loyer, assurance, matériel, communication).</li>
+						<li><strong>Innovation</strong> : soutien aux projets nouveaux ou aux nouvelles activités développées par l'association.</li>
+						<li>Montant moyen accordé : entre 1 000 et 5 000 euros.</li>
+						<li>Priorité donnée aux associations non employeuses et aux territoires ruraux ou quartiers prioritaires.</li>
+						<li>Dépôt des dossiers sur Le Compte Asso entre février et avril.</li>
+					</ul>
+
+					<div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-amber-800"><strong>Astuce :</strong> Le FDVA est le dispositif le plus accessible pour les jeunes associations. Même sans exercice comptable complet, vous pouvez candidater au FDVA 1 pour financer la formation de vos bénévoles. C'est aussi un bon moyen de se familiariser avec la procédure de demande de subvention avant de viser des financements plus importants.</p>
+					</div>
+				</div>
+
+				<!-- Section 5 : Fonds européens -->
+				<div id="europe" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">5</span>
+						<h2 class="text-2xl font-bold text-gray-900">Fonds européens : FEDER et FSE+</h2>
+					</div>
+					<p>
+						L'Union Européenne met à disposition des fonds structurels accessibles aux associations françaises. Bien que les procédures soient plus complexes et les montants plus élevés, ces financements représentent une opportunité pour les projets ambitieux portés par des associations toulonnaises et varoises.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Le FEDER (Fonds Européen de Développement Régional)</h3>
+					<p>
+						Le FEDER finance des projets liés au développement économique, à l'innovation, à la transition numérique et écologique. Les associations peuvent en bénéficier pour des projets structurants impliquant de l'investissement matériel, de la recherche-action ou du développement territorial. En région PACA, le FEDER est géré par le Conseil Régional Sud.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Le FSE+ (Fonds Social Européen Plus)</h3>
+					<p>
+						Le FSE+ est le principal instrument européen de soutien à l'emploi et à l'inclusion sociale. Les associations de solidarité, d'insertion professionnelle et d'accompagnement social de Toulon peuvent candidater pour financer des programmes d'accompagnement vers l'emploi, de lutte contre la pauvreté, de formation professionnelle ou d'inclusion des personnes éloignées du marché du travail.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Comment accéder aux fonds européens ?</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Consulter les appels à projets sur la plateforme Ma Démarche FSE+ et sur europe-en-paca.eu.</li>
+						<li>Se rapprocher du service Europe de la Région Sud PACA pour un accompagnement à la candidature.</li>
+						<li>Prévoir un budget de projet supérieur à 20 000 euros (seuil minimal pour la plupart des appels).</li>
+						<li>Anticiper les délais : le montage d'un dossier européen prend en moyenne 3 à 6 mois.</li>
+						<li>Prévoir la trésorerie : le versement des fonds européens intervient souvent après réalisation du projet, sur présentation des justificatifs de dépenses.</li>
+					</ul>
+
+					<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-blue-800"><strong>Conseil :</strong> Les fonds européens sont exigeants en matière de gestion administrative. Si c'est votre première candidature, envisagez de vous associer avec une structure expérimentée (tête de réseau, collectivité) qui assurera le portage administratif du projet.</p>
+					</div>
+				</div>
+
+				<!-- Section 6 : Fondations privées et mécénat -->
+				<div id="prive" class="scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">6</span>
+						<h2 class="text-2xl font-bold text-gray-900">Fondations privées et mécénat d'entreprise</h2>
+					</div>
+					<p>
+						Au-delà des financements publics, les fondations privées et le mécénat d'entreprise constituent des sources de financement complémentaires pour les associations à Toulon. Ces financements sont souvent plus souples dans leurs critères et peuvent couvrir des dépenses non éligibles aux subventions publiques.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Fondations nationales</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li><strong>Fondation de France</strong> : propose de nombreux appels à projets thématiques (santé, solidarité, environnement, éducation). Les associations toulonnaises peuvent candidater en ligne. Montants de 5 000 à 30 000 euros par projet.</li>
+						<li><strong>Fondation Carasso</strong> : finance des projets liés à l'alimentation durable et à l'art citoyen.</li>
+						<li><strong>Fondation MACIF</strong> : soutient les projets d'économie sociale et solidaire, d'insertion et de lien social.</li>
+						<li><strong>Fondation Abbé Pierre</strong> : aide les associations agissant dans le domaine du logement et de l'hébergement.</li>
+						<li><strong>Fondation AG2R La Mondiale</strong> : finance des projets de prévention santé et d'autonomie des personnes âgées.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Mécénat d'entreprise local</h3>
+					<p>
+						Le tissu économique de Toulon et du Var offre des opportunités de mécénat. Les entreprises locales peuvent soutenir financièrement votre association en échange d'une réduction fiscale de 60 % du montant du don (dans la limite de 0,5 % du chiffre d'affaires). Le mécénat peut être financier, matériel (don de matériel, mise à disposition de locaux) ou de compétences (mise à disposition de salariés).
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-3">
+						<li>Identifiez les entreprises dont l'activité ou les valeurs correspondent à votre objet associatif.</li>
+						<li>Préparez un dossier de présentation clair : mission, impact, visibilité offerte au mécène.</li>
+						<li>Contactez la CCI du Var et les clubs d'entreprises locaux (club des entreprises de Toulon, MEDEF Var) pour être mis en relation avec des mécènes potentiels.</li>
+						<li>Délivrez un reçu fiscal (Cerfa n°11580*04) à chaque entreprise mécène.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Financement participatif</h3>
+					<p>
+						Le crowdfunding est devenu un outil courant pour financer des projets associatifs. Des plateformes comme HelloAsso (gratuit pour les associations), Ulule ou KissKissBankBank permettent de collecter des fonds auprès du grand public. C'est aussi un excellent moyen de tester l'adhésion à votre projet et de fédérer une communauté autour de votre association.
+					</p>
+				</div>
+
+				<!-- Calendrier des appels à projets -->
+				<div id="calendrier" class="scroll-mt-24">
+					<h2 class="text-2xl font-bold text-gray-900 mb-4">Calendrier des appels à projets 2026</h2>
+					<p>
+						Pour maximiser vos chances d'obtenir un financement, anticipez les échéances. Voici le calendrier indicatif des principaux appels à projets concernant les associations à Toulon et dans le Var.
+					</p>
+					<div class="overflow-x-auto mt-4">
+						<table class="w-full text-sm border-collapse">
+							<thead>
+								<tr class="bg-teal-50">
+									<th class="text-left px-4 py-3 font-semibold text-gray-900 border border-gray-200">Période</th>
+									<th class="text-left px-4 py-3 font-semibold text-gray-900 border border-gray-200">Financeur</th>
+									<th class="text-left px-4 py-3 font-semibold text-gray-900 border border-gray-200">Dispositif</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="px-4 py-3 border border-gray-200 font-medium">Janvier - Mars</td>
+									<td class="px-4 py-3 border border-gray-200">Mairie de Toulon</td>
+									<td class="px-4 py-3 border border-gray-200">Subventions de fonctionnement et sur projet</td>
+								</tr>
+								<tr class="bg-gray-50">
+									<td class="px-4 py-3 border border-gray-200 font-medium">Février - Mars</td>
+									<td class="px-4 py-3 border border-gray-200">DDETS du Var (État)</td>
+									<td class="px-4 py-3 border border-gray-200">FDVA 1 - Formation des bénévoles</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 border border-gray-200 font-medium">Février - Avril</td>
+									<td class="px-4 py-3 border border-gray-200">DDETS du Var (État)</td>
+									<td class="px-4 py-3 border border-gray-200">FDVA 2 - Fonctionnement et innovation</td>
+								</tr>
+								<tr class="bg-gray-50">
+									<td class="px-4 py-3 border border-gray-200 font-medium">Mars - Juin</td>
+									<td class="px-4 py-3 border border-gray-200">Conseil Départemental du Var</td>
+									<td class="px-4 py-3 border border-gray-200">Appels à projets thématiques (sport, culture, social)</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 border border-gray-200 font-medium">Toute l'année</td>
+									<td class="px-4 py-3 border border-gray-200">Région Sud PACA</td>
+									<td class="px-4 py-3 border border-gray-200">Appels à projets (publication continue)</td>
+								</tr>
+								<tr class="bg-gray-50">
+									<td class="px-4 py-3 border border-gray-200 font-medium">Toute l'année</td>
+									<td class="px-4 py-3 border border-gray-200">Fonds européens</td>
+									<td class="px-4 py-3 border border-gray-200">FEDER, FSE+ (selon programmation)</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 border border-gray-200 font-medium">Variable</td>
+									<td class="px-4 py-3 border border-gray-200">Fondations privées</td>
+									<td class="px-4 py-3 border border-gray-200">Appels à projets spécifiques par fondation</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-amber-800"><strong>Astuce :</strong> Commencez à préparer vos dossiers dès l'automne précédent. Rassemblez les pièces justificatives, rédigez le bilan d'activité de l'année écoulée et mettez à jour votre budget prévisionnel. Un dossier bien anticipé est toujours plus solide qu'un dossier monté dans l'urgence.</p>
+					</div>
+				</div>
+
+				<!-- Préparer son dossier de subvention -->
+				<div id="dossier" class="scroll-mt-24">
+					<h2 class="text-2xl font-bold text-gray-900 mb-4">Comment préparer un dossier de subvention solide</h2>
+					<p>
+						La qualité du dossier de demande est déterminante pour obtenir un financement. Voici les conseils essentiels pour maximiser vos chances auprès des différents financeurs à Toulon et dans le Var.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Soigner la description du projet</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Décrivez clairement le <strong>contexte</strong> et le besoin auquel votre projet répond. Appuyez-vous sur des données chiffrées locales (statistiques de l'INSEE, études de l'ARS PACA, données de la CAF du Var).</li>
+						<li>Détaillez les <strong>objectifs</strong> en les formulant de manière mesurable : nombre de bénéficiaires visés, nombre d'actions programmées, indicateurs de résultat.</li>
+						<li>Présentez le <strong>plan d'action</strong> avec un calendrier réaliste : phases du projet, jalons, livrables attendus.</li>
+						<li>Identifiez les <strong>partenaires</strong> impliqués (autres associations, collectivités, professionnels) et précisez leur rôle.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Construire un budget prévisionnel crédible</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Équilibrez les charges et les produits : le budget doit être à l'équilibre (total charges = total produits).</li>
+						<li>Détaillez chaque poste de dépense : ne vous contentez pas d'un budget global, mais ventilé poste par poste (personnel, matériel, communication, déplacements, prestations externes).</li>
+						<li>Valorisez les contributions en nature : bénévolat (12,74 euros/heure en 2026 pour la valorisation du bénévolat), mise à disposition gratuite de locaux, dons en matériel.</li>
+						<li>Diversifiez les sources de financement : les financeurs apprécient les projets qui ne dépendent pas d'un seul bailleur. Montrez votre capacité d'autofinancement (cotisations, recettes propres).</li>
+						<li>Respectez la règle des 80 % : les financements publics cumulés ne peuvent pas dépasser 80 % du budget total du projet.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Valoriser l'impact de votre association</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Mettez en avant l'<strong>impact territorial</strong> : combien de Toulonnais bénéficient de vos actions ? Dans quels quartiers intervenez-vous ?</li>
+						<li>Présentez des <strong>témoignages</strong> de bénéficiaires ou de partenaires (avec leur accord).</li>
+						<li>Illustrez vos résultats avec des <strong>chiffres</strong> : nombre de personnes accueillies, heures de bénévolat mobilisées, événements organisés.</li>
+						<li>Montrez votre <strong>capacité d'évaluation</strong> : comment mesurez-vous l'efficacité de vos actions ?</li>
+					</ul>
+
+					<div class="bg-green-50 border border-green-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-green-800"><strong>Bon à savoir :</strong> La <a href={`${base}maison-associations-toulon/`} class="text-green-600 underline hover:text-green-800">Maison des Associations de Toulon</a> organise régulièrement des ateliers gratuits sur le montage de dossier de subvention. Profitez-en pour vous former et rencontrer d'autres porteurs de projets.</p>
+					</div>
+				</div>
+
+				<!-- Checklist des documents -->
+				<div id="documents" class="scroll-mt-24">
+					<h2 class="text-2xl font-bold text-gray-900 mb-4">Checklist des documents requis pour une demande de subvention</h2>
+					<p>
+						Quel que soit le financeur sollicité, un ensemble de documents est systématiquement demandé. Préparez-les en amont pour gagner du temps lors du montage de vos dossiers.
+					</p>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Documents administratifs</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Formulaire Cerfa n°12156*06 (demande de subvention) dûment rempli et signé par le représentant légal.</li>
+						<li>Statuts de l'association à jour, datés et signés.</li>
+						<li>Récépissé de déclaration en préfecture (ou copie du Journal Officiel).</li>
+						<li>Liste des membres du bureau et du conseil d'administration en exercice.</li>
+						<li>Numéro SIRET de l'association (obligatoire pour toute subvention publique).</li>
+						<li>RIB au nom de l'association.</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Documents financiers</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Comptes annuels du dernier exercice clos : bilan, compte de résultat et annexes.</li>
+						<li>Budget prévisionnel de l'exercice en cours, détaillé par poste.</li>
+						<li>Budget spécifique du projet pour lequel la subvention est demandée.</li>
+						<li>Plan de financement indiquant les autres financeurs sollicités et les montants demandés ou obtenus.</li>
+						<li>Rapport du commissaire aux comptes (si l'association dépasse les seuils légaux : 153 000 euros de subventions publiques annuelles).</li>
+					</ul>
+
+					<h3 class="text-xl font-bold text-gray-900 mt-6 mb-3">Documents d'activité</h3>
+					<ul class="list-disc pl-6 space-y-2">
+						<li>Rapport d'activité du dernier exercice (bilan qualitatif et quantitatif des actions menées).</li>
+						<li>Compte rendu financier de l'utilisation de la précédente subvention (si renouvellement).</li>
+						<li>Note de présentation du projet détaillée (objectifs, public visé, calendrier, moyens mobilisés).</li>
+						<li>Procès-verbal de la dernière assemblée générale.</li>
+					</ul>
+
+					<div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-4">
+						<p class="text-sm text-blue-800"><strong>Conseil :</strong> Créez un dossier numérique regroupant tous ces documents en version PDF. Mettez-le à jour régulièrement (après chaque AG, changement de bureau, clôture comptable). Vous gagnerez un temps précieux lors du dépôt de vos demandes de subvention.</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section id="faq" class="py-12 bg-gray-50 border-t border-gray-100 scroll-mt-24">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes sur les subventions associatives à Toulon</h2>
+			<div class="space-y-4">
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Quelles subventions une association peut-elle obtenir à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Une association à Toulon peut solliciter des subventions municipales auprès de la Mairie, des aides du Conseil Départemental du Var, des financements de la Région Sud PACA, le FDVA (deux niveaux : formation des bénévoles et fonctionnement/innovation), ainsi que des fonds européens (FEDER, FSE+). Des fondations privées et le mécénat d'entreprise complètent ces dispositifs publics.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Quand déposer une demande de subvention à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Les calendriers varient selon les financeurs. La Mairie de Toulon lance ses appels à projets entre janvier et mars. Le FDVA ouvre ses campagnes en février-mars (FDVA 1) et février-avril (FDVA 2). La Région Sud publie ses appels tout au long de l'année. Il est vivement conseillé de préparer son dossier dès l'automne précédent pour ne pas être pris de court.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Quels documents faut-il pour demander une subvention associative ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Les documents requis incluent le formulaire Cerfa n°12156*06, les statuts de l'association, le récépissé de déclaration en préfecture, la liste des dirigeants, le rapport d'activité, les comptes financiers (bilan et compte de résultat), le budget prévisionnel, le RIB de l'association et un numéro SIRET. Chaque financeur peut demander des pièces complémentaires spécifiques.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Peut-on cumuler plusieurs subventions pour une même association ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Oui, une association peut tout à fait cumuler plusieurs subventions de différents financeurs (commune, département, région, État, Europe). Cependant, le total des financements publics ne peut pas dépasser 80 % du coût total du projet. Chaque financeur doit être informé des autres aides sollicitées et obtenues dans le plan de financement.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Une association nouvellement créée peut-elle demander une subvention ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Oui, certaines aides sont accessibles dès la première année d'existence, notamment le FDVA 1 (formation des bénévoles) et certains appels à projets municipaux. Cependant, la plupart des financeurs demandent au moins un exercice comptable complet pour évaluer la viabilité de l'association. Il est recommandé de commencer par le FDVA et les aides municipales de fonctionnement, puis de diversifier vos demandes au fil des années.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Comment obtenir un numéro SIRET pour son association à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Le numéro SIRET est obligatoire pour recevoir des subventions publiques. Il s'obtient gratuitement en remplissant le formulaire Cerfa n°11680 auprès de l'INSEE ou de la DDETS du Var (cité administrative, Toulon). Le délai est d'environ 2 à 3 semaines. Certains organismes, comme la CAF, déclenchent automatiquement l'attribution du SIRET lors d'une première demande de subvention.</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Ressources complémentaires</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-gray-50 rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Annuaire des associations toulonnaises</p>
+					<p class="text-xs text-gray-500 mt-1">Toutes les associations santé et solidarité à Toulon</p>
+				</a>
+				<a href={`${base}comment-creer-association-toulon/`} class="bg-gray-50 rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Créer une association à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Guide complet des démarches de création</p>
+				</a>
+				<a href={`${base}maison-associations-toulon/`} class="bg-gray-50 rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Maison des Associations de Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Services, accompagnement, domiciliation</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide pour financer votre association ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence peut vous orienter vers les dispositifs de financement adaptés à votre projet associatif à Toulon et dans le Var.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+		</div>
+	</section>
+
+</Layout>

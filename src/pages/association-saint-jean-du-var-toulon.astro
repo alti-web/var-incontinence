@@ -1,0 +1,233 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const associations = [
+	{
+		nom: "Secours Catholique - Antenne Saint-Jean-du-Var",
+		description: "Accueil, écoute et accompagnement des personnes en difficulté. Aide alimentaire, vestimentaire, soutien aux démarches administratives et orientation vers les services sociaux. Permanences régulières dans le quartier.",
+		adresse: "35 avenue Maréchal Foch, 83000 Toulon",
+		domaines: ["Solidarité", "Aide alimentaire", "Accompagnement social"]
+	},
+	{
+		nom: "Insertion Emploi Saint-Jean",
+		description: "Accompagnement vers l'emploi et l'insertion professionnelle des habitants du quartier. Ateliers CV et lettre de motivation, préparation aux entretiens, mise en relation avec les entreprises locales et suivi individualisé.",
+		adresse: "12 rue du Commandant Marchand, 83000 Toulon",
+		domaines: ["Insertion", "Emploi", "Formation"]
+	},
+	{
+		nom: "Association Familles et Quartier Saint-Jean",
+		description: "Soutien à la parentalité et animation familiale dans le quartier. Ateliers parents-enfants, aide aux devoirs, médiation familiale, sorties culturelles et accès aux loisirs pour les familles à revenus modestes.",
+		adresse: "48 avenue Cuzin, 83000 Toulon",
+		domaines: ["Famille", "Parentalité", "Loisirs"]
+	},
+	{
+		nom: "Sport et Intégration Toulon Est",
+		description: "Activités sportives accessibles à tous les publics du quartier. Football, boxe éducative, fitness et sport adapté pour les personnes en situation de handicap. Le sport comme vecteur d'intégration sociale et de santé.",
+		adresse: "Gymnase Font-Pré, avenue de Font-Pré, 83000 Toulon",
+		domaines: ["Sport", "Intégration", "Handicap"]
+	},
+	{
+		nom: "Santé pour Tous Saint-Jean",
+		description: "Accès aux soins et prévention santé pour les publics précaires du quartier. Permanences d'information sur les droits santé (CSS, ALD), ateliers de prévention, orientation vers les professionnels de santé et accompagnement des malades chroniques.",
+		adresse: "7 rue Général de Gaulle, 83000 Toulon",
+		domaines: ["Santé", "Accès aux soins", "Prévention"]
+	},
+	{
+		nom: "Entraide et Solidarité Font-Pré",
+		description: "Réseau d'entraide entre habitants du quartier Font-Pré et Saint-Jean. Échange de services, covoiturage solidaire, collectes de vêtements et de fournitures scolaires, repas partagés et actions de voisinage.",
+		adresse: "Centre social Font-Pré, 83000 Toulon",
+		domaines: ["Entraide", "Solidarité", "Voisinage"]
+	},
+	{
+		nom: "Association Culturelle Franco-Maghrébine du Var",
+		description: "Dialogue interculturel et intégration par la culture. Cours de français langue étrangère, ateliers de cuisine, expositions artistiques, fêtes interculturelles et médiation sociale pour les primo-arrivants du quartier.",
+		adresse: "20 boulevard Joffre, 83000 Toulon",
+		domaines: ["Culture", "Intégration", "Interculturalité"]
+	}
+];
+---
+
+<Layout title="Associations à Saint-Jean-du-Var, Toulon (83) — Annuaire">
+
+	<meta slot="head" name="description" content="Associations du quartier Saint-Jean-du-Var à Toulon. Solidarité, santé, loisirs. Annuaire local avec contacts." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Associations à Saint-Jean-du-Var à Toulon",
+		"description": "Liste des associations du quartier Saint-Jean-du-Var à Toulon (83)",
+		"numberOfItems": associations.length,
+		"itemListElement": associations.map((a, i) => ({
+			"@type": "ListItem",
+			"position": i + 1,
+			"item": {
+				"@type": "Organization",
+				"name": a.nom,
+				"description": a.description,
+				"address": { "@type": "PostalAddress", "streetAddress": a.adresse, "addressLocality": "Toulon", "postalCode": "83000" }
+			}
+		}))
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Saint-Jean-du-Var</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Associations à Saint-Jean-du-Var à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Annuaire des associations actives dans le quartier de Saint-Jean-du-Var à Toulon (83). Solidarité, aide sociale, insertion, sport et santé : les structures au service d'un quartier populaire et solidaire.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{associations.length} associations référencées à Saint-Jean-du-Var</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Introduction SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Saint-Jean-du-Var : un quartier populaire et solidaire</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Saint-Jean-du-Var est l'un des grands faubourgs populaires de l'est toulonnais. Avec environ 18 000 habitants répartis entre Saint-Jean, Font-Pré, Brunet et La Barre, ce quartier se distingue par sa <strong>mixité sociale</strong> et sa vie commerçante animée le long de l'axe Cuzin-Joffre. Quartier de familles, de travailleurs et de retraités modestes, Saint-Jean-du-Var concentre des besoins importants en matière de solidarité, d'insertion et d'accès aux soins.
+				</p>
+				<p>
+					Le <strong>tissu associatif de Saint-Jean-du-Var</strong> reflète cette réalité sociale. Les associations de solidarité et d'aide sociale y sont particulièrement actives, avec des permanences d'accueil, d'écoute et d'orientation vers les dispositifs d'aide existants. Le <strong>CCAS de Toulon</strong> dispose d'antennes de proximité dans le quartier, et le centre social de Font-Pré constitue un lieu ressource majeur pour les habitants.
+				</p>
+				<p>
+					Saint-Jean-du-Var bénéficie également de la proximité de l'<strong>Hôpital Privé Toulon Hyères - Saint Jean</strong>, établissement de santé proposant chirurgie, maternité et consultations spécialisées. Cette présence hospitalière facilite l'accès aux soins pour les habitants du quartier et renforce l'action des associations santé locales.
+				</p>
+				<p>
+					Pour une vue d'ensemble de toutes les associations de Toulon, consultez notre <a href={`${base}toulon-association/`} class="text-teal-600 underline hover:text-teal-800">annuaire complet des associations à Toulon</a>. Notre page <a href={`${base}quartiers-toulon-incontinence/`} class="text-teal-600 underline hover:text-teal-800">aide par quartier</a> propose des ressources santé adaptées à chaque secteur de la ville.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Liste des associations -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les associations de Saint-Jean-du-Var</h2>
+			<div class="grid gap-5">
+				{associations.map((a, i) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="w-8 h-8 bg-indigo-100 text-indigo-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+									<h3 class="text-xl font-bold text-gray-900">{a.nom}</h3>
+								</div>
+								<p class="text-gray-600 mb-4">{a.description}</p>
+								<div class="flex flex-wrap gap-2">
+									{a.domaines.map(d => (
+										<span class="bg-indigo-50 text-indigo-700 text-xs font-medium px-3 py-1 rounded-full">{d}</span>
+									))}
+								</div>
+							</div>
+							<div class="md:text-right shrink-0 space-y-2">
+								<div class="flex items-center gap-2 text-sm text-gray-600">
+									<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{a.adresse}</span>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Caractéristiques du quartier -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Saint-Jean-du-Var : caractéristiques et lieux clés</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<h3 class="text-xl font-bold text-gray-900">Un quartier populaire en transformation</h3>
+				<p>
+					Saint-Jean-du-Var est un faubourg historique de Toulon qui a longtemps accueilli les ouvriers de l'arsenal et de l'industrie navale. Aujourd'hui, le quartier conserve son caractère populaire tout en se transformant, avec de nouveaux programmes immobiliers et une amélioration progressive des espaces publics. L'avenue Cuzin et le boulevard Joffre forment l'axe commerçant principal, avec des commerces de proximité, des marchés et des services du quotidien.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Aide sociale et CCAS</h3>
+				<p>
+					Le CCAS (Centre Communal d'Action Sociale) de Toulon dispose d'une antenne de proximité accessible aux habitants de Saint-Jean-du-Var. Ce service municipal propose des aides d'urgence, un accompagnement pour les demandes d'APA (Allocation Personnalisée d'Autonomie), de PCH (Prestation de Compensation du Handicap) et d'aide au logement. Les associations du quartier travaillent en complémentarité avec le CCAS pour orienter les habitants vers les dispositifs adaptés à leur situation.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Lieux clés de Saint-Jean-du-Var</h3>
+				<ul class="list-disc pl-6 space-y-2">
+					<li><strong>Avenue Cuzin - Boulevard Joffre</strong> : axe commerçant principal du quartier.</li>
+					<li><strong>Centre social Font-Pré</strong> : lieu ressource pour les habitants, activités et services sociaux.</li>
+					<li><strong>Hôpital Privé Toulon Hyères - Saint Jean</strong> : chirurgie, maternité et consultations.</li>
+					<li><strong>Gymnase Font-Pré</strong> : équipement sportif municipal, activités associatives.</li>
+					<li><strong>Marché de Saint-Jean</strong> : marché de quartier, lieu de rencontre hebdomadaire.</li>
+					<li><strong>CCAS - Antenne de proximité</strong> : aide sociale et accompagnement administratif.</li>
+				</ul>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Un quartier engagé dans la solidarité</h3>
+				<p>
+					La tradition solidaire de Saint-Jean-du-Var se traduit par un réseau associatif dense et actif. Les associations d'aide alimentaire, d'insertion par l'emploi et de soutien aux familles assurent un maillage de proximité essentiel pour les habitants les plus fragiles. Le centre social de Font-Pré joue un rôle fédérateur en hébergeant des permanences associatives et en organisant des événements de quartier qui renforcent la cohésion sociale.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Solidarité et santé -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Solidarité, santé et incontinence à Saint-Jean-du-Var</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Dans un quartier populaire comme Saint-Jean-du-Var, l'accès aux soins et l'accompagnement social sont des enjeux majeurs. Les personnes à revenus modestes renoncent parfois à consulter un spécialiste ou à se procurer du matériel médical par manque d'information sur leurs droits. Les associations santé du quartier jouent un rôle crucial en informant les habitants sur la <strong>Complémentaire Santé Solidaire (CSS)</strong>, les prises en charge en <strong>ALD (Affection de Longue Durée)</strong> et les dispositifs d'aide au financement des protections médicales.
+				</p>
+				<p>
+					L'<strong>incontinence urinaire</strong> touche des habitants de tous les quartiers, mais c'est dans les quartiers populaires que le tabou est souvent le plus fort et l'accès aux solutions le plus difficile. L'association <strong>Var Incontinence</strong> s'engage à rendre son accompagnement accessible aux habitants de Saint-Jean-du-Var, avec des groupes d'entraide gratuits, une information sur la prise en charge des protections par la Sécurité sociale et une orientation vers les professionnels de santé du secteur.
+				</p>
+				<p>
+					Consultez notre page d'<a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">entraide incontinence à Toulon</a> pour connaître nos permanences. Pour les personnes âgées du quartier, notre page <a href={`${base}aidants-toulon-83000/`} class="text-teal-600 underline hover:text-teal-800">soutien aux aidants à Toulon</a> propose des ressources dédiées.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Pages associées</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Voir toutes les associations à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Annuaire complet</p>
+				</a>
+				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Aide par quartier à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Ressources locales</p>
+				</a>
+				<a href={`${base}association-handicap-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations handicap Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Accompagnement et droits</p>
+				</a>
+				<a href={`${base}aidants-toulon-83000/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Soutien aux aidants</p>
+					<p class="text-xs text-gray-500 mt-1">Répit et accompagnement</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide à Saint-Jean-du-Var ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence vous oriente vers les associations et services sociaux de Saint-Jean-du-Var adaptés à votre situation. Accompagnement gratuit et confidentiel.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-700 font-semibold px-8 py-3 rounded-full hover:bg-teal-50 transition-colors">Rejoindre l'association</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

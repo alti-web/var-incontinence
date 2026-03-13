@@ -20,4 +20,7 @@ export interface Association {
 	telephone: string;
 	description: string;
 	domaines: string[];
+	categorie: string;
+	siteWeb?: string;
+	email?: string;
 }

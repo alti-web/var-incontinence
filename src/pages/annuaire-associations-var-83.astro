@@ -1,0 +1,496 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const villes = [
+	{
+		nom: 'Toulon',
+		slug: 'toulon',
+		population: '180 000',
+		intro: 'Préfecture du Var et plus grande ville du département, Toulon concentre le plus grand nombre d\'associations santé et solidarité de la région. La ville dispose d\'une Maison des Associations active et d\'un tissu associatif particulièrement dense dans les quartiers du Mourillon, du Centre-Ville et de La Rode.',
+		lien: `${base}toulon-association/`,
+		associations: [
+			{ nom: 'Ligue contre le Cancer - Comité du Var', description: 'Accompagnement des patients atteints de cancer et de leurs proches. Soutien psychologique, aide financière, soins de bien-être.', adresse: '33 rue Peiresc, 83000 Toulon' },
+			{ nom: 'France Alzheimer Var', description: 'Soutien aux familles touchées par la maladie d\'Alzheimer. Groupes de parole, formations aidants, cafés mémoire.', adresse: '4 rue Picot, 83000 Toulon' },
+			{ nom: 'Association des Diabétiques du Var', description: 'Information, prévention et accompagnement des personnes diabétiques. Réunions mensuelles, ateliers nutrition.', adresse: 'Maison des Associations, 83000 Toulon' },
+			{ nom: 'Var Incontinence', description: 'Entraide et accompagnement des personnes souffrant d\'incontinence urinaire ou fécale. Orientation vers les professionnels de santé.', adresse: 'Toulon, 83000' },
+			{ nom: 'UDAF du Var', description: 'Union départementale des associations familiales. Aide aux démarches, médiation familiale, soutien à la parentalité.', adresse: '16 boulevard de Strasbourg, 83000 Toulon' },
+		]
+	},
+	{
+		nom: 'Hyères',
+		slug: 'hyeres',
+		population: '57 000',
+		intro: 'Deuxième ville du Var par sa population, Hyères-les-Palmiers bénéficie d\'un réseau associatif dynamique tourné vers la santé, le bien-être des seniors et la solidarité de proximité. La ville accueille plusieurs structures médico-sociales de référence.',
+		associations: [
+			{ nom: 'Secours Populaire - Antenne Hyères', description: 'Aide alimentaire, vestimentaire et accompagnement social pour les personnes en difficulté. Permanences hebdomadaires.', adresse: '2 avenue Edith Cavell, 83400 Hyères' },
+			{ nom: 'Association Hyéroise d\'Aide aux Handicapés (AHAH)', description: 'Accompagnement des personnes en situation de handicap. Activités adaptées, sorties, soutien aux familles.', adresse: '83400 Hyères' },
+			{ nom: 'Ligue contre le Cancer - Délégation Hyères', description: 'Permanences locales de soutien aux malades du cancer. Information, écoute et accompagnement dans les démarches.', adresse: 'Centre-ville, 83400 Hyères' },
+			{ nom: 'Club Senior Hyérois', description: 'Activités sociales et culturelles pour les personnes âgées. Ateliers mémoire, gym douce, sorties organisées.', adresse: '83400 Hyères' },
+		]
+	},
+	{
+		nom: 'Fréjus',
+		slug: 'frejus',
+		population: '55 000',
+		intro: 'Située dans l\'est du Var, Fréjus dispose d\'un tissu associatif tourné vers l\'accompagnement des seniors, la santé mentale et l\'aide sociale. La proximité du centre hospitalier intercommunal Fréjus-Saint-Raphaël renforce les partenariats entre soignants et associations locales.',
+		associations: [
+			{ nom: 'Croix-Rouge Française - Délégation Fréjus', description: 'Aide alimentaire, vestimentaire, écoute et accompagnement des personnes en situation de précarité. Formation aux premiers secours.', adresse: '135 rue des Combattants AFN, 83600 Fréjus' },
+			{ nom: 'Association des Paralysés de France (APF) - Antenne Fréjus', description: 'Accompagnement des personnes en situation de handicap moteur. Défense des droits, accessibilité, activités de loisirs.', adresse: '83600 Fréjus' },
+			{ nom: 'UNAFAM Var - Permanence Fréjus', description: 'Soutien aux familles de personnes souffrant de troubles psychiques. Groupes d\'entraide, permanences téléphoniques, orientation.', adresse: '83600 Fréjus' },
+			{ nom: 'Association Diabète Fréjus', description: 'Rencontres entre patients diabétiques, ateliers diététiques et marches santé. Prévention des complications liées au diabète.', adresse: '83600 Fréjus' },
+		]
+	},
+	{
+		nom: 'Draguignan',
+		slug: 'draguignan',
+		population: '42 000',
+		intro: 'Sous-préfecture du Var et ville principale du centre du département, Draguignan est un pôle associatif important pour le Var intérieur. La ville héberge de nombreuses structures d\'aide sociale, de santé et de soutien aux familles.',
+		associations: [
+			{ nom: 'Secours Catholique - Délégation Draguignan', description: 'Accueil, écoute et aide aux personnes en difficulté. Aide alimentaire, accompagnement social et insertion professionnelle.', adresse: '9 boulevard Georges Clemenceau, 83300 Draguignan' },
+			{ nom: 'France Alzheimer Var - Antenne Draguignan', description: 'Permanences locales pour les familles touchées par Alzheimer. Cafés mémoire, orientation vers les structures de répit.', adresse: '83300 Draguignan' },
+			{ nom: 'ADAPEI Var - Établissements Draguignan', description: 'Accompagnement des personnes en situation de handicap mental. Hébergement, activités de jour, insertion professionnelle.', adresse: '83300 Draguignan' },
+			{ nom: 'Association Dracénoise d\'Aide à Domicile', description: 'Services d\'aide à domicile pour les personnes âgées et handicapées. Aide ménagère, portage de repas, téléassistance.', adresse: '83300 Draguignan' },
+		]
+	},
+	{
+		nom: 'La Seyne-sur-Mer',
+		slug: 'la-seyne-sur-mer',
+		population: '66 000',
+		intro: 'Troisième ville du Var, La Seyne-sur-Mer bénéficie d\'un réseau associatif solidaire et engagé, notamment dans les quartiers prioritaires de la ville. Les structures locales œuvrent en faveur de la santé, de l\'insertion et du lien social.',
+		associations: [
+			{ nom: 'Médecins du Monde - Antenne La Seyne', description: 'Consultations médicales gratuites pour les personnes sans couverture sociale. Accompagnement dans l\'accès aux droits santé.', adresse: '83500 La Seyne-sur-Mer' },
+			{ nom: 'Restos du Cœur - Centre La Seyne', description: 'Distribution alimentaire, ateliers cuisine, accompagnement social et accès aux droits pour les personnes en situation de précarité.', adresse: 'ZA Jean Monnet, 83500 La Seyne-sur-Mer' },
+			{ nom: 'Association Seynoise de Solidarité', description: 'Aide aux familles en difficulté, accompagnement administratif, soutien scolaire et activités pour les jeunes des quartiers.', adresse: '83500 La Seyne-sur-Mer' },
+			{ nom: 'CCAS La Seyne - Services Seniors', description: 'Aide à domicile, portage de repas, animation pour les personnes âgées isolées. Prévention de la perte d\'autonomie.', adresse: 'Hôtel de Ville, 83500 La Seyne-sur-Mer' },
+		]
+	},
+	{
+		nom: 'Six-Fours-les-Plages',
+		slug: 'six-fours-les-plages',
+		population: '36 000',
+		intro: 'Commune littorale voisine de Toulon, Six-Fours-les-Plages accueille plusieurs associations tournées vers l\'accompagnement des seniors, le sport santé et la solidarité locale. Le tissu associatif y est particulièrement actif dans le domaine de la prévention.',
+		associations: [
+			{ nom: 'France Bénévolat - Antenne Six-Fours', description: 'Orientation des bénévoles vers les associations locales. Mise en relation entre candidats au bénévolat et structures en recherche.', adresse: '83140 Six-Fours-les-Plages' },
+			{ nom: 'Club de l\'Amitié Six-Fours', description: 'Activités sociales et de loisirs pour les seniors. Sorties culturelles, repas partagés, gym douce et ateliers créatifs.', adresse: '83140 Six-Fours-les-Plages' },
+			{ nom: 'Secours Populaire - Comité Six-Fours', description: 'Aide alimentaire et vestimentaire, accompagnement social, vacances solidaires pour les familles en difficulté.', adresse: '83140 Six-Fours-les-Plages' },
+		]
+	},
+	{
+		nom: 'Brignoles',
+		slug: 'brignoles',
+		population: '18 000',
+		intro: 'Ville centre de la Provence Verte au cœur du Var, Brignoles est un pôle de services pour le Var intérieur. Les associations locales répondent aux besoins de santé et de solidarité des habitants de tout le secteur rural environnant.',
+		associations: [
+			{ nom: 'Centre Social et Culturel de Brignoles', description: 'Accompagnement social, activités familiales, ateliers santé et prévention. Point d\'accueil pour les démarches administratives.', adresse: 'Place des Augustins, 83170 Brignoles' },
+			{ nom: 'Croix-Rouge Française - Antenne Brignoles', description: 'Aide d\'urgence, distribution alimentaire, vestiboutique solidaire et formation aux gestes de premiers secours.', adresse: '83170 Brignoles' },
+			{ nom: 'Association d\'Aide aux Personnes Âgées du Centre Var', description: 'Services d\'aide à domicile, transport accompagné, activités de socialisation pour les seniors isolés du territoire.', adresse: '83170 Brignoles' },
+		]
+	},
+	{
+		nom: 'Saint-Raphaël',
+		slug: 'saint-raphael',
+		population: '36 000',
+		intro: 'Située à l\'extrémité est du Var, à la frontière avec les Alpes-Maritimes, Saint-Raphaël dispose d\'un réseau associatif dynamique. La ville partage avec Fréjus le centre hospitalier intercommunal, favorisant les collaborations entre associations de santé des deux communes.',
+		associations: [
+			{ nom: 'Ligue contre le Cancer - Comité Saint-Raphaël', description: 'Accompagnement des malades du cancer et de leurs proches. Soins de support, soutien psychologique, aide financière.', adresse: '83700 Saint-Raphaël' },
+			{ nom: 'Association Raphaëloise d\'Entraide', description: 'Aide alimentaire, accompagnement administratif et social pour les personnes en situation de précarité.', adresse: '83700 Saint-Raphaël' },
+			{ nom: 'ADMR Est Var', description: 'Services d\'aide à domicile pour les personnes âgées et en situation de handicap. Aide ménagère, garde de nuit, accompagnement.', adresse: '83700 Saint-Raphaël' },
+			{ nom: 'Association Handisport Estérel', description: 'Activités sportives adaptées pour les personnes en situation de handicap. Natation, tir à l\'arc, randonnée adaptée.', adresse: '83700 Saint-Raphaël' },
+		]
+	}
+];
+
+const themes = [
+	{ nom: 'Santé & Maladies chroniques', slug: 'sante', description: 'Cancer, diabète, maladies cardiovasculaires, maladies neurodégénératives. Prévention, dépistage et accompagnement des patients.', lien: `${base}association-sante-toulon/` },
+	{ nom: 'Handicap', slug: 'handicap', description: 'Handicap moteur, sensoriel, mental et psychique. Droits MDPH, accessibilité, insertion professionnelle et activités adaptées.', lien: `${base}association-handicap-toulon/` },
+	{ nom: 'Seniors & Autonomie', slug: 'seniors', description: 'Maintien à domicile, prévention de la perte d\'autonomie, lien social, activités culturelles et sportives pour les aînés.', lien: `${base}association-seniors-toulon/` },
+	{ nom: 'Aide sociale & Solidarité', slug: 'aide-sociale', description: 'Aide alimentaire, vestimentaire, accompagnement administratif, insertion professionnelle et lutte contre la précarité.', lien: `${base}association-aidants-toulon/` },
+];
+---
+
+<Layout title="Annuaire Associations du Var (83) — Liste Complète par Ville">
+
+	<meta slot="head" name="description" content="Annuaire des associations du Var : Toulon, Hyères, Fréjus, Draguignan. Recherche par ville et par thématique. Mis à jour 2026." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Annuaire des associations du Var (83)",
+		"description": "Liste complète des associations santé et solidarité dans le département du Var, classées par ville",
+		"numberOfItems": villes.reduce((acc, v) => acc + v.associations.length, 0),
+		"itemListElement": villes.flatMap((v, vi) => v.associations.map((a, ai) => ({
+			"@type": "ListItem",
+			"position": vi * 10 + ai + 1,
+			"item": {
+				"@type": "Organization",
+				"name": a.nom,
+				"description": a.description,
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": a.adresse,
+					"addressLocality": v.nom,
+					"addressRegion": "Var",
+					"addressCountry": "FR"
+				}
+			}
+		})))
+	})} />
+
+	<!-- Hero + Breadcrumb -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Annuaire du Var</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Annuaire des associations du Var (83)</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Le répertoire le plus complet des associations santé, solidarité et accompagnement dans le département du Var. Recherche par ville et par thématique pour trouver la structure adaptée à votre situation.
+			</p>
+			<div class="mt-6 flex flex-wrap items-center gap-4 text-teal-200 text-sm">
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+					<span>8 villes couvertes</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+					<span>{villes.reduce((acc, v) => acc + v.associations.length, 0)} associations référencées</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+					<span>Mis à jour en mars 2026</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SEO Intro -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Le Var : un département riche en initiatives associatives</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le <strong>département du Var (83)</strong>, situé au cœur de la région Provence-Alpes-Côte d'Azur, compte plus de <strong>1,1 million d'habitants</strong> répartis sur 153 communes, de la bande littorale méditerranéenne aux territoires ruraux de l'arrière-pays. Avec une densité de population particulièrement élevée sur la côte et une proportion croissante de personnes âgées, le Var fait face à des enjeux majeurs en matière de santé publique, de solidarité et d'accompagnement social.
+				</p>
+				<p>
+					Le tissu associatif varois est l'un des plus dynamiques de la région PACA. Le département compte <strong>plusieurs milliers d'associations actives</strong> dans tous les domaines : sport, culture, environnement, mais aussi et surtout santé, handicap, aide aux personnes âgées et solidarité. Ces structures jouent un rôle essentiel de complément aux services publics, en assurant un maillage de proximité indispensable au quotidien des habitants.
+				</p>
+				<p>
+					Cet annuaire recense les principales <strong>associations de santé et de solidarité du Var</strong>, classées par ville et par thématique. Il couvre les grandes agglomérations comme <strong>Toulon</strong>, <strong>Hyères</strong>, <strong>Fréjus</strong> et <strong>Draguignan</strong>, mais aussi les villes moyennes comme <strong>La Seyne-sur-Mer</strong>, <strong>Six-Fours-les-Plages</strong>, <strong>Brignoles</strong> et <strong>Saint-Raphaël</strong>. Que vous cherchiez un accompagnement pour une maladie chronique, un soutien en tant qu'aidant familial, une aide sociale ou une structure adaptée au handicap, vous trouverez ici les contacts et les informations nécessaires.
+				</p>
+				<p>
+					Notre association <strong>Var Incontinence</strong>, basée à Toulon, travaille en réseau avec ces structures locales pour orienter les personnes souffrant de troubles urinaires vers l'accompagnement le plus adapté dans tout le département. N'hésitez pas à <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">nous contacter</a> pour être guidé(e) dans vos recherches.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Table des matières / Navigation par ville -->
+	<section class="py-8 bg-white border-b border-gray-100 sticky top-0 z-40 shadow-sm">
+		<div class="max-w-6xl mx-auto px-4">
+			<p class="text-sm font-semibold text-gray-700 mb-3">Accès rapide par ville :</p>
+			<div class="flex flex-wrap gap-2">
+				{villes.map(v => (
+					<a href={`#ville-${v.slug}`} class="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-sm font-medium px-4 py-2 rounded-full transition-colors">
+						{v.nom}
+						<span class="bg-teal-200 text-teal-800 text-xs font-bold px-1.5 py-0.5 rounded-full">{v.associations.length}</span>
+					</a>
+				))}
+				<a href="#themes" class="inline-flex items-center gap-1.5 bg-cyan-50 hover:bg-cyan-100 text-cyan-700 text-sm font-medium px-4 py-2 rounded-full transition-colors">
+					Par thématique
+				</a>
+				<a href="#ressources" class="inline-flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium px-4 py-2 rounded-full transition-colors">
+					Ressources
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Sections par ville -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			{villes.map((ville, villeIndex) => (
+				<div id={`ville-${ville.slug}`} class="mb-16 scroll-mt-24">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">{villeIndex + 1}</span>
+						<div>
+							<h2 class="text-2xl font-bold text-gray-900">Associations à {ville.nom}</h2>
+							<p class="text-sm text-gray-500">{ville.population} habitants — {ville.associations.length} associations référencées</p>
+						</div>
+					</div>
+
+					<p class="text-gray-600 leading-relaxed mb-6 max-w-4xl">{ville.intro}</p>
+
+					{ville.lien && (
+						<div class="mb-6 bg-teal-50 rounded-xl p-4 flex items-center gap-3">
+							<svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+							<p class="text-sm text-gray-700">Voir l'annuaire complet : <a href={ville.lien} class="text-teal-600 font-semibold underline hover:text-teal-800">toutes les associations à {ville.nom}</a> — fiches détaillées avec contacts et horaires.</p>
+						</div>
+					)}
+
+					<div class="grid gap-4 md:grid-cols-2">
+						{ville.associations.map((asso) => (
+							<article class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+								<h3 class="text-lg font-bold text-gray-900 mb-2">{asso.nom}</h3>
+								<p class="text-gray-600 text-sm mb-3">{asso.description}</p>
+								<div class="flex items-center gap-2 text-sm text-gray-500">
+									<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{asso.adresse}</span>
+								</div>
+							</article>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- Section par thématique -->
+	<section id="themes" class="py-16 bg-gray-50 border-t border-gray-100 scroll-mt-24">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-2">Rechercher par thématique</h2>
+			<p class="text-gray-500 text-sm mb-8">Retrouvez les associations du Var classées par domaine d'intervention. Chaque page thématique propose un annuaire détaillé avec contacts et descriptions.</p>
+
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+				{themes.map(theme => (
+					<a href={theme.lien} class="bg-white rounded-2xl p-6 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group block">
+						<h3 class="text-lg font-bold text-gray-900 group-hover:text-teal-700 mb-2">{theme.nom}</h3>
+						<p class="text-sm text-gray-500">{theme.description}</p>
+						<span class="inline-flex items-center gap-1 text-teal-600 text-sm font-medium mt-4 group-hover:translate-x-1 transition-transform">
+							Voir les associations
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+						</span>
+					</a>
+				))}
+			</div>
+
+			<div class="mt-12">
+				<h3 class="text-xl font-bold text-gray-900 mb-6">Les thématiques associatives clés dans le Var</h3>
+				<div class="text-gray-600 leading-relaxed space-y-4 max-w-4xl">
+					<h4 class="text-lg font-bold text-gray-800">Santé et maladies chroniques dans le Var</h4>
+					<p>
+						Avec une population qui vieillit et une prévalence croissante des maladies chroniques, le Var concentre un nombre important d'associations de patients. Du cancer au diabète, en passant par les maladies cardiovasculaires et les troubles urinaires, chaque pathologie dispose de structures dédiées réparties sur le territoire. Les hôpitaux de Toulon (Sainte-Musse, Font-Pré), le centre hospitalier intercommunal Fréjus-Saint-Raphaël et le centre hospitalier de Draguignan travaillent en partenariat avec ces associations pour améliorer le parcours de soins des patients varois. L'incontinence urinaire, problématique fréquente mais encore taboue, bénéficie d'un accompagnement dédié via notre association <a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">Var Incontinence</a>.
+					</p>
+
+					<h4 class="text-lg font-bold text-gray-800 pt-4">Handicap et accessibilité dans le Var</h4>
+					<p>
+						Le département du Var compte plusieurs dizaines de milliers de personnes en situation de handicap. Les associations locales interviennent à tous les niveaux : reconnaissance des droits auprès de la <strong>MDPH du Var</strong>, aide à l'insertion professionnelle, activités sportives et culturelles adaptées, accompagnement en établissement ou à domicile. La <a href={`${base}association-handicap-toulon/`} class="text-teal-600 underline hover:text-teal-800">page dédiée aux associations handicap</a> détaille les structures présentes à Toulon et dans les environs. L'APF France handicap, l'ADAPEI Var, les clubs handisport et de nombreuses associations spécialisées assurent un maillage territorial indispensable.
+					</p>
+
+					<h4 class="text-lg font-bold text-gray-800 pt-4">Seniors et maintien de l'autonomie</h4>
+					<p>
+						Le Var est l'un des départements les plus âgés de France, avec plus de 28% de la population ayant plus de 60 ans. Cette réalité démographique rend les associations d'aide aux seniors particulièrement vitales. Les services d'aide à domicile (ADMR, UNA, associations locales), les clubs seniors, les structures de prévention de la perte d'autonomie et les associations d'aidants familiaux constituent un réseau dense sur l'ensemble du département. Les CCAS des communes varoises jouent également un rôle de coordination essentiel entre les services municipaux et les associations locales.
+					</p>
+
+					<h4 class="text-lg font-bold text-gray-800 pt-4">Aide sociale et lutte contre la précarité</h4>
+					<p>
+						La précarité touche de nombreuses familles dans le Var, tant sur le littoral que dans l'arrière-pays. Les grandes associations nationales (Croix-Rouge, Secours Populaire, Restos du Cœur, Secours Catholique) disposent de délégations actives dans les principales villes varoises. Elles assurent une aide alimentaire, vestimentaire et un accompagnement social tout au long de l'année. Des associations locales complètent ce dispositif avec des actions de proximité adaptées aux spécificités de chaque territoire : accompagnement administratif, aide au logement, insertion professionnelle et soutien à la parentalité.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Ressources : comment rechercher une association -->
+	<section id="ressources" class="py-16 bg-white border-t border-gray-100 scroll-mt-24">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Comment rechercher une association dans le Var</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Trouver l'association qui correspond exactement à votre besoin dans le Var peut nécessiter plusieurs démarches. Au-delà de notre annuaire, voici les principales ressources officielles disponibles pour identifier les structures actives dans le département.
+				</p>
+
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Le Répertoire National des Associations (RNA)</h3>
+				<p>
+					Le <strong>RNA</strong> est la base de données officielle de toutes les associations déclarées en France. Géré par le ministère de l'Intérieur, il recense plus de 1,8 million d'associations sur le territoire national. Vous pouvez y effectuer une recherche par département, commune ou thématique pour retrouver les coordonnées et l'objet social de n'importe quelle association déclarée dans le Var. Le RNA est accessible gratuitement en ligne et constitue la source la plus exhaustive pour identifier les associations existantes.
+				</p>
+
+				<h3 class="text-xl font-bold text-gray-900 pt-4">La préfecture et les sous-préfectures du Var</h3>
+				<p>
+					La <strong>préfecture du Var</strong>, située à Toulon, et les sous-préfectures de Brignoles et Draguignan gèrent les déclarations associatives sur le territoire. Elles peuvent fournir des informations sur les associations récemment créées ou modifiées. Le greffe des associations de la préfecture du Var est le point de contact officiel pour toute question relative au statut juridique des associations du département. C'est également auprès de la préfecture que se font les demandes de reconnaissance d'utilité publique et les déclarations de modification des statuts.
+				</p>
+
+				<h3 class="text-xl font-bold text-gray-900 pt-4">JeVeuxAider.gouv.fr — la plateforme du bénévolat</h3>
+				<p>
+					La plateforme <strong>JeVeuxAider.gouv.fr</strong>, portée par le Service Civique, permet de trouver des missions de bénévolat dans le Var et partout en France. Elle recense des milliers de missions proposées par les associations varoises dans tous les domaines : santé, solidarité, éducation, environnement, sport. C'est un excellent moyen de découvrir les associations actives dans votre ville et de vous engager en tant que bénévole. La plateforme permet de filtrer par localisation, thématique et disponibilité.
+				</p>
+
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Les Maisons des Associations</h3>
+				<p>
+					Plusieurs communes du Var disposent d'une <strong>Maison des Associations</strong> qui héberge et soutient les associations locales. Celle de Toulon est particulièrement active et propose des services de domiciliation, des salles de réunion, un accompagnement juridique et des formations. C'est un point d'entrée privilégié pour découvrir les associations de votre ville. La <a href={`${base}maison-associations-toulon/`} class="text-teal-600 underline hover:text-teal-800">Maison des Associations de Toulon</a> accueille plusieurs centaines de structures et organise chaque année le Forum des Associations.
+				</p>
+
+				<h3 class="text-xl font-bold text-gray-900 pt-4">France Bénévolat et les Centres de Ressources</h3>
+				<p>
+					<strong>France Bénévolat Var</strong> propose un service d'orientation gratuit pour les personnes souhaitant s'engager bénévolement dans une association. Le centre départemental met en relation les candidats au bénévolat avec les associations en recherche de compétences. C'est également une excellente ressource pour les personnes cherchant simplement à connaître les associations présentes dans leur quartier ou leur ville. Les conseillers de France Bénévolat connaissent le tissu associatif local et peuvent vous orienter en fonction de vos besoins spécifiques.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Géographie associative du Var -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">La géographie associative du Var</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le département du Var présente une géographie contrastée qui influence directement la répartition des associations sur le territoire. La bande littorale, de Bandol à Saint-Raphaël en passant par Toulon, Hyères et Fréjus, concentre l'essentiel de la population et donc la majorité des associations. Le Var intérieur, avec des villes comme Brignoles, Draguignan ou Barjols, dispose d'un maillage associatif moins dense mais tout aussi vital pour les populations locales.
+				</p>
+				<p>
+					L'agglomération toulonnaise (Toulon, La Seyne-sur-Mer, Six-Fours-les-Plages, Ollioules, La Garde, Le Pradet) constitue le principal bassin associatif du département. La métropole Toulon Provence Méditerranée fédère plus de 430 000 habitants et concentre la majorité des sièges sociaux d'associations départementales. L'est du Var, avec le binôme Fréjus-Saint-Raphaël, forme un second pôle important, notamment dans les domaines de la santé et du sport adapté.
+				</p>
+				<p>
+					Pour les habitants des zones rurales du Var, l'accès aux associations peut être plus complexe. Les structures d'aide à domicile (ADMR, associations locales) jouent alors un rôle particulièrement important en assurant un accompagnement de proximité. Les mairies et CCAS des petites communes constituent souvent le premier point de contact pour orienter les habitants vers les associations départementales les plus proches. Le développement des visioconférences et des permanences itinérantes permet progressivement de réduire les inégalités territoriales d'accès aux services associatifs.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-2">Explorer nos pages thématiques</h2>
+			<p class="text-gray-500 text-sm mb-8">Retrouvez nos guides détaillés par domaine et par quartier à Toulon.</p>
+
+			<h3 class="text-lg font-bold text-gray-800 mb-4">Par thématique santé</h3>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+				<a href={`${base}association-handicap-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations handicap à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Handicap moteur, sensoriel, mental</p>
+				</a>
+				<a href={`${base}association-sante-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations santé à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Maladies chroniques, prévention</p>
+				</a>
+				<a href={`${base}association-aidants-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Soutien aux aidants à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Répit, groupes de parole, droits</p>
+				</a>
+				<a href={`${base}entraide-incontinence-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Entraide incontinence à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Soutien et accompagnement</p>
+				</a>
+			</div>
+
+			<h3 class="text-lg font-bold text-gray-800 mb-4">Par quartier à Toulon</h3>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+				<a href={`${base}association-mourillon-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Le Mourillon</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-centre-ville-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Centre-Ville</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-la-rode-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">La Rode</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-cap-brun-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Cap Brun</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-saint-jean-du-var-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Saint-Jean-du-Var</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+			</div>
+
+			<h3 class="text-lg font-bold text-gray-800 mb-4">Guides pratiques</h3>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Annuaire associations Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Toutes les associations</p>
+				</a>
+				<a href={`${base}comment-creer-association-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Créer une association à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Guide complet des démarches 2026</p>
+				</a>
+				<a href={`${base}subventions-associations-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Subventions et financements</p>
+					<p class="text-xs text-gray-500 mt-1">Aides municipales, départementales</p>
+				</a>
+				<a href={`${base}maison-associations-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Maison des Associations</p>
+					<p class="text-xs text-gray-500 mt-1">Services et accompagnement</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes sur les associations dans le Var</h2>
+
+			<div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Combien d'associations compte le département du Var ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Le département du Var compte plusieurs milliers d'associations actives dans tous les domaines. Toulon, la préfecture, concentre à elle seule plus de 4 400 associations. Notre annuaire référence spécifiquement les associations de santé, handicap et solidarité dans les principales villes du département.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Comment trouver une association près de chez moi dans le Var ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Utilisez la navigation par ville ci-dessus pour trouver les associations de votre commune. Vous pouvez également consulter le Répertoire National des Associations (RNA), contacter votre mairie ou le CCAS de votre commune, ou nous contacter directement pour être orienté(e) vers la structure la plus adaptée à votre situation.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Existe-t-il une association pour l'incontinence dans le Var ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Oui, l'association Var Incontinence est basée à Toulon et accompagne les personnes souffrant de troubles urinaires ou fécaux dans tout le département. Elle propose un groupe d'entraide, de l'information et une orientation vers les professionnels de santé spécialisés du Var. Consultez notre page d'entraide pour en savoir plus.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Comment créer une association dans le Var ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La création d'une association loi 1901 dans le Var passe par la rédaction des statuts, la tenue d'une assemblée générale constitutive et la déclaration auprès de la préfecture du Var à Toulon, ou des sous-préfectures de Brignoles et Draguignan. Consultez notre guide complet pour créer une association à Toulon, qui détaille toutes les étapes et fournit les adresses utiles.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Quelles sont les associations de santé les plus actives dans le Var ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Parmi les associations de santé les plus actives dans le Var figurent la Ligue contre le Cancer (Comité du Var), France Alzheimer Var, l'Association des Diabétiques du Var, France Parkinson Var et Var Incontinence. Les grandes associations nationales de solidarité (Croix-Rouge, Secours Populaire, Restos du Cœur) disposent également de délégations très actives dans les principales villes du département.</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-gradient-to-r from-teal-50 to-cyan-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide pour trouver la bonne association ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence collabore avec les associations de tout le département pour vous orienter vers la structure la plus adaptée à votre situation, que vous habitiez Toulon, Hyères, Fréjus, Draguignan ou toute autre commune du Var.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors shadow-lg hover:shadow-xl">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-600 font-semibold px-8 py-3 rounded-full hover:bg-teal-600 hover:text-white transition-colors">Rejoindre Var Incontinence</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

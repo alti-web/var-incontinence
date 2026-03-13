@@ -21,14 +21,27 @@ export default defineConfig({
           return { ...item, priority: 1.0, changefreq: 'weekly' };
         }
 
-        // Annuaires (pages listing)
-        if (['/toulon-association', '/toulon-infirmiere', '/toulon-materiel-medical'].includes(path)) {
+        // Annuaires (pages listing) + page pilier cocon
+        if (['/toulon-association', '/toulon-infirmiere', '/toulon-materiel-medical', '/annuaire-associations-var-83'].includes(path)) {
           return { ...item, priority: 0.9, changefreq: 'weekly' };
         }
 
         // Blog listing
         if (path === '/blog-handicap-incontinence-toulon') {
           return { ...item, priority: 0.9, changefreq: 'weekly' };
+        }
+
+        // Pages cocon Niveau 1 (thématiques + quartiers)
+        if ([
+          '/association-handicap-toulon', '/association-sante-toulon', '/association-aidants-toulon', '/association-seniors-toulon',
+          '/association-mourillon-toulon', '/association-centre-ville-toulon', '/association-la-rode-toulon', '/association-cap-brun-toulon', '/association-saint-jean-du-var-toulon'
+        ].includes(path)) {
+          return { ...item, priority: 0.85, changefreq: 'monthly' };
+        }
+
+        // Pages cocon Niveau 2 (guides pratiques)
+        if (['/comment-creer-association-toulon', '/subventions-associations-toulon', '/maison-associations-toulon', '/benevolat-toulon'].includes(path)) {
+          return { ...item, priority: 0.8, changefreq: 'monthly' };
         }
 
         // Pages statiques importantes (contenu associatif)

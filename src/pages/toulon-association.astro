@@ -1,98 +1,384 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { associations } from '../data/associations';
+import { associations, categories } from '../data/associations';
 import { toSlug } from '../data/utils';
 
 const base = import.meta.env.BASE_URL;
+
+const categoriesCount = categories.map(cat => ({
+	nom: cat,
+	slug: toSlug(cat),
+	count: associations.filter(a => a.categorie === cat).length
+}));
 ---
 
-<Layout title="Associations Santé et Handicap à Toulon – Annuaire (83) | Association Var Incontinence">
+<Layout title="Associations à Toulon (83) — Annuaire Complet Santé & Solidarité | Var Incontinence">
+
+	<meta slot="head" name="description" content="Retrouvez toutes les associations santé, handicap et solidarité à Toulon 83000. Annuaire complet avec contacts, horaires et descriptions. Mis à jour 2026." />
+
+	<!-- Schema.org JSON-LD -->
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Annuaire des associations santé et solidarité à Toulon",
+		"description": "Liste complète des associations santé, handicap et solidarité à Toulon (83000) dans le Var",
+		"numberOfItems": associations.length,
+		"itemListElement": associations.map((a, i) => ({
+			"@type": "ListItem",
+			"position": i + 1,
+			"item": {
+				"@type": "Organization",
+				"name": a.nom,
+				"description": a.description,
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": a.adresse,
+					"addressLocality": "Toulon",
+					"postalCode": "83000",
+					"addressRegion": "Var",
+					"addressCountry": "FR"
+				},
+				...(a.telephone ? { "telephone": a.telephone } : {}),
+				...(a.siteWeb ? { "url": a.siteWeb } : {})
+			}
+		}))
+	})} />
 
 	<!-- Hero -->
 	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
 		<div class="max-w-6xl mx-auto px-4">
-			<nav class="text-teal-200 text-sm mb-6">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
 				<a href={base} class="hover:text-white transition-colors">Accueil</a>
 				<span class="mx-2">/</span>
 				<span class="text-white">Associations à Toulon</span>
 			</nav>
-			<h1 class="text-3xl md:text-5xl font-bold mb-4">Associations santé et handicap à Toulon</h1>
-			<p class="text-lg text-teal-100 max-w-2xl">
-				Annuaire des associations d'aide aux personnes malades, en situation de handicap ou en perte d'autonomie à Toulon et dans le Var. Soutien, accompagnement et orientation.
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Annuaire des associations santé et solidarité à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Le guide le plus complet des associations santé, handicap, aide sociale et solidarité à Toulon (83000). Trouvez la structure adaptée à votre situation parmi {associations.length} associations référencées.
 			</p>
-			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
-				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-				<span>{associations.length} associations référencées</span>
+			<div class="mt-6 flex flex-wrap items-center gap-4 text-teal-200 text-sm">
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+					<span>{associations.length} associations référencées</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
+					<span>{categories.length} catégories</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+					<span>Mis à jour en mars 2026</span>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Intro SEO -->
+	<!-- Introduction SEO (300+ mots) -->
 	<section class="py-12 bg-gray-50 border-b border-gray-100">
 		<div class="max-w-4xl mx-auto px-4">
-			<h2 class="text-2xl font-bold text-gray-900 mb-4">Associations d'aide et de soutien à Toulon</h2>
-			<p class="text-gray-600 leading-relaxed mb-4">
-				De nombreuses associations toulonnaises accompagnent les personnes touchées par la maladie, le handicap ou la perte d'autonomie. Qu'il s'agisse de groupes de parole, d'aide à domicile, d'insertion professionnelle ou de défense des droits, ces structures offrent un soutien précieux et souvent gratuit.
-			</p>
-			<p class="text-gray-600 leading-relaxed">
-				L'association Var Incontinence travaille en lien avec ces acteurs locaux. <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez-nous</a> pour être orienté(e) vers la structure la plus adaptée.
-			</p>
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">La vie associative à Toulon : un réseau de solidarité exceptionnel</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Toulon, préfecture du Var et troisième ville de la région Provence-Alpes-Côte d'Azur, compte plus de <strong>4 400 associations actives</strong>. Cette richesse associative fait de la cité varoise l'une des villes les plus dynamiques de France en matière d'engagement citoyen et de solidarité. Parmi ces milliers de structures, les associations dédiées à la santé, au handicap et à l'aide sociale jouent un rôle essentiel dans le quotidien de milliers de Toulonnais.
+				</p>
+				<p>
+					Que vous soyez une personne en situation de handicap cherchant un accompagnement adapté, un aidant familial ayant besoin de répit, un senior souhaitant rompre l'isolement ou un patient atteint d'une maladie chronique recherchant du soutien, <strong>cet annuaire recense les associations qui peuvent vous aider à Toulon et dans le Var (83)</strong>. Chaque fiche comprend les coordonnées, la description des services et les domaines d'intervention.
+				</p>
+				<p>
+					Le tissu associatif toulonnais bénéficie de l'appui de la <a href={`${base}maison-associations-toulon/`} class="text-teal-600 underline hover:text-teal-800">Maison des Associations de Toulon</a>, qui offre domiciliation, salles de réunion et accompagnement juridique. La ville organise chaque année le <strong>Forum des Associations</strong> en septembre, occasion unique de rencontrer ces structures en un seul lieu. Les quartiers du <a href={`${base}association-mourillon-toulon/`} class="text-teal-600 underline hover:text-teal-800">Mourillon</a>, du <a href={`${base}association-centre-ville-toulon/`} class="text-teal-600 underline hover:text-teal-800">Centre-Ville</a>, de <a href={`${base}association-la-rode-toulon/`} class="text-teal-600 underline hover:text-teal-800">La Rode</a> et du <a href={`${base}association-cap-brun-toulon/`} class="text-teal-600 underline hover:text-teal-800">Cap Brun</a> concentrent une grande partie de ces associations.
+				</p>
+				<p>
+					Notre association <strong>Var Incontinence</strong> travaille en lien direct avec ces acteurs locaux pour orienter les personnes souffrant de troubles urinaires vers l'accompagnement le plus adapté. N'hésitez pas à <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">nous contacter</a> pour être orienté(e) ou à consulter notre page dédiée à l'<a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">entraide incontinence à Toulon</a>.
+				</p>
+			</div>
 		</div>
 	</section>
 
-	<!-- Liste des associations -->
-	<section class="py-16 bg-white">
+	<!-- Navigation par catégorie -->
+	<section class="py-8 bg-white border-b border-gray-100 sticky top-0 z-40 shadow-sm">
 		<div class="max-w-6xl mx-auto px-4">
-			<div class="grid gap-6">
-				{associations.map((a, i) => (
-					<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all">
-						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-							<div class="flex-1">
-								<div class="flex items-center gap-3 mb-3">
-									<span class="w-8 h-8 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
-									<h3 class="text-xl font-bold text-gray-900">{a.nom}</h3>
-								</div>
-								<p class="text-gray-600 mb-4">{a.description}</p>
-								<div class="flex flex-wrap gap-2">
-									{a.domaines.map(d => (
-										<span class="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">{d}</span>
-									))}
-								</div>
-							</div>
-							<div class="md:text-right shrink-0 space-y-2">
-								<div class="flex items-center gap-2 text-sm text-gray-600">
-									<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-									<span>{a.adresse}</span>
-								</div>
-								{a.telephone && (
-									<div class="flex items-center gap-2 text-sm">
-										<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-										<a href={`tel:${a.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800">{a.telephone}</a>
-									</div>
-								)}
-								<div class="flex flex-wrap gap-2 mt-2">
-									<a href={`${base}association/${toSlug(a.nom)}/`} class="inline-flex items-center gap-1 text-xs text-white bg-teal-600 hover:bg-teal-700 font-medium px-3 py-1.5 rounded-full transition-all">
-										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-										Voir la fiche
-									</a>
-									<button data-nom={a.nom} class="btn-modifier inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
-										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-										Modifier cette fiche
-									</button>
-								</div>
-							</div>
-						</div>
-					</article>
+			<div class="flex flex-wrap gap-2">
+				{categoriesCount.map(cat => (
+					<a href={`#cat-${cat.slug}`} class="inline-flex items-center gap-1.5 bg-teal-50 hover:bg-teal-100 text-teal-700 text-sm font-medium px-4 py-2 rounded-full transition-colors">
+						{cat.nom}
+						<span class="bg-teal-200 text-teal-800 text-xs font-bold px-1.5 py-0.5 rounded-full">{cat.count}</span>
+					</a>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Maillage interne -->
+	<!-- Liste des associations par catégorie -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			{categories.map((cat, catIndex) => {
+				const catAssociations = associations.filter(a => a.categorie === cat);
+				const catSlug = toSlug(cat);
+				return (
+					<div id={`cat-${catSlug}`} class="mb-16 scroll-mt-24">
+						<div class="flex items-center gap-3 mb-8">
+							<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold">{catIndex + 1}</span>
+							<div>
+								<h2 class="text-2xl font-bold text-gray-900">{cat}</h2>
+								<p class="text-sm text-gray-500">{catAssociations.length} association{catAssociations.length > 1 ? 's' : ''} référencée{catAssociations.length > 1 ? 's' : ''}</p>
+							</div>
+						</div>
+
+						<div class="grid gap-5">
+							{catAssociations.map((a, i) => (
+								<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all" itemscope itemtype="https://schema.org/Organization">
+									<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+										<div class="flex-1">
+											<div class="flex items-center gap-3 mb-3">
+												<span class="w-8 h-8 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+												<h3 class="text-xl font-bold text-gray-900" itemprop="name">{a.nom}</h3>
+											</div>
+											<p class="text-gray-600 mb-4" itemprop="description">{a.description}</p>
+											<div class="flex flex-wrap gap-2">
+												{a.domaines.map(d => (
+													<span class="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">{d}</span>
+												))}
+											</div>
+										</div>
+										<div class="md:text-right shrink-0 space-y-2" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+											<div class="flex items-center gap-2 text-sm text-gray-600">
+												<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+												<span itemprop="streetAddress">{a.adresse}</span>
+											</div>
+											{a.telephone && (
+												<div class="flex items-center gap-2 text-sm">
+													<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+													<a href={`tel:${a.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800" itemprop="telephone">{a.telephone}</a>
+												</div>
+											)}
+											{a.siteWeb && (
+												<div class="flex items-center gap-2 text-sm">
+													<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+													<a href={a.siteWeb} target="_blank" rel="noopener noreferrer" class="text-teal-600 hover:text-teal-800 truncate max-w-[200px]" itemprop="url">{a.siteWeb.replace('https://', '').replace('www.', '')}</a>
+												</div>
+											)}
+											<div class="flex flex-wrap gap-2 mt-2">
+												<a href={`${base}association/${toSlug(a.nom)}/`} class="inline-flex items-center gap-1 text-xs text-white bg-teal-600 hover:bg-teal-700 font-medium px-3 py-1.5 rounded-full transition-all">
+													<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+													Voir la fiche
+												</a>
+												<button data-nom={a.nom} class="btn-modifier inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
+													<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+													Modifier
+												</button>
+											</div>
+										</div>
+									</div>
+								</article>
+							))}
+						</div>
+
+						{/* Lien contextuel vers la page satellite correspondante */}
+						{cat === "Handicap" && (
+							<div class="mt-6 bg-teal-50 rounded-xl p-4 flex items-center gap-3">
+								<svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+								<p class="text-sm text-gray-700">Voir notre dossier complet : <a href={`${base}association-handicap-toulon/`} class="text-teal-600 font-semibold underline hover:text-teal-800">associations handicap à Toulon</a> — droits MDPH, accompagnement et orientation.</p>
+							</div>
+						)}
+						{cat === "Santé & Maladies chroniques" && (
+							<div class="mt-6 bg-teal-50 rounded-xl p-4 flex items-center gap-3">
+								<svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+								<p class="text-sm text-gray-700">Voir notre dossier complet : <a href={`${base}association-sante-toulon/`} class="text-teal-600 font-semibold underline hover:text-teal-800">associations santé à Toulon</a> — prévention, accompagnement et maladies chroniques.</p>
+							</div>
+						)}
+						{cat === "Aidants & Soutien familial" && (
+							<div class="mt-6 bg-teal-50 rounded-xl p-4 flex items-center gap-3">
+								<svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+								<p class="text-sm text-gray-700">Voir notre dossier complet : <a href={`${base}association-aidants-toulon/`} class="text-teal-600 font-semibold underline hover:text-teal-800">soutien aux aidants à Toulon</a> — droits, répit et groupes de parole.</p>
+							</div>
+						)}
+						{cat === "Seniors & Autonomie" && (
+							<div class="mt-6 bg-teal-50 rounded-xl p-4 flex items-center gap-3">
+								<svg class="w-5 h-5 text-teal-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+								<p class="text-sm text-gray-700">Voir notre dossier complet : <a href={`${base}association-seniors-toulon/`} class="text-teal-600 font-semibold underline hover:text-teal-800">associations seniors à Toulon</a> — autonomie, lien social et aides départementales.</p>
+							</div>
+						)}
+					</div>
+				);
+			})}
+		</div>
+	</section>
+
+	<!-- Maillage interne cocon sémantique -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-2">Explorer les associations par thématique</h2>
+			<p class="text-gray-500 text-sm mb-8">Retrouvez nos guides détaillés par domaine et par quartier à Toulon.</p>
+
+			<h3 class="text-lg font-bold text-gray-800 mb-4">Par thématique santé</h3>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+				<a href={`${base}association-handicap-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations handicap à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Handicap moteur, sensoriel, mental</p>
+				</a>
+				<a href={`${base}association-sante-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations santé à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Maladies chroniques, prévention</p>
+				</a>
+				<a href={`${base}association-aidants-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Soutien aux aidants à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Répit, groupes de parole, droits</p>
+				</a>
+				<a href={`${base}association-seniors-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations seniors à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Autonomie, lien social, APA</p>
+				</a>
+			</div>
+
+			<h3 class="text-lg font-bold text-gray-800 mb-4">Par quartier à Toulon</h3>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+				<a href={`${base}association-mourillon-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Le Mourillon</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-centre-ville-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Centre-Ville</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-la-rode-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">La Rode</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-cap-brun-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Cap Brun</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+				<a href={`${base}association-saint-jean-du-var-toulon/`} class="bg-white rounded-xl p-4 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 text-sm group-hover:text-teal-700">Saint-Jean-du-Var</p>
+					<p class="text-xs text-gray-500">Associations locales</p>
+				</a>
+			</div>
+
+			<h3 class="text-lg font-bold text-gray-800 mb-4">Guides pratiques</h3>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				<a href={`${base}comment-creer-association-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Créer votre association à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Guide complet des démarches 2026</p>
+				</a>
+				<a href={`${base}subventions-associations-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Subventions et financements</p>
+					<p class="text-xs text-gray-500 mt-1">Aides municipales, départementales, régionales</p>
+				</a>
+				<a href={`${base}benevolat-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Devenir bénévole à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Missions disponibles et engagement</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contenu SEO additionnel -->
+	<section class="py-12 bg-white">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Pourquoi les associations sont essentielles à Toulon</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Les associations de santé et de solidarité à Toulon représentent un maillage indispensable pour les habitants du Var. Elles interviennent là où les services publics ne suffisent pas toujours : accompagnement psychologique, aide administrative, groupes de parole, répit pour les aidants, activités adaptées et bien plus encore.
+				</p>
+				<p>
+					Le département du Var, avec une population vieillissante et une proportion importante de personnes en perte d'autonomie, a un besoin crucial de structures associatives de proximité. À Toulon, ces associations sont réparties dans tous les quartiers, du <a href={`${base}association-centre-ville-toulon/`} class="text-teal-600 underline hover:text-teal-800">Centre-Ville</a> au <a href={`${base}association-saint-jean-du-var-toulon/`} class="text-teal-600 underline hover:text-teal-800">quartier Saint-Jean-du-Var</a>, en passant par <a href={`${base}association-la-rode-toulon/`} class="text-teal-600 underline hover:text-teal-800">La Rode</a>, à proximité de l'hôpital Sainte-Musse.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Comment trouver l'association adaptée à votre situation ?</h3>
+				<p>
+					Le choix d'une association dépend de votre situation personnelle. Si vous êtes en situation de handicap, consultez notre guide sur les <a href={`${base}association-handicap-toulon/`} class="text-teal-600 underline hover:text-teal-800">associations handicap à Toulon</a> qui détaille les structures par type de handicap (moteur, sensoriel, mental, psychique). Les personnes atteintes d'une maladie chronique trouveront des groupes de soutien spécialisés dans notre page <a href={`${base}association-sante-toulon/`} class="text-teal-600 underline hover:text-teal-800">associations santé à Toulon</a>.
+				</p>
+				<p>
+					Les aidants familiaux, souvent épuisés par leur rôle, peuvent compter sur des dispositifs de répit et des groupes de parole détaillés dans notre page <a href={`${base}association-aidants-toulon/`} class="text-teal-600 underline hover:text-teal-800">soutien aux aidants à Toulon</a>. Enfin, les seniors souhaitant maintenir leur autonomie et leur lien social trouveront des ressources dans notre guide des <a href={`${base}association-seniors-toulon/`} class="text-teal-600 underline hover:text-teal-800">associations seniors à Toulon</a>.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">L'incontinence : un sujet tabou, des associations pour vous accompagner</h3>
+				<p>
+					L'incontinence urinaire touche plus de 3 millions de Français, dont une part importante de Varois. Pourtant, le tabou qui entoure cette pathologie empêche de nombreuses personnes de chercher de l'aide. Notre association <strong>Var Incontinence</strong> a été créée pour briser ce silence et offrir un espace d'<a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">entraide et de soutien à Toulon</a>. Que vous soyez touché(e) directement ou en tant qu'aidant, vous n'êtes pas seul(e).
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Vous souhaitez créer une association à Toulon ?</h3>
+				<p>
+					Toulon est une ville favorable à la création associative. La procédure de déclaration en préfecture est relativement simple et les dispositifs d'aide sont nombreux. Consultez notre <a href={`${base}comment-creer-association-toulon/`} class="text-teal-600 underline hover:text-teal-800">guide complet pour créer une association à Toulon</a>, qui détaille les étapes, les documents nécessaires et les adresses utiles. Des <a href={`${base}subventions-associations-toulon/`} class="text-teal-600 underline hover:text-teal-800">subventions et financements</a> sont disponibles pour soutenir votre projet.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes sur les associations à Toulon</h2>
+
+			<div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Combien d'associations existe-t-il à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Toulon compte plus de 4 400 associations actives couvrant tous les domaines : sport, culture, santé, solidarité, environnement. Notre annuaire référence spécifiquement les {associations.length} associations santé, handicap et solidarité les plus actives.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Comment trouver une association de santé à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Consultez notre annuaire ci-dessus, classé par catégorie. Vous pouvez aussi contacter la Maison des Associations de Toulon, France Bénévolat Var ou directement notre association Var Incontinence qui vous orientera vers la structure la plus adaptée à votre situation.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Existe-t-il des associations d'aide à l'incontinence à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Oui, l'association Var Incontinence est basée à Toulon et accompagne les personnes souffrant de troubles urinaires ou fécaux. Elle propose un groupe d'entraide, de l'information et une orientation vers les professionnels de santé du Var. Rendez-vous sur notre page d'entraide pour en savoir plus.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Comment créer une association à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La création d'une association loi 1901 à Toulon nécessite la rédaction de statuts, la tenue d'une assemblée générale constitutive et la déclaration en préfecture du Var. Consultez notre guide complet pour connaître toutes les étapes, adresses locales et modèles de documents.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Où se trouve la Maison des Associations de Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">La Maison des Associations de Toulon est située dans le centre-ville. Elle offre aux associations domiciliation, salles de réunion, accompagnement juridique et formations. Consultez notre page dédiée pour les horaires et les services proposés.</p>
+					</div>
+				</details>
+
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span itemprop="name">Comment devenir bénévole dans une association à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+						<p itemprop="text">Vous pouvez devenir bénévole en contactant directement les associations listées dans notre annuaire, en passant par France Bénévolat Var ou via la plateforme nationale JeVeuxAider.gouv.fr. Le Forum des Associations de Toulon, organisé chaque septembre, est aussi une excellente occasion de rencontrer les structures qui recrutent.</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- Voir aussi (Annuaire + autres ressources) -->
 	<section class="py-12 bg-white border-t border-gray-100">
 		<div class="max-w-6xl mx-auto px-4">
 			<h2 class="text-xl font-bold text-gray-900 mb-4">Voir aussi</h2>
 			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}annuaire-associations-var-83/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Annuaire du Var (83)</p><p class="text-xs text-gray-500">Associations dans tout le département</p>
+				</a>
 				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Quartiers de Toulon</p><p class="text-xs text-gray-500">Aide par quartier</p>
 				</a>
@@ -101,9 +387,6 @@ const base = import.meta.env.BASE_URL;
 				</a>
 				<a href={`${base}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
 					<p class="font-semibold text-gray-900">Matériel médical</p><p class="text-xs text-gray-500">Fournisseurs à Toulon</p>
-				</a>
-				<a href={`${base}rejoindre-association-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
-					<p class="font-semibold text-gray-900">Rejoindre l'association</p><p class="text-xs text-gray-500">Adhésion, bénévolat, don</p>
 				</a>
 			</div>
 		</div>
@@ -149,7 +432,10 @@ const base = import.meta.env.BASE_URL;
 		<div class="max-w-4xl mx-auto px-4 text-center">
 			<h2 class="text-2xl font-bold text-gray-900 mb-4">Vous souhaitez être orienté(e) ?</h2>
 			<p class="text-gray-600 mb-8">Var Incontinence collabore avec les associations locales pour vous orienter vers la structure la plus adaptée à votre situation.</p>
-			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-600 font-semibold px-8 py-3 rounded-full hover:bg-teal-600 hover:text-white transition-colors">Rejoindre Var Incontinence</a>
+			</div>
 		</div>
 	</section>
 

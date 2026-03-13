@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const associations = [
+	{
+		nom: "Association Patients Sainte-Musse",
+		description: "Accompagnement des patients hospitalisés ou suivis au CHITS Sainte-Musse. Visites aux malades, soutien psychologique, aide aux démarches administratives liées à l'hospitalisation et orientation post-hospitalière.",
+		adresse: "54 rue Henri Sainte-Claire Deville, 83000 Toulon",
+		domaines: ["Santé", "Accompagnement hospitalier", "Soutien"]
+	},
+	{
+		nom: "La Rode Solidarité",
+		description: "Association d'entraide de quartier proposant un accompagnement social de proximité. Aide alimentaire ponctuelle, soutien aux familles en difficulté, ateliers de cuisine collective et orientation vers les services sociaux.",
+		adresse: "18 avenue de La Rode, 83000 Toulon",
+		domaines: ["Solidarité", "Aide sociale", "Entraide"]
+	},
+	{
+		nom: "Santé Prévention La Rode",
+		description: "Actions de prévention santé dans le quartier de La Rode. Ateliers de dépistage, conférences sur les maladies chroniques, sensibilisation à l'hygiène de vie et orientation vers les professionnels de santé locaux.",
+		adresse: "7 boulevard de la Démocratie, 83000 Toulon",
+		domaines: ["Prévention", "Santé", "Dépistage"]
+	},
+	{
+		nom: "Gym Douce La Rode",
+		description: "Activités physiques adaptées pour les seniors et les personnes en rééducation. Cours de gymnastique douce, étirements, équilibre et marche nordique encadrés par des éducateurs sportifs diplômés.",
+		adresse: "Centre social La Rode, 83000 Toulon",
+		domaines: ["Sport adapté", "Seniors", "Rééducation"]
+	},
+	{
+		nom: "Association des Aidants du Var - Antenne La Rode",
+		description: "Soutien aux aidants familiaux du secteur La Rode - Sainte-Anne. Groupes de parole mensuels, permanences d'information sur les droits des aidants (congé de proche aidant, AJPA) et ateliers de répit.",
+		adresse: "22 rue Commandant Nicolas, 83000 Toulon",
+		domaines: ["Aidants", "Répit", "Droits"]
+	},
+	{
+		nom: "Club Senior La Rode - Sainte-Anne",
+		description: "Animation et lien social pour les personnes âgées du quartier. Après-midi jeux, sorties culturelles, ateliers mémoire et repas partagés. Lutte contre l'isolement des seniors de La Rode et des Lices.",
+		adresse: "11 boulevard Sainte-Anne, 83000 Toulon",
+		domaines: ["Seniors", "Lien social", "Loisirs"]
+	}
+];
+---
+
+<Layout title="Associations à La Rode, Toulon (83) — Annuaire Quartier">
+
+	<meta slot="head" name="description" content="Les associations du quartier de La Rode à Toulon. Sport, santé, solidarité, culture. Contacts et infos pratiques." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Associations à La Rode à Toulon",
+		"description": "Liste des associations du quartier de La Rode à Toulon (83)",
+		"numberOfItems": associations.length,
+		"itemListElement": associations.map((a, i) => ({
+			"@type": "ListItem",
+			"position": i + 1,
+			"item": {
+				"@type": "Organization",
+				"name": a.nom,
+				"description": a.description,
+				"address": { "@type": "PostalAddress", "streetAddress": a.adresse, "addressLocality": "Toulon", "postalCode": "83000" }
+			}
+		}))
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">La Rode</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Associations à La Rode à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Annuaire des associations actives dans le quartier de La Rode à Toulon (83). Santé, solidarité, sport adapté et soutien aux aidants : les structures de proximité près de l'hôpital Sainte-Musse.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{associations.length} associations référencées à La Rode</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Introduction SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">La Rode : un quartier tourné vers la santé</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le quartier de La Rode occupe une position stratégique dans la géographie sanitaire de Toulon. Situé dans le centre-est de la ville, entre le centre-ville et le secteur de Sainte-Musse, il bénéficie de la proximité immédiate du <strong>CHITS Hôpital Sainte-Musse</strong>, le principal centre hospitalier public de Toulon inauguré en 2011. Cette proximité hospitalière a naturellement favorisé le développement d'un <strong>tissu associatif orienté vers la santé</strong>.
+				</p>
+				<p>
+					Quartier résidentiel et administratif d'environ 8 000 habitants, La Rode accueille également l'<strong>Hôpital d'Instruction des Armées Sainte-Anne</strong> sur son flanc sud. Cette double présence hospitalière fait de La Rode un carrefour sanitaire majeur, autour duquel gravitent des associations d'accompagnement des patients, de prévention et de soutien aux aidants familiaux.
+				</p>
+				<p>
+					Les <strong>associations de La Rode</strong> se distinguent par leur forte orientation santé : accompagnement des patients hospitalisés, prévention des maladies chroniques, activités physiques adaptées pour les seniors et les personnes en rééducation, soutien aux aidants. Elles complètent l'offre de soins hospitalière par un accompagnement humain et de proximité indispensable.
+				</p>
+				<p>
+					Pour une vue d'ensemble de toutes les associations de Toulon, consultez notre <a href={`${base}toulon-association/`} class="text-teal-600 underline hover:text-teal-800">annuaire complet des associations à Toulon</a>. Notre page <a href={`${base}quartiers-toulon-incontinence/`} class="text-teal-600 underline hover:text-teal-800">aide par quartier</a> propose des ressources adaptées à chaque secteur.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Liste des associations -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les associations du quartier de La Rode</h2>
+			<div class="grid gap-5">
+				{associations.map((a, i) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="w-8 h-8 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+									<h3 class="text-xl font-bold text-gray-900">{a.nom}</h3>
+								</div>
+								<p class="text-gray-600 mb-4">{a.description}</p>
+								<div class="flex flex-wrap gap-2">
+									{a.domaines.map(d => (
+										<span class="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full">{d}</span>
+									))}
+								</div>
+							</div>
+							<div class="md:text-right shrink-0 space-y-2">
+								<div class="flex items-center gap-2 text-sm text-gray-600">
+									<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{a.adresse}</span>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Caractéristiques du quartier -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">La Rode : caractéristiques et lieux clés</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<h3 class="text-xl font-bold text-gray-900">Un carrefour sanitaire majeur</h3>
+				<p>
+					La Rode se distingue par sa concentration d'infrastructures de santé. Le CHITS Hôpital Sainte-Musse, accessible en quelques minutes depuis le quartier, propose des services complets : urgences, chirurgie, maternité, cancérologie, gériatrie et rééducation. L'HIA Sainte-Anne, situé sur le boulevard du même nom en bordure sud du quartier, complète l'offre avec des spécialités en chirurgie, neurologie et psychiatrie. Cette double présence hospitalière fait de La Rode un lieu naturel pour les associations d'accompagnement des patients.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Lieux clés de La Rode</h3>
+				<ul class="list-disc pl-6 space-y-2">
+					<li><strong>CHITS Hôpital Sainte-Musse</strong> : principal hôpital public de Toulon, services complets.</li>
+					<li><strong>HIA Sainte-Anne</strong> : hôpital militaire ouvert aux civils, spécialités chirurgicales.</li>
+					<li><strong>Avenue de La Rode</strong> : axe commerçant principal du quartier.</li>
+					<li><strong>Boulevard de la Démocratie</strong> : axe reliant La Rode au centre-ville.</li>
+					<li><strong>Les Lices</strong> : sous-quartier résidentiel calme, proche du centre.</li>
+				</ul>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Santé et accompagnement au quotidien</h3>
+				<p>
+					La proximité des hôpitaux fait de La Rode un quartier où les questions de santé sont omniprésentes. De nombreux patients en sortie d'hospitalisation résident dans le secteur pour rester proches de leur lieu de suivi médical. Les associations locales répondent à ce besoin en proposant un accompagnement post-hospitalier, des activités de rééducation douce et un soutien psychologique pour les malades et leurs familles. L'incontinence post-opératoire ou liée aux maladies chroniques fait l'objet d'un accompagnement spécifique par l'association Var Incontinence.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Focus santé -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Santé et incontinence : un accompagnement renforcé à La Rode</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					La proximité de l'hôpital Sainte-Musse fait du quartier de La Rode un territoire particulièrement concerné par les problématiques de santé. Les patients suivis en urologie, en cancérologie ou en gériatrie au CHITS sont nombreux à rechercher un accompagnement associatif complémentaire après leur hospitalisation ou pendant leur traitement ambulatoire.
+				</p>
+				<p>
+					L'<strong>incontinence urinaire</strong>, qu'elle soit consécutive à une intervention chirurgicale (prostatectomie, chirurgie pelvienne), liée à une maladie neurologique ou au vieillissement, nécessite un suivi régulier et un soutien moral. L'association <strong>Var Incontinence</strong> propose des groupes d'entraide accessibles aux habitants de La Rode et des orientations vers les urologues et kinésithérapeutes spécialisés du secteur.
+				</p>
+				<p>
+					Découvrez notre page d'<a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">entraide incontinence à Toulon</a> pour connaître nos prochaines permanences. Les aidants de personnes incontinentes trouveront un soutien dédié sur notre page <a href={`${base}association-aidants-toulon/`} class="text-teal-600 underline hover:text-teal-800">associations de soutien aux aidants</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Pages associées</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Voir toutes les associations à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Annuaire complet</p>
+				</a>
+				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Aide par quartier à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Ressources locales</p>
+				</a>
+				<a href={`${base}association-sante-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations santé Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Maladies et prévention</p>
+				</a>
+				<a href={`${base}association-aidants-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Soutien aux aidants</p>
+					<p class="text-xs text-gray-500 mt-1">Répit et accompagnement</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide à La Rode ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence vous oriente vers les associations et professionnels de santé du quartier de La Rode adaptés à votre situation.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-700 font-semibold px-8 py-3 rounded-full hover:bg-teal-50 transition-colors">Rejoindre l'association</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

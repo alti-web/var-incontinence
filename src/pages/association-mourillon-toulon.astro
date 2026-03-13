@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const associations = [
+	{
+		nom: "Association Santé Mourillon",
+		description: "Accompagnement des patients atteints de maladies chroniques dans le quartier du Mourillon. Groupes de parole, ateliers bien-être et orientation vers les spécialistes du secteur.",
+		adresse: "12 rue Lamalgue, 83000 Toulon",
+		domaines: ["Santé", "Maladies chroniques", "Bien-être"]
+	},
+	{
+		nom: "Les Amis du Mourillon",
+		description: "Association de quartier promouvant la vie locale, l'entraide entre voisins et l'animation culturelle du Mourillon. Organisation de brocantes, fêtes de quartier et actions solidaires.",
+		adresse: "28 avenue de la République, 83000 Toulon",
+		domaines: ["Vie de quartier", "Culture", "Solidarité"]
+	},
+	{
+		nom: "Mourillon Sport Santé",
+		description: "Club multisports proposant des activités physiques adaptées aux seniors et aux personnes en rééducation. Gym douce, aquagym, marche nordique sur les plages du Mourillon.",
+		adresse: "5 boulevard du Littoral, 83000 Toulon",
+		domaines: ["Sport adapté", "Seniors", "Santé"]
+	},
+	{
+		nom: "Solidarité Mourillon Seniors",
+		description: "Lutte contre l'isolement des personnes âgées du quartier. Visites à domicile, accompagnement aux rendez-vous médicaux, aide aux démarches administratives et ateliers numériques.",
+		adresse: "17 rue Monsenergue, 83000 Toulon",
+		domaines: ["Seniors", "Solidarité", "Accompagnement"]
+	},
+	{
+		nom: "Mourillon Nature Environnement",
+		description: "Protection du littoral et des espaces verts du Mourillon. Nettoyage des plages, sensibilisation à l'environnement marin et ateliers jardinage partagé.",
+		adresse: "3 chemin du Fort Lamalgue, 83000 Toulon",
+		domaines: ["Environnement", "Nature", "Sensibilisation"]
+	},
+	{
+		nom: "Les Familles du Mourillon",
+		description: "Soutien à la parentalité et activités pour les familles du quartier. Ateliers parents-enfants, sorties culturelles, groupes d'échange entre parents et aide aux devoirs.",
+		adresse: "42 rue Girardin, 83000 Toulon",
+		domaines: ["Famille", "Parentalité", "Éducation"]
+	},
+	{
+		nom: "Club Nautique du Mourillon",
+		description: "Initiation et pratique de la voile, du kayak et de la plongée. Cours adaptés à tous les niveaux, stages vacances pour les jeunes et sorties en mer pour les adhérents.",
+		adresse: "Plage du Mourillon, 83000 Toulon",
+		domaines: ["Sport nautique", "Loisirs", "Jeunesse"]
+	},
+	{
+		nom: "Bien Vieillir au Mourillon",
+		description: "Prévention de la perte d'autonomie chez les seniors du Mourillon. Ateliers mémoire, équilibre et nutrition. Information sur les aides (APA, PCH) et orientation vers les services sociaux.",
+		adresse: "9 avenue de la Mitre, 83000 Toulon",
+		domaines: ["Prévention", "Seniors", "Autonomie"]
+	}
+];
+---
+
+<Layout title="Associations au Mourillon, Toulon (83) — Annuaire Local">
+
+	<meta slot="head" name="description" content="Toutes les associations du quartier du Mourillon à Toulon. Santé, sport, culture, solidarité. Annuaire complet avec contacts." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Associations au Mourillon à Toulon",
+		"description": "Liste des associations du quartier du Mourillon à Toulon (83)",
+		"numberOfItems": associations.length,
+		"itemListElement": associations.map((a, i) => ({
+			"@type": "ListItem",
+			"position": i + 1,
+			"item": {
+				"@type": "Organization",
+				"name": a.nom,
+				"description": a.description,
+				"address": { "@type": "PostalAddress", "streetAddress": a.adresse, "addressLocality": "Toulon", "postalCode": "83000" }
+			}
+		}))
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Mourillon</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Associations au Mourillon à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Annuaire complet des associations actives dans le quartier du Mourillon à Toulon (83). Santé, sport, culture, solidarité et environnement : découvrez les structures qui animent ce quartier balnéaire prisé.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{associations.length} associations référencées au Mourillon</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Introduction SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Le Mourillon : un quartier résidentiel et balnéaire dynamique</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le Mourillon est l'un des quartiers les plus prisés de Toulon. Ancien village de pêcheurs devenu un secteur résidentiel recherché, il s'étend le long du littoral méditerranéen et offre un cadre de vie exceptionnel entre plages aménagées, ruelles pittoresques et marchés provençaux. Le quartier accueille une population diversifiée, avec une forte proportion de <strong>familles et de seniors</strong> attirés par la qualité de vie et la proximité de la mer.
+				</p>
+				<p>
+					Cette mixité générationnelle se reflète dans le <strong>tissu associatif du Mourillon</strong>, qui couvre des domaines variés : santé et bien-être, sport adapté, solidarité envers les personnes âgées, activités nautiques, protection de l'environnement littoral et soutien à la parentalité. Les associations jouent un rôle essentiel dans l'animation de la vie locale et le maintien du lien social dans ce quartier résidentiel.
+				</p>
+				<p>
+					Le Mourillon bénéficie également de la proximité de l'<strong>Hôpital d'Instruction des Armées Sainte-Anne</strong>, ouvert aux civils, qui constitue une ressource médicale majeure pour les habitants du secteur est de Toulon. Plusieurs associations santé du quartier travaillent en lien avec cet établissement pour proposer un accompagnement complémentaire aux patients.
+				</p>
+				<p>
+					Pour une vue d'ensemble de toutes les associations de Toulon, consultez notre <a href={`${base}toulon-association/`} class="text-teal-600 underline hover:text-teal-800">annuaire complet des associations à Toulon</a>. Si vous recherchez une aide spécifique par quartier, notre page <a href={`${base}quartiers-toulon-incontinence/`} class="text-teal-600 underline hover:text-teal-800">aide par quartier à Toulon</a> vous orientera vers les ressources les plus proches.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Liste des associations -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les associations du Mourillon à Toulon</h2>
+			<div class="grid gap-5">
+				{associations.map((a, i) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="w-8 h-8 bg-cyan-100 text-cyan-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+									<h3 class="text-xl font-bold text-gray-900">{a.nom}</h3>
+								</div>
+								<p class="text-gray-600 mb-4">{a.description}</p>
+								<div class="flex flex-wrap gap-2">
+									{a.domaines.map(d => (
+										<span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">{d}</span>
+									))}
+								</div>
+							</div>
+							<div class="md:text-right shrink-0 space-y-2">
+								<div class="flex items-center gap-2 text-sm text-gray-600">
+									<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{a.adresse}</span>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Caractéristiques du quartier -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Le Mourillon : caractéristiques et lieux clés</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<h3 class="text-xl font-bold text-gray-900">Un patrimoine balnéaire unique à Toulon</h3>
+				<p>
+					Le Mourillon possède les plages les plus fréquentées de Toulon, avec quatre anses aménagées offrant sable fin, aires de jeux pour enfants et espaces ombragés. Ce cadre balnéaire en fait un lieu de vie privilégié pour les familles et les retraités. Le marché du Mourillon, qui se tient plusieurs fois par semaine sur la place du marché, est un rendez-vous incontournable du quartier et un lieu de rencontre pour les habitants.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Santé et services de proximité</h3>
+				<p>
+					Le quartier dispose d'un bon maillage de professionnels de santé libéraux : médecins généralistes, kinésithérapeutes, infirmières à domicile et pharmacies sont présents dans les rues principales du Mourillon. L'Hôpital d'Instruction des Armées Sainte-Anne, situé en bordure du quartier sur le boulevard Sainte-Anne, offre des services hospitaliers complets ouverts aux civils, incluant urgences, chirurgie et consultations spécialisées.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Lieux clés du Mourillon</h3>
+				<ul class="list-disc pl-6 space-y-2">
+					<li><strong>Plages du Mourillon</strong> : quatre anses aménagées, activités nautiques et promenade littorale.</li>
+					<li><strong>Fort Lamalgue</strong> : monument historique et lieu culturel du quartier.</li>
+					<li><strong>Marché du Mourillon</strong> : marché provençal animé, point de rencontre des habitants.</li>
+					<li><strong>HIA Sainte-Anne</strong> : hôpital militaire ouvert aux civils, services complets.</li>
+					<li><strong>Tour Royale</strong> : patrimoine maritime, expositions et événements culturels.</li>
+					<li><strong>Jardin d'acclimatation</strong> : espace vert familial apprécié des promeneurs et des seniors.</li>
+				</ul>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Population et vie associative</h3>
+				<p>
+					Avec environ 20 000 habitants, le secteur Mourillon-Cap Brun représente l'un des quartiers les plus peuplés de Toulon. La population se caractérise par un niveau de vie supérieur à la moyenne toulonnaise et une forte proportion de retraités. Cette démographie explique la vitalité des associations dédiées aux seniors, à la santé et aux loisirs. Les associations du Mourillon organisent régulièrement des événements fédérateurs : brocantes, fêtes de quartier, randonnées littorales et actions de solidarité.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Incontinence et seniors -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Accompagnement santé au Mourillon : seniors et incontinence</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					La forte proportion de seniors dans le quartier du Mourillon rend les questions de santé liées au vieillissement particulièrement pertinentes. L'<strong>incontinence urinaire</strong>, qui touche une personne sur trois après 70 ans, est un sujet encore tabou mais très présent dans ce quartier résidentiel. Les associations locales de soutien aux seniors intègrent de plus en plus cette problématique dans leur accompagnement.
+				</p>
+				<p>
+					L'association <strong>Var Incontinence</strong> intervient dans le quartier du Mourillon pour proposer des groupes d'entraide, une orientation vers les urologues et kinésithérapeutes spécialisés en rééducation périnéale, et des informations sur les protections et dispositifs médicaux disponibles. Les infirmières à domicile du secteur assurent également un suivi régulier des patients concernés.
+				</p>
+				<p>
+					Pour en savoir plus sur l'accompagnement de l'incontinence à Toulon, consultez notre page d'<a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">entraide incontinence à Toulon</a>. Les aidants familiaux trouveront des ressources dédiées sur notre page <a href={`${base}association-aidants-toulon/`} class="text-teal-600 underline hover:text-teal-800">associations de soutien aux aidants</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Pages associées</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Voir toutes les associations à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Annuaire complet</p>
+				</a>
+				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Aide par quartier à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Ressources locales</p>
+				</a>
+				<a href={`${base}entraide-incontinence-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Entraide incontinence Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Groupes de soutien</p>
+				</a>
+				<a href={`${base}toulon-infirmiere/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Infirmières à domicile</p>
+					<p class="text-xs text-gray-500 mt-1">Soins au Mourillon</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide au Mourillon ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence vous oriente vers les associations et professionnels de santé du Mourillon adaptés à votre situation.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-700 font-semibold px-8 py-3 rounded-full hover:bg-teal-50 transition-colors">Rejoindre l'association</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+
+const associations = [
+	{
+		nom: "Cap Brun Nature Littoral",
+		description: "Protection de l'environnement côtier du Cap Brun et sensibilisation à la biodiversité marine. Organisation de nettoyages de plages, inventaires naturalistes, sorties découverte du sentier du littoral et ateliers pédagogiques pour les scolaires.",
+		adresse: "Chemin de la Terre Promise, 83000 Toulon",
+		domaines: ["Environnement", "Nature", "Littoral"]
+	},
+	{
+		nom: "Les Randonneurs du Cap",
+		description: "Club de randonnée pédestre explorant les sentiers du Cap Brun, du Mont Faron et du littoral varois. Sorties hebdomadaires adaptées à tous les niveaux, marche nordique et randonnées thématiques découverte de la flore méditerranéenne.",
+		adresse: "15 avenue de la Résistance, 83000 Toulon",
+		domaines: ["Randonnée", "Sport", "Nature"]
+	},
+	{
+		nom: "Association des Résidents du Cap Brun",
+		description: "Défense du cadre de vie et des intérêts des habitants du Cap Brun. Urbanisme, circulation, propreté, préservation des espaces naturels et animation du quartier à travers des événements festifs et des rencontres entre voisins.",
+		adresse: "8 avenue du Cap Brun, 83000 Toulon",
+		domaines: ["Vie de quartier", "Cadre de vie", "Urbanisme"]
+	},
+	{
+		nom: "Plongée Environnement Var",
+		description: "Club de plongée sous-marine alliant sport et protection du milieu marin. Formations au brevet de plongée, sorties d'exploration, actions de nettoyage des fonds marins et sensibilisation à la préservation de la Méditerranée.",
+		adresse: "Anse de Méjean, 83000 Toulon",
+		domaines: ["Plongée", "Environnement marin", "Sport"]
+	},
+	{
+		nom: "Solidarité Seniors Cap Brun",
+		description: "Accompagnement des personnes âgées du Cap Brun et de la Sérinette. Visites à domicile pour les seniors isolés, accompagnement aux courses et rendez-vous médicaux, ateliers de convivialité et lien avec les services sociaux.",
+		adresse: "22 chemin de la Sérinette, 83000 Toulon",
+		domaines: ["Seniors", "Solidarité", "Accompagnement"]
+	},
+	{
+		nom: "Jardin Partagé du Cap",
+		description: "Jardinage collectif et éducation à l'alimentation durable. Parcelles partagées entre habitants du quartier, ateliers de compostage, permaculture et troc de plants. Un lieu de rencontre intergénérationnel en plein air.",
+		adresse: "Impasse des Oliviers, 83000 Toulon",
+		domaines: ["Jardinage", "Écologie", "Lien social"]
+	},
+	{
+		nom: "Bien-Être et Santé Cap Brun",
+		description: "Promotion de la santé par des activités de bien-être en plein air. Yoga en bord de mer, qi gong, méditation, ateliers nutrition méditerranéenne et conférences sur la prévention des maladies liées au vieillissement.",
+		adresse: "3 corniche du Cap Brun, 83000 Toulon",
+		domaines: ["Bien-être", "Santé", "Prévention"]
+	}
+];
+---
+
+<Layout title="Associations à Cap Brun, Toulon (83) — Annuaire Quartier">
+
+	<meta slot="head" name="description" content="Les associations du Cap Brun à Toulon : sport, nature, solidarité. Annuaire local avec coordonnées et activités." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"name": "Associations au Cap Brun à Toulon",
+		"description": "Liste des associations du quartier du Cap Brun à Toulon (83)",
+		"numberOfItems": associations.length,
+		"itemListElement": associations.map((a, i) => ({
+			"@type": "ListItem",
+			"position": i + 1,
+			"item": {
+				"@type": "Organization",
+				"name": a.nom,
+				"description": a.description,
+				"address": { "@type": "PostalAddress", "streetAddress": a.adresse, "addressLocality": "Toulon", "postalCode": "83000" }
+			}
+		}))
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Cap Brun</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Associations au Cap Brun à Toulon</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Annuaire des associations actives au Cap Brun à Toulon (83). Nature, environnement, sport de plein air, solidarité et bien-être : les structures qui animent ce quartier côtier préservé.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{associations.length} associations référencées au Cap Brun</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Introduction SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Cap Brun : un quartier entre mer et nature</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le Cap Brun est l'un des quartiers les plus verdoyants et préservés de Toulon. Situé à l'extrémité sud-est de la commune, ce promontoire rocheux surplombe la Méditerranée et offre des panoramas exceptionnels sur la rade de Toulon et les îles d'Hyères. Son <strong>sentier du littoral</strong>, ses criques sauvages et sa végétation méditerranéenne en font un lieu privilégié pour les amoureux de la nature et les sportifs de plein air.
+				</p>
+				<p>
+					Le quartier résidentiel du Cap Brun se caractérise par un habitat pavillonnaire de qualité, une population aisée et une forte proportion de retraités. Cette identité naturelle et résidentielle se reflète dans le <strong>tissu associatif local</strong>, fortement orienté vers la <strong>protection de l'environnement</strong>, les activités de plein air, la randonnée et le bien-être. Les associations du Cap Brun sont particulièrement engagées dans la préservation du littoral et la sensibilisation écologique.
+				</p>
+				<p>
+					Rattaché administrativement au secteur Mourillon, le Cap Brun partage avec son voisin une identité balnéaire tout en conservant un caractère plus sauvage et naturel. Les associations du quartier organisent régulièrement des actions de nettoyage des plages, des sorties naturalistes et des ateliers de jardinage écologique qui rassemblent les habitants autour de valeurs environnementales communes.
+				</p>
+				<p>
+					Pour découvrir l'ensemble des associations de Toulon, consultez notre <a href={`${base}toulon-association/`} class="text-teal-600 underline hover:text-teal-800">annuaire complet des associations à Toulon</a>. Notre page <a href={`${base}quartiers-toulon-incontinence/`} class="text-teal-600 underline hover:text-teal-800">aide par quartier</a> recense les ressources santé de chaque secteur.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Liste des associations -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les associations du Cap Brun à Toulon</h2>
+			<div class="grid gap-5">
+				{associations.map((a, i) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="w-8 h-8 bg-emerald-100 text-emerald-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+									<h3 class="text-xl font-bold text-gray-900">{a.nom}</h3>
+								</div>
+								<p class="text-gray-600 mb-4">{a.description}</p>
+								<div class="flex flex-wrap gap-2">
+									{a.domaines.map(d => (
+										<span class="bg-emerald-50 text-emerald-700 text-xs font-medium px-3 py-1 rounded-full">{d}</span>
+									))}
+								</div>
+							</div>
+							<div class="md:text-right shrink-0 space-y-2">
+								<div class="flex items-center gap-2 text-sm text-gray-600">
+									<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{a.adresse}</span>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Caractéristiques du quartier -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Cap Brun : caractéristiques et lieux clés</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<h3 class="text-xl font-bold text-gray-900">Un écrin de nature en ville</h3>
+				<p>
+					Le Cap Brun offre un environnement naturel remarquable, avec des espaces boisés de pins et de chênes verts, des falaises calcaires plongeant dans la mer et des criques accessibles à pied par le sentier du littoral. Cette richesse naturelle a fait naître des associations de protection de l'environnement particulièrement actives, qui veillent à la préservation de la biodiversité locale et à la sensibilisation des habitants et des visiteurs.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Lieux clés du Cap Brun</h3>
+				<ul class="list-disc pl-6 space-y-2">
+					<li><strong>Sentier du littoral</strong> : promenade côtière reliant le Mourillon à la Garde, panoramas exceptionnels.</li>
+					<li><strong>Anse de Méjean</strong> : crique sauvage prisée des plongeurs et des baigneurs.</li>
+					<li><strong>Corniche du Cap Brun</strong> : route panoramique surplombant la rade.</li>
+					<li><strong>La Sérinette</strong> : sous-quartier résidentiel entre Mourillon et Cap Brun.</li>
+					<li><strong>Parc du Cap Brun</strong> : espace vert arboré, lieu de promenade et de détente.</li>
+				</ul>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Un quartier adapté aux seniors actifs</h3>
+				<p>
+					La population du Cap Brun comprend une proportion importante de retraités qui ont choisi ce quartier pour sa qualité de vie et son environnement préservé. Les associations locales proposent des activités spécialement adaptées à ce public : randonnées à rythme modéré, yoga en plein air, jardinage partagé et ateliers de bien-être. Ces activités contribuent au maintien de l'autonomie et à la prévention des pathologies liées au vieillissement, tout en favorisant le lien social dans un quartier où l'isolement des seniors est un enjeu.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Santé et nature -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Nature, santé et bien-être au Cap Brun</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le cadre naturel du Cap Brun constitue un atout majeur pour la santé et le bien-être de ses habitants. La marche sur le sentier du littoral, la natation dans les criques et le jardinage en plein air sont autant d'activités physiques douces qui contribuent à la prévention des maladies chroniques et au maintien de l'autonomie. Les associations du quartier exploitent ce cadre exceptionnel pour proposer des activités de sport-santé adaptées à tous les âges.
+				</p>
+				<p>
+					Pour les personnes confrontées à des problématiques de santé telles que l'<strong>incontinence urinaire</strong>, le cadre naturel du Cap Brun peut parfois représenter un frein aux activités de plein air. L'association <strong>Var Incontinence</strong> accompagne les habitants du Cap Brun en proposant des conseils pratiques pour continuer à profiter des activités extérieures en toute sérénité, ainsi qu'une orientation vers les professionnels de santé spécialisés du secteur.
+				</p>
+				<p>
+					Retrouvez nos groupes d'entraide sur notre page <a href={`${base}entraide-incontinence-toulon/`} class="text-teal-600 underline hover:text-teal-800">entraide incontinence à Toulon</a>. Les associations du quartier voisin du Mourillon sont également accessibles ; consultez notre <a href={`${base}association-mourillon-toulon/`} class="text-teal-600 underline hover:text-teal-800">annuaire des associations du Mourillon</a>.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Pages associées</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Voir toutes les associations à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Annuaire complet</p>
+				</a>
+				<a href={`${base}quartiers-toulon-incontinence/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Aide par quartier à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Ressources locales</p>
+				</a>
+				<a href={`${base}association-mourillon-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations au Mourillon</p>
+					<p class="text-xs text-gray-500 mt-1">Quartier voisin</p>
+				</a>
+				<a href={`${base}entraide-incontinence-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Entraide incontinence Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Groupes de soutien</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide au Cap Brun ?</h2>
+			<p class="text-gray-600 mb-8">Var Incontinence vous oriente vers les associations et professionnels de santé du Cap Brun adaptés à votre situation.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block border-2 border-teal-600 text-teal-700 font-semibold px-8 py-3 rounded-full hover:bg-teal-50 transition-colors">Rejoindre l'association</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

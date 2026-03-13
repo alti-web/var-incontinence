@@ -1,0 +1,437 @@
+---
+import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Bénévolat à Toulon (83) — Missions et Associations à Rejoindre | Var Incontinence">
+
+	<meta slot="head" name="description" content="Envie de devenir bénévole à Toulon ? Découvrez les missions disponibles et les associations qui recrutent dans le Var." />
+
+	<script slot="head" type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "Comment devenir bénévole à Toulon ?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Pour devenir bénévole à Toulon, vous pouvez contacter directement une association, vous inscrire sur JeVeuxAider.gouv.fr ou vous rendre à France Bénévolat Var au 10 place Hubert Falco. Aucun diplôme n'est requis, seule la motivation compte." }
+			},
+			{
+				"@type": "Question",
+				"name": "Quels sont les droits des bénévoles ?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Les bénévoles ne sont pas salariés mais disposent de droits : couverture par l'assurance de l'association, remboursement des frais engagés sur justificatifs, accès à des formations, et valorisation via le Compte d'Engagement Citoyen (CEC)." }
+			},
+			{
+				"@type": "Question",
+				"name": "Peut-on être bénévole quand on est salarié ou retraité ?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Oui. Les salariés peuvent être bénévoles en dehors de leur temps de travail. Les retraités représentent une part importante des bénévoles en France. Le bénévolat est ouvert à tous, sans condition d'âge ni de statut professionnel." }
+			},
+			{
+				"@type": "Question",
+				"name": "Combien de temps faut-il consacrer au bénévolat ?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Il n'y a aucun minimum légal. Chaque association définit ses besoins : certaines missions demandent quelques heures par mois, d'autres une demi-journée par semaine. Vous définissez votre engagement selon vos disponibilités." }
+			},
+			{
+				"@type": "Question",
+				"name": "Le bénévolat est-il valorisable sur un CV ?",
+				"acceptedAnswer": { "@type": "Answer", "text": "Absolument. Le bénévolat développe des compétences transversales (gestion de projet, communication, travail d'équipe). Il peut être inscrit sur le CV et valorisé via le portefeuille de compétences bénévoles ou le Compte d'Engagement Citoyen." }
+			}
+		]
+	})} />
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6" aria-label="Fil d'Ariane">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-association/`} class="hover:text-white transition-colors">Associations à Toulon</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Bénévolat</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Devenir bénévole à Toulon : missions et engagement</h1>
+			<p class="text-lg text-teal-100 max-w-3xl">
+				Guide complet du bénévolat à Toulon et dans le Var (83). Trouvez une mission qui vous correspond parmi les 4 400 associations actives, découvrez vos droits et engagez-vous pour une cause qui compte.
+			</p>
+		</div>
+	</section>
+
+	<!-- Introduction SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Le bénévolat à Toulon : un engagement citoyen au coeur du Var</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Toulon est une ville profondément marquée par la vie associative. Avec plus de <strong>4 400 associations actives</strong>, la capitale varoise offre un terrain d'engagement exceptionnel pour quiconque souhaite donner de son temps et de son énergie. Le bénévolat constitue le socle de cette dynamique : sans bénévoles, la plupart des associations ne pourraient tout simplement pas fonctionner.
+				</p>
+				<p>
+					En France, <strong>13 millions de personnes</strong> pratiquent le bénévolat de manière régulière. Dans le Var, le tissu associatif est particulièrement dense dans les domaines de la <strong>solidarité sociale</strong>, de la <strong>santé</strong>, du <strong>sport</strong>, de la <strong>culture</strong> et de l'<strong>environnement</strong>. Toulon concentre une part importante de ces associations, offrant des missions variées adaptées à tous les profils, tous les âges et toutes les disponibilités.
+				</p>
+				<p>
+					Que vous soyez étudiant à la recherche d'une expérience enrichissante, actif souhaitant donner du sens à votre temps libre, retraité désireux de rester impliqué dans la vie locale, ou demandeur d'emploi cherchant à développer de nouvelles compétences, le bénévolat à Toulon est une porte ouverte sur l'engagement et l'utilité sociale.
+				</p>
+				<p>
+					Ce guide vous présente les différents types de missions disponibles, les plateformes pour trouver votre engagement, les démarches concrètes pour devenir bénévole et vos droits en tant que bénévole dans le Var.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Types de bénévolat -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les domaines du bénévolat à Toulon</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+					<div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+					</div>
+					<h3 class="text-lg font-bold text-gray-900 mb-2">Santé et bien-être</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">
+						Accompagnement de patients, soutien psychologique, prévention, groupes de parole, écoute téléphonique. Les associations santé de Toulon recherchent des bénévoles formés ou prêts à se former pour accompagner les personnes malades et leurs proches.
+					</p>
+				</div>
+				<div class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+					<div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+					</div>
+					<h3 class="text-lg font-bold text-gray-900 mb-2">Social et solidarité</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">
+						Distribution alimentaire, hébergement d'urgence, accompagnement de personnes isolées, aide administrative, visite aux personnes âgées. Le secteur social est le premier recruteur de bénévoles à Toulon, avec des besoins constants tout au long de l'année.
+					</p>
+				</div>
+				<div class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+					<div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+					</div>
+					<h3 class="text-lg font-bold text-gray-900 mb-2">Sport</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">
+						Encadrement sportif, organisation d'événements, arbitrage, gestion administrative des clubs. Toulon compte des centaines d'associations sportives, du rugby au handball en passant par la voile, la randonnée et le sport adapté pour les personnes handicapées.
+					</p>
+				</div>
+				<div class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+					<div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+					</div>
+					<h3 class="text-lg font-bold text-gray-900 mb-2">Éducation et formation</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">
+						Soutien scolaire, alphabétisation, aide aux devoirs, mentorat, apprentissage du français pour les migrants. Les associations éducatives de Toulon accueillent des bénévoles de tout horizon pour accompagner enfants et adultes dans leurs apprentissages.
+					</p>
+				</div>
+				<div class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+					<div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+					</div>
+					<h3 class="text-lg font-bold text-gray-900 mb-2">Environnement</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">
+						Protection du littoral varois, nettoyage des plages et calanques, sensibilisation écologique, jardins partagés, protection de la faune marine. Le cadre naturel exceptionnel de Toulon et du Var offre de nombreuses missions de bénévolat environnemental.
+					</p>
+				</div>
+				<div class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+					<div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+					</div>
+					<h3 class="text-lg font-bold text-gray-900 mb-2">Culture et patrimoine</h3>
+					<p class="text-gray-600 text-sm leading-relaxed">
+						Animation culturelle, conservation du patrimoine naval de Toulon, organisation de festivals, médiation muséale, bibliothèque associative. Le riche patrimoine historique et maritime de la ville génère de nombreuses opportunités d'engagement culturel.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Plateformes de missions -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Où trouver des missions de bénévolat à Toulon ?</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Plusieurs plateformes et structures permettent de trouver facilement une mission de bénévolat adaptée à vos compétences et à vos disponibilités dans le Var.
+				</p>
+				<div class="grid sm:grid-cols-2 gap-4 mt-6">
+					<div class="bg-white rounded-xl p-6 border border-gray-200">
+						<h3 class="font-bold text-gray-900 mb-2">JeVeuxAider.gouv.fr</h3>
+						<p class="text-sm text-gray-600 mb-3">Plateforme publique du bénévolat, portée par le gouvernement. Elle référence des milliers de missions partout en France, avec un moteur de recherche par localisation, domaine d'action et disponibilité. Vous pouvez filtrer les missions sur Toulon et le Var en quelques clics.</p>
+						<p class="text-xs text-gray-500">Inscription gratuite en ligne, mise en relation directe avec les associations</p>
+					</div>
+					<div class="bg-white rounded-xl p-6 border border-gray-200">
+						<h3 class="font-bold text-gray-900 mb-2">France Bénévolat Var</h3>
+						<p class="text-sm text-gray-600 mb-3">Antenne départementale du réseau national France Bénévolat, implantée au coeur de Toulon. L'équipe vous reçoit sur rendez-vous pour un entretien personnalisé : vos motivations, vos compétences et vos disponibilités sont analysées afin de vous orienter vers l'association qui vous correspond le mieux.</p>
+						<p class="text-xs text-gray-500">10 place Hubert Falco, 83000 Toulon - Tél : 04 94 24 08 08</p>
+					</div>
+					<div class="bg-white rounded-xl p-6 border border-gray-200">
+						<h3 class="font-bold text-gray-900 mb-2">Maison des Associations de Toulon</h3>
+						<p class="text-sm text-gray-600 mb-3">La Maison des Associations centralise l'information sur la vie associative toulonnaise. Elle peut vous orienter vers les associations qui recherchent activement des bénévoles dans votre domaine de prédilection. Des forums associatifs y sont régulièrement organisés.</p>
+						<p class="text-xs text-gray-500">Accompagnement, mise en réseau, événements associatifs</p>
+					</div>
+					<div class="bg-white rounded-xl p-6 border border-gray-200">
+						<h3 class="font-bold text-gray-900 mb-2">Réseaux sociaux et bouche-à-oreille</h3>
+						<p class="text-sm text-gray-600 mb-3">De nombreuses associations toulonnaises publient leurs appels à bénévoles sur les réseaux sociaux (Facebook, Instagram). Les groupes locaux et les pages communautaires de Toulon sont également une source précieuse pour découvrir des missions de proximité dans votre quartier.</p>
+						<p class="text-xs text-gray-500">Groupes Facebook « Toulon Solidaire », « Bénévolat Var 83 »</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Bénévolat santé -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Bénévolat santé à Toulon : un engagement qui change des vies</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le bénévolat dans le domaine de la santé occupe une place particulière dans le paysage associatif toulonnais. Les associations de santé du Var accueillent des bénévoles pour des missions d'écoute, d'accompagnement et de sensibilisation qui nécessitent empathie, discrétion et engagement humain.
+				</p>
+				<p>
+					Les missions de bénévolat santé à Toulon sont variées : <strong>écoute téléphonique</strong> pour les personnes malades ou en détresse, <strong>accompagnement hospitalier</strong> (visites aux patients isolés), <strong>animation de groupes de parole</strong> pour les malades chroniques et leurs proches, <strong>sensibilisation et prévention</strong> lors d'événements publics, <strong>aide administrative</strong> pour les démarches liées aux droits des patients.
+				</p>
+				<div class="bg-teal-50 rounded-xl p-6 border border-teal-200 mt-6">
+					<h3 class="font-bold text-teal-900 mb-2">Devenir bénévole chez Var Incontinence</h3>
+					<p class="text-teal-800 text-sm leading-relaxed mb-4">
+						Notre association <strong>Var Incontinence</strong> recherche des bénévoles pour accompagner les personnes souffrant d'incontinence à Toulon et dans le Var. L'incontinence touche 3 millions de Français et reste largement taboue : votre engagement peut aider à briser l'isolement et à améliorer la qualité de vie de nombreuses personnes.
+					</p>
+					<p class="text-teal-800 text-sm leading-relaxed mb-4">
+						Les missions proposées : écoute et soutien lors des groupes de parole, aide à l'organisation d'événements de sensibilisation, rédaction de contenus d'information, accompagnement des nouveaux adhérents, participation aux actions de prévention dans les établissements de santé du Var.
+					</p>
+					<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-flex items-center gap-2 bg-teal-600 text-white font-semibold px-6 py-2.5 rounded-full hover:bg-teal-700 transition-colors text-sm">
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+						Rejoindre Var Incontinence
+					</a>
+				</div>
+				<p class="mt-4">
+					D'autres associations santé à Toulon recherchent également des bénévoles : la Ligue contre le Cancer, France Alzheimer Var, les Petits Frères des Pauvres, la Croix-Rouge ou encore les Restos du Coeur. Consultez notre page dédiée aux <a href={`${base}association-sante-toulon/`} class="text-teal-600 underline hover:text-teal-800">associations santé à Toulon</a> pour découvrir toutes les structures actives.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Comment devenir bénévole -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Comment devenir bénévole à Toulon : les étapes concrètes</h2>
+			<div class="text-gray-600 leading-relaxed space-y-6">
+				<div class="flex gap-4">
+					<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold shrink-0">1</span>
+					<div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Identifiez vos motivations et compétences</h3>
+						<p>Prenez le temps de réfléchir à ce qui vous motive : aider les personnes vulnérables, transmettre un savoir-faire, protéger l'environnement, animer des activités culturelles ? Listez également vos compétences (professionnelles, relationnelles, techniques) qui pourraient être utiles à une association. Le bénévolat le plus épanouissant est celui qui correspond à vos valeurs et à vos talents.</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold shrink-0">2</span>
+					<div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Définissez votre disponibilité</h3>
+						<p>Soyez réaliste sur le temps que vous pouvez consacrer au bénévolat. Certaines missions demandent quelques heures par mois, d'autres un engagement hebdomadaire régulier. Précisez également vos préférences : bénévolat ponctuel (événements, maraudes) ou régulier (permanences, accompagnement), en semaine ou le week-end, en journée ou en soirée.</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold shrink-0">3</span>
+					<div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Recherchez une mission adaptée</h3>
+						<p>Utilisez les plateformes mentionnées ci-dessus (JeVeuxAider.gouv.fr, France Bénévolat Var) ou contactez directement les associations qui vous intéressent. N'hésitez pas à rencontrer plusieurs structures avant de vous engager : un entretien préalable permet de vérifier que l'association et la mission vous conviennent.</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold shrink-0">4</span>
+					<div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Engagez-vous et formez-vous</h3>
+						<p>Une fois votre choix fait, formalisez votre engagement (charte du bénévole, convention de bénévolat). La plupart des associations proposent une formation initiale pour vous préparer à votre mission. Dans le domaine de la santé, cette formation est souvent obligatoire et couvre les bases de l'écoute active, la confidentialité et les limites du rôle de bénévole.</p>
+					</div>
+				</div>
+				<div class="flex gap-4">
+					<span class="w-10 h-10 bg-teal-100 text-teal-700 rounded-xl flex items-center justify-center text-lg font-bold shrink-0">5</span>
+					<div>
+						<h3 class="text-lg font-bold text-gray-900 mb-2">Évaluez et ajustez votre engagement</h3>
+						<p>Après quelques semaines, faites le point : la mission vous convient-elle ? Le rythme est-il tenable ? N'hésitez pas à en discuter avec le responsable des bénévoles de l'association. Un engagement épanouissant est un engagement durable. Si la mission ne vous correspond pas, il est toujours possible de changer de rôle ou d'association.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Droits et statut du bénévole -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Droits et statut du bénévole : ce qu'il faut savoir</h2>
+			<div class="text-gray-600 leading-relaxed space-y-4">
+				<p>
+					Le bénévole n'est pas un salarié : il agit librement, sans contrat de travail ni rémunération. Cependant, le droit français reconnaît au bénévole un ensemble de <strong>droits et protections</strong> qu'il est important de connaître avant de s'engager.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Assurance et responsabilité</h3>
+				<p>
+					Toute association est tenue de souscrire une <strong>assurance responsabilité civile</strong> couvrant les dommages causés par ses bénévoles dans le cadre de leurs missions. En cas d'accident survenu pendant une activité bénévole, le bénévole est couvert. Il est recommandé de vérifier l'étendue de la couverture auprès de l'association avant de commencer. Certaines associations souscrivent également une assurance accident corporel pour protéger les bénévoles eux-mêmes.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Remboursement des frais</h3>
+				<p>
+					Les frais engagés par le bénévole dans le cadre de sa mission (transport, repas, matériel) peuvent être remboursés par l'association <strong>sur présentation de justificatifs</strong>. Le bénévole peut également choisir de ne pas demander le remboursement et de faire un <strong>abandon de frais</strong>, qui ouvre droit à une réduction d'impôt de 66 % du montant abandonné (dans la limite de 20 % du revenu imposable), sous réserve que l'association soit habilitée à délivrer des reçus fiscaux.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Formation</h3>
+				<p>
+					Les bénévoles ont accès à des <strong>formations gratuites</strong> financées par le FDVA (Fonds pour le Développement de la Vie Associative). Ces formations couvrent des thèmes variés : gestion associative, comptabilité, communication, animation de groupe, premiers secours. France Bénévolat Var organise régulièrement des sessions de formation pour les bénévoles du département.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Compte d'Engagement Citoyen (CEC)</h3>
+				<p>
+					Depuis 2017, le <strong>Compte d'Engagement Citoyen (CEC)</strong> permet aux bénévoles d'acquérir des droits à formation inscrits sur leur Compte Personnel de Formation (CPF). Pour en bénéficier, il faut justifier d'au moins 200 heures de bénévolat sur l'année dans une association déclarée depuis au moins 3 ans. Le CEC permet d'acquérir jusqu'à 240 euros de droits à formation par an.
+				</p>
+				<h3 class="text-xl font-bold text-gray-900 pt-4">Congé de représentation</h3>
+				<p>
+					Les salariés qui exercent des fonctions de représentation au sein d'une association déclarée peuvent bénéficier d'un <strong>congé de représentation</strong> de 9 jours ouvrables par an, non rémunéré mais ouvrant droit à la protection contre le licenciement pendant cette période.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Témoignages -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Témoignages de bénévoles à Toulon</h2>
+			<div class="grid sm:grid-cols-2 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-200">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center text-teal-700 font-bold">M</div>
+						<div>
+							<p class="font-bold text-gray-900">Martine, 67 ans</p>
+							<p class="text-xs text-gray-500">Bénévole en accompagnement seniors</p>
+						</div>
+					</div>
+					<p class="text-gray-600 text-sm leading-relaxed italic">
+						"Depuis ma retraite, je rends visite chaque semaine à des personnes âgées isolées dans le quartier du Mourillon. Ces moments d'échange sont précieux, autant pour elles que pour moi. Le bénévolat m'a permis de garder un lien social fort et de me sentir utile."
+					</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-200">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-700 font-bold">T</div>
+						<div>
+							<p class="font-bold text-gray-900">Thomas, 28 ans</p>
+							<p class="text-xs text-gray-500">Bénévole en soutien scolaire</p>
+						</div>
+					</div>
+					<p class="text-gray-600 text-sm leading-relaxed italic">
+						"J'aide des collégiens en difficulté deux soirs par semaine dans une association du centre-ville. Voir leurs progrès et leur confiance grandir, c'est la plus belle des récompenses. Cette expérience m'a aussi beaucoup apporté professionnellement."
+					</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-200">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold">S</div>
+						<div>
+							<p class="font-bold text-gray-900">Sophie, 45 ans</p>
+							<p class="text-xs text-gray-500">Bénévole en écoute santé</p>
+						</div>
+					</div>
+					<p class="text-gray-600 text-sm leading-relaxed italic">
+						"J'anime un groupe de parole pour des personnes touchées par une maladie chronique. La formation que j'ai reçue m'a donné les outils pour écouter sans juger. Chaque séance me rappelle pourquoi l'entraide est si essentielle."
+					</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-200">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold">P</div>
+						<div>
+							<p class="font-bold text-gray-900">Pierre, 55 ans</p>
+							<p class="text-xs text-gray-500">Bénévole en protection de l'environnement</p>
+						</div>
+					</div>
+					<p class="text-gray-600 text-sm leading-relaxed italic">
+						"Je participe aux nettoyages du littoral un samedi par mois avec une association environnementale de Toulon. Agir concrètement pour la préservation de nos côtes varoises, c'est un engagement qui fait sens au quotidien."
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Pages associées</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				<a href={`${base}toulon-association/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Annuaire complet des associations à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Toutes les catégories</p>
+				</a>
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Rejoindre Var Incontinence</p>
+					<p class="text-xs text-gray-500 mt-1">Adhésion, bénévolat, don</p>
+				</a>
+				<a href={`${base}association-sante-toulon/`} class="bg-white rounded-xl p-5 hover:bg-teal-50 hover:border-teal-300 border border-gray-200 transition-all group">
+					<p class="font-semibold text-gray-900 group-hover:text-teal-700">Associations santé à Toulon</p>
+					<p class="text-xs text-gray-500 mt-1">Prévention et accompagnement</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="py-12 bg-gray-50 border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes sur le bénévolat à Toulon</h2>
+			<div class="space-y-4">
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Comment devenir bénévole à Toulon ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Pour devenir bénévole à Toulon, vous pouvez contacter directement une association qui vous intéresse, vous inscrire sur la plateforme JeVeuxAider.gouv.fr, ou vous rendre à France Bénévolat Var (10 place Hubert Falco, 83000 Toulon) pour un entretien personnalisé. Aucun diplôme n'est requis, seule la motivation compte.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Quels sont les droits des bénévoles ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Les bénévoles ne sont pas salariés mais disposent de droits importants : couverture par l'assurance responsabilité civile de l'association, remboursement des frais engagés sur justificatifs (ou abandon de frais déductible des impôts), accès à des formations gratuites (FDVA), et valorisation de l'engagement via le Compte d'Engagement Citoyen (CEC).</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Peut-on être bénévole quand on est salarié ou retraité ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Oui, absolument. Les salariés peuvent être bénévoles en dehors de leur temps de travail. Les retraités représentent d'ailleurs une part très importante des bénévoles en France et sont particulièrement actifs dans le Var. Le bénévolat est ouvert à tous, sans condition d'âge minimum (sauf pour certaines missions) ni de statut professionnel.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Combien de temps faut-il consacrer au bénévolat ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Il n'y a aucun minimum légal. Chaque association définit ses propres besoins : certaines missions demandent quelques heures par mois (événements ponctuels), d'autres une demi-journée par semaine (permanences, accompagnement régulier). Vous définissez votre engagement en accord avec l'association, selon vos disponibilités réelles.</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Le bénévolat est-il valorisable sur un CV ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Absolument. Le bénévolat développe des compétences transversales très recherchées par les employeurs : gestion de projet, communication, travail d'équipe, sens de l'initiative, capacité d'adaptation. Il peut être inscrit sur votre CV dans une rubrique dédiée et valorisé via le portefeuille de compétences bénévoles ou le Compte d'Engagement Citoyen (CEC).</p>
+					</div>
+				</details>
+				<details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+					<summary class="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:text-teal-700 transition-colors flex items-center justify-between">
+						<span>Le bénévolat peut-il donner droit à des avantages fiscaux ?</span>
+						<svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+					</summary>
+					<div class="px-6 pb-4 text-gray-600 text-sm leading-relaxed">
+						<p>Le bénévolat en tant que tel n'ouvre pas de droit à réduction d'impôt. En revanche, si vous engagez des frais dans le cadre de votre mission bénévole (transport, repas) et que vous renoncez à leur remboursement (abandon de frais), vous pouvez bénéficier d'une réduction d'impôt de 66 % du montant abandonné, à condition que l'association soit reconnue d'intérêt général.</p>
+					</div>
+				</details>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA -->
+	<section class="py-16 bg-gradient-to-r from-teal-700 to-cyan-600 text-white">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-3xl font-bold mb-4">Prêt(e) à vous engager ?</h2>
+			<p class="text-teal-100 text-lg mb-8">Rejoignez Var Incontinence et donnez de votre temps pour accompagner les personnes touchées par l'incontinence à Toulon. Votre engagement fait la différence.</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href={`${base}rejoindre-association-toulon-83000/`} class="inline-block bg-white text-teal-700 font-semibold px-10 py-4 rounded-full hover:bg-teal-50 transition-colors text-lg">Rejoindre Var Incontinence</a>
+				<a href={`${base}#contact`} class="inline-block border-2 border-white text-white font-semibold px-10 py-4 rounded-full hover:bg-white/10 transition-colors text-lg">Nous contacter</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>
