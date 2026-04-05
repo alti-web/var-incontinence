@@ -22,7 +22,7 @@ export default defineConfig({
         }
 
         // Annuaires (pages listing) + page pilier cocon
-        if (['/toulon-association', '/toulon-infirmiere', '/toulon-materiel-medical', '/annuaire-associations-var-83'].includes(path)) {
+        if (['/toulon-association', '/toulon-infirmiere', '/toulon-materiel-medical', '/toulon-ssiad', '/annuaire-associations-var-83'].includes(path)) {
           return { ...item, priority: 0.9, changefreq: 'weekly' };
         }
 
@@ -45,7 +45,7 @@ export default defineConfig({
         }
 
         // Pages statiques importantes (contenu associatif)
-        if (['/entraide-incontinence-toulon', '/aidants-toulon-83000', '/temoignages-incontinence-toulon', '/rejoindre-association-toulon-83000', '/quartiers-toulon-incontinence'].includes(path)) {
+        if (['/entraide-incontinence-toulon', '/aidants-toulon-83000', '/temoignages-incontinence-toulon', '/rejoindre-association-toulon-83000', '/quartiers-toulon-incontinence', '/mouysset-medical-toulon'].includes(path)) {
           return { ...item, priority: 0.8, changefreq: 'monthly' };
         }
 
