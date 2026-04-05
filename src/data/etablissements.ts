@@ -5,8 +5,8 @@ export const etablissements: Etablissement[] = [
 		nom: "Mouysset Médical (Médico Sud)",
 		adresse: "127 avenue du Général Pruneau, 83000 Toulon",
 		telephone: "04 94 03 40 03",
-		description: "Vente, location et réparation de matériel médical et orthopédique. Audit des besoins, livraison à domicile, SAV pour matériel PMR.",
-		specialites: ["Orthopédie", "Location", "SAV"]
+		description: "Spécialiste du matériel médical, orthopédique et des protections pour l'incontinence à Toulon. 3 agences dans le Var (Toulon, La Valette, Le Pradet). Vente, location, livraison à domicile gratuite, SAV et réparation. Marques Tena, Thuasne, Amoena.",
+		specialites: ["Orthopédie", "Incontinence", "Location", "Livraison gratuite", "SAV"]
 	},
 	{
 		nom: "Alpha Médical",

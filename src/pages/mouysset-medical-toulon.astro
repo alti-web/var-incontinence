@@ -1,0 +1,388 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const agences = [
+	{
+		nom: "Mouysset Médical - Toulon (siège)",
+		adresse: "127 avenue du Général Pruneau, 83000 Toulon",
+		telephone: "04 94 03 40 03",
+		email: "julie.ughetto@mouyssetmedical.com",
+		horaires: "Lun-Ven 8h30-12h / 14h-18h | Sam 9h-12h",
+		details: "RDC, accessible PMR, parking gratuit"
+	},
+	{
+		nom: "Mouysset Médical - La Valette-du-Var",
+		adresse: "166 avenue Pasteur, 83160 La Valette-du-Var",
+		telephone: "04 94 66 13 38",
+		email: "",
+		horaires: "Lun-Ven 8h30-12h / 14h-18h",
+		details: ""
+	},
+	{
+		nom: "Mouysset Médical - Le Pradet",
+		adresse: "385 avenue de la 1ère D.F.L., 83220 Le Pradet",
+		telephone: "04 94 66 04 27",
+		email: "",
+		horaires: "Lun-Ven 9h-12h / 14h-18h",
+		details: ""
+	}
+];
+
+const produitsIncontinence = [
+	{ nom: "Protections anatomiques", desc: "Protections absorbantes adaptées à la morphologie, pour fuites légères à modérées." },
+	{ nom: "Slips absorbants", desc: "Sous-vêtements absorbants pour femmes et hommes, discrets et confortables." },
+	{ nom: "Culottes absorbantes", desc: "Différentes tailles et niveaux d'absorption pour une protection optimale." },
+	{ nom: "Changes complets", desc: "Pour incontinence urinaire et/ou fécale sévère, absorption maximale." },
+	{ nom: "Couches adultes", desc: "Haute capacité d'absorption pour la nuit ou les situations de forte incontinence." },
+	{ nom: "Alèses jetables et réutilisables", desc: "Protection literie, disponibles en format jetable ou lavable." },
+	{ nom: "Gants de toilette jetables", desc: "Gants nature ou pré-imprégnés pour la toilette intime quotidienne." },
+	{ nom: "Lingettes imprégnées", desc: "Nettoyage doux de la peau, adaptées aux peaux fragiles et irritées." },
+	{ nom: "Crèmes protectrices (Tena)", desc: "Crème au zinc et crème de toilette pour protéger la peau des irritations." }
+];
+
+const servicesOrthopediques = [
+	{ nom: "Semelles orthopédiques sur mesure", desc: "Fabrication personnalisée par orthopédistes diplômés d'État." },
+	{ nom: "Chaussures orthopédiques", desc: "Gamme de chaussures adaptées aux pathologies du pied." },
+	{ nom: "Orthèses et attelles", desc: "Chevillères, colliers cervicaux, ceintures lombaires, genouillères." },
+	{ nom: "Bas de contention", desc: "Compression veineuse sur prescription, toutes classes." },
+	{ nom: "Prothèses mammaires externes", desc: "Prothèses Amoena pour femmes après mastectomie, lingerie post-opératoire." },
+	{ nom: "Vêtements compressifs (Medical Z)", desc: "Vêtements de compression pour grands brûlés, partenariat hôpitaux militaires." },
+	{ nom: "Orthopédie pédiatrique", desc: "Dispositifs orthopédiques adaptés aux enfants et nourrissons." }
+];
+
+const materielDomicile = [
+	{ nom: "Lits médicalisés", desc: "Lits électriques ajustables, matelas à mémoire de forme anti-escarres." },
+	{ nom: "Fauteuils roulants", desc: "Manuels et électriques (dont commande vocale), location et vente." },
+	{ nom: "Déambulateurs et cannes", desc: "Aides à la marche : rollators, cannes anglaises, béquilles." },
+	{ nom: "Lève-personnes et verticalisateurs", desc: "Transferts sécurisés, fauteuils de transfert." },
+	{ nom: "Équipement salle de bain", desc: "Sièges de douche, tabourets de bain, marches d'accès, barres d'appui." },
+	{ nom: "Fauteuils de repos", desc: "Fauteuils releveurs, coquilles de maintien." },
+	{ nom: "Appareils de surveillance", desc: "Tensiomètres, oxymètres, thermomètres, pèse-personnes impédancemètres." },
+	{ nom: "Aérosolthérapie", desc: "Nébuliseurs et appareils d'aérosol pour traitements respiratoires." }
+];
+---
+
+<Layout title="Mouysset Médical Toulon – Matériel Médical, Orthopédie, Incontinence (83) | Var Incontinence" description="Mouysset Médical à Toulon : spécialiste matériel médical, orthopédie et protections incontinence. 3 agences dans le Var. Livraison gratuite à domicile.">
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<a href={`${base}toulon-materiel-medical/`} class="hover:text-white transition-colors">Matériel médical</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">Mouysset Médical</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">Mouysset Médical</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				Spécialiste du matériel médical, de l'orthopédie et des protections pour l'incontinence à Toulon depuis plus de 20 ans. 3 agences dans le Var au service des particuliers et des professionnels de santé.
+			</p>
+			<div class="mt-6 flex flex-wrap items-center gap-4 text-teal-200 text-sm">
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+					<span>3 agences dans le Var</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+					<a href="tel:0494034003" class="hover:text-white transition-colors">04 94 03 40 03</a>
+				</div>
+				<a href="https://www.orthopedie-toulon.fr/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-white transition-colors">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+					<span>orthopedie-toulon.fr</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Navigation rapide -->
+	<section class="py-4 bg-white border-b border-gray-100 sticky top-16 z-30">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="flex flex-wrap gap-2">
+				<a href="#agences" class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">Agences</a>
+				<a href="#incontinence" class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">Incontinence</a>
+				<a href="#orthopedie" class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">Orthopédie</a>
+				<a href="#domicile" class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">Maintien à domicile</a>
+				<a href="#services" class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">Services</a>
+				<a href="#professionnels" class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">Professionnels</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Présentation -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Qui est Mouysset Médical ?</h2>
+			<p class="text-gray-600 leading-relaxed mb-4">
+				<strong>Mouysset Médical</strong> (société Médico Sud, SAS) est un acteur majeur du matériel médical dans le Var. Implantée à Toulon avec 3 agences (Toulon, La Valette-du-Var, Le Pradet), l'entreprise propose une gamme complète de produits pour les particuliers et les professionnels de santé : <strong>orthopédie, protections pour l'incontinence, maintien à domicile, mobilité et hygiène</strong>.
+			</p>
+			<p class="text-gray-600 leading-relaxed mb-4">
+				L'équipe est composée d'<strong>orthopédistes diplômés d'État</strong> capables de réaliser des semelles sur mesure, d'adapter des orthèses et de conseiller sur les dispositifs médicaux les plus adaptés à chaque situation. Mouysset Médical est particulièrement reconnu pour son expertise auprès des <strong>femmes atteintes de cancer du sein</strong> (prothèses mammaires externes Amoena) et des <strong>grands brûlés</strong> (vêtements compressifs Medical Z).
+			</p>
+			<p class="text-gray-600 leading-relaxed">
+				Pour les personnes souffrant d'incontinence, Mouysset Médical propose toute la gamme <strong>Tena</strong> : protections anatomiques, slips absorbants, changes complets, alèses, lingettes et crèmes protectrices. <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a> pour être orienté(e).
+			</p>
+		</div>
+	</section>
+
+	<!-- Les 3 agences -->
+	<section id="agences" class="py-16 bg-white scroll-mt-32">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les 3 agences dans le Var</h2>
+			<div class="grid md:grid-cols-3 gap-6">
+				{agences.map((a, i) => (
+					<article class="bg-white border border-gray-200 rounded-2xl p-6 hover:border-teal-300 hover:shadow-md transition-all">
+						<div class="flex items-center gap-3 mb-4">
+							<span class="w-8 h-8 bg-cyan-100 text-cyan-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+							<h3 class="text-lg font-bold text-gray-900">{a.nom}</h3>
+						</div>
+						<div class="space-y-3 text-sm">
+							<div class="flex items-start gap-2 text-gray-600">
+								<svg class="w-4 h-4 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+								<span>{a.adresse}</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+								<a href={`tel:${a.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800">{a.telephone}</a>
+							</div>
+							<div class="flex items-start gap-2 text-gray-600">
+								<svg class="w-4 h-4 text-gray-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+								<span>{a.horaires}</span>
+							</div>
+							{a.email && (
+								<div class="flex items-center gap-2">
+									<svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+									<a href={`mailto:${a.email}`} class="text-teal-600 hover:text-teal-800 text-xs">{a.email}</a>
+								</div>
+							)}
+							{a.details && (
+								<p class="text-xs text-gray-500 bg-gray-50 px-3 py-2 rounded-lg">{a.details}</p>
+							)}
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Protections incontinence -->
+	<section id="incontinence" class="py-16 bg-gray-50 scroll-mt-32">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="max-w-4xl mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Protections pour l'incontinence</h2>
+				<p class="text-gray-600">Mouysset Médical propose toute la gamme <strong>Tena</strong>, référence mondiale en matière de protections pour l'incontinence. Conseils personnalisés en magasin pour choisir le produit adapté à votre niveau d'incontinence.</p>
+			</div>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				{produitsIncontinence.map(p => (
+					<div class="bg-white rounded-xl p-5 border border-gray-100 hover:border-teal-200 transition-all">
+						<h3 class="font-bold text-gray-900 mb-2 text-sm">{p.nom}</h3>
+						<p class="text-gray-600 text-xs leading-relaxed">{p.desc}</p>
+					</div>
+				))}
+			</div>
+			<div class="mt-8 bg-teal-50 rounded-xl p-6 border border-teal-100">
+				<h3 class="font-bold text-gray-900 mb-2">Besoin de conseils sur les protections ?</h3>
+				<p class="text-gray-600 text-sm mb-4">L'association Var Incontinence vous aide gratuitement à identifier les protections adaptées à votre situation. Nous pouvons aussi vous orienter vers Mouysset Médical pour un essai en boutique.</p>
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-6 py-2.5 rounded-full hover:bg-teal-700 transition-colors text-sm">Nous contacter</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Orthopédie -->
+	<section id="orthopedie" class="py-16 bg-white scroll-mt-32">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="max-w-4xl mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Orthopédie et appareillage</h2>
+				<p class="text-gray-600">Équipe d'<strong>orthopédistes diplômés d'État</strong>. Fabrication sur mesure, adaptation et suivi. Marques : Thuasne, DJO, Innothera, Amoena, Medical Z.</p>
+			</div>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				{servicesOrthopediques.map(s => (
+					<div class="bg-white rounded-xl p-5 border border-gray-100 hover:border-teal-200 transition-all">
+						<h3 class="font-bold text-gray-900 mb-2 text-sm">{s.nom}</h3>
+						<p class="text-gray-600 text-xs leading-relaxed">{s.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Maintien à domicile -->
+	<section id="domicile" class="py-16 bg-gray-50 scroll-mt-32">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="max-w-4xl mb-8">
+				<h2 class="text-2xl font-bold text-gray-900 mb-4">Maintien à domicile et mobilité</h2>
+				<p class="text-gray-600">Vente et <strong>location</strong> de matériel médical pour rester autonome à domicile. Livraison, installation et formation à l'utilisation incluses.</p>
+			</div>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				{materielDomicile.map(m => (
+					<div class="bg-white rounded-xl p-5 border border-gray-100 hover:border-teal-200 transition-all">
+						<h3 class="font-bold text-gray-900 mb-2 text-sm">{m.nom}</h3>
+						<p class="text-gray-600 text-xs leading-relaxed">{m.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Services -->
+	<section id="services" class="py-16 bg-white scroll-mt-32">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-8">Les services Mouysset Médical</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center mb-3">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Livraison gratuite</h3>
+					<p class="text-gray-600 text-sm">Livraison à domicile gratuite dans un rayon de 30 km (minimum 50 EUR). Le jour même ou le lendemain.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center mb-3">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Installation et SAV</h3>
+					<p class="text-gray-600 text-sm">Installation professionnelle, démonstration du matériel, maintenance, réparation et gonflage de roues inclus.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center mb-3">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Audit à domicile</h3>
+					<p class="text-gray-600 text-sm">Évaluation gratuite de vos besoins à domicile. Conseils d'aménagement intérieur pour l'accessibilité PMR.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center mb-3">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Location de matériel</h3>
+					<p class="text-gray-600 text-sm">Location sur prescription médicale : lits médicalisés, fauteuils roulants, déambulateurs. Durée selon ordonnance.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center mb-3">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Conseil expert</h3>
+					<p class="text-gray-600 text-sm">Consultation par des orthopédistes diplômés d'État. Prise en charge personnalisée et suivi dans la durée.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center mb-3">
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" /></svg>
+					</div>
+					<h3 class="font-bold text-gray-900 mb-2">Éducation thérapeutique</h3>
+					<p class="text-gray-600 text-sm">Formation patient et aidants : utilisation des dispositifs, gestion de l'incontinence, choix des protections.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pour les professionnels -->
+	<section id="professionnels" class="py-16 bg-gray-50 scroll-mt-32">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Offre pour les professionnels de santé</h2>
+			<p class="text-gray-600 mb-8">Mouysset Médical fournit également les cliniques, hôpitaux, EHPAD, cabinets médicaux et SSIAD en matériel et consommables.</p>
+			<div class="grid sm:grid-cols-2 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Hygiène et désinfection</h3>
+					<p class="text-gray-600 text-sm">Produits de décontamination pour sols, mobilier et équipements médicaux. Masques chirurgicaux, gants nitrile, gel hydroalcoolique.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Consommables et pansements</h3>
+					<p class="text-gray-600 text-sm">Bandages, compresses, pansements post-opératoires et anti-escarres pour les établissements de soins.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Dispositifs médicaux</h3>
+					<p class="text-gray-600 text-sm">Équipements ergonomiques répondant aux normes de sécurité, confort et performance pour les cabinets et cliniques.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Vêtements professionnels</h3>
+					<p class="text-gray-600 text-sm">Blouses, tenues pour médecins, infirmiers et aides-soignants. Vêtements spécialisés post-opératoires.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Infos pratiques -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Informations pratiques</h2>
+			<div class="grid sm:grid-cols-2 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Prise en charge</h3>
+					<p class="text-gray-600 text-sm">La plupart des produits orthopédiques et du matériel médical sont remboursables sur prescription médicale. Mouysset Médical pratique le tiers payant avec la Sécurité sociale et les mutuelles.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Accessibilité</h3>
+					<p class="text-gray-600 text-sm">L'agence de Toulon est au rez-de-chaussée, accessible aux personnes à mobilité réduite, avec parking gratuit devant le magasin.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Raison sociale</h3>
+					<p class="text-gray-600 text-sm">SAS Médico Sud - SIRET 45150185200052 - Capital 532 100 EUR - contact.toulon@mouyssetmedical.com</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Site internet</h3>
+					<p class="text-gray-600 text-sm">Catalogue complet, prise de rendez-vous et demande de devis sur <a href="https://www.orthopedie-toulon.fr/" target="_blank" rel="noopener noreferrer" class="text-teal-600 underline hover:text-teal-800">orthopedie-toulon.fr</a></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Voir aussi</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Matériel médical</p><p class="text-xs text-gray-500">Tous les fournisseurs à Toulon</p>
+				</a>
+				<a href={`${base}toulon-ssiad/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">SSIAD à Toulon</p><p class="text-xs text-gray-500">Soins infirmiers à domicile</p>
+				</a>
+				<a href={`${base}toulon-infirmiere/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Infirmières</p><p class="text-xs text-gray-500">Cabinets infirmiers libéraux</p>
+				</a>
+				<a href={`${base}aidants-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Soutien aux aidants</p><p class="text-xs text-gray-500">Accompagnement des proches</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA final -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'être orienté(e) ?</h2>
+			<p class="text-gray-600 mb-8">L'association Var Incontinence vous aide gratuitement à trouver les solutions matérielles adaptées à votre situation, en toute confidentialité.</p>
+			<div class="flex flex-wrap justify-center gap-4">
+				<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+				<a href="https://www.orthopedie-toulon.fr/" target="_blank" rel="noopener noreferrer" class="inline-block border-2 border-teal-600 text-teal-700 font-semibold px-8 py-3 rounded-full hover:bg-teal-50 transition-colors">Visiter orthopedie-toulon.fr</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Schema.org -->
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "MedicalBusiness",
+		"name": "Mouysset Médical",
+		"legalName": "Médico Sud SAS",
+		"url": "https://www.orthopedie-toulon.fr/",
+		"description": "Spécialiste du matériel médical, de l'orthopédie et des protections pour l'incontinence à Toulon. 3 agences dans le Var.",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "127 avenue du Général Pruneau",
+			"addressLocality": "Toulon",
+			"postalCode": "83000",
+			"addressCountry": "FR"
+		},
+		"telephone": "04 94 03 40 03",
+		"email": "contact.toulon@mouyssetmedical.com",
+		"openingHoursSpecification": [
+			{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "12:00" },
+			{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "14:00", "closes": "18:00" },
+			{ "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" }
+		]
+	})} />
+
+</Layout>
