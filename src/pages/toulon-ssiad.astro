@@ -1,0 +1,264 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ssiads } from '../data/ssiad';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="SSIAD à Toulon – Soins Infirmiers à Domicile (83) | Association Var Incontinence">
+
+	<!-- Hero -->
+	<section class="bg-gradient-to-br from-teal-700 via-teal-600 to-cyan-600 text-white py-16 md:py-20">
+		<div class="max-w-6xl mx-auto px-4">
+			<nav class="text-teal-200 text-sm mb-6">
+				<a href={base} class="hover:text-white transition-colors">Accueil</a>
+				<span class="mx-2">/</span>
+				<span class="text-white">SSIAD à Toulon</span>
+			</nav>
+			<h1 class="text-3xl md:text-5xl font-bold mb-4">SSIAD à Toulon et dans le Var</h1>
+			<p class="text-lg text-teal-100 max-w-2xl">
+				Annuaire des Services de Soins Infirmiers à Domicile (SSIAD) à Toulon et ses environs. Soins d'hygiène, nursing, gestion de l'incontinence et maintien à domicile pour les personnes âgées ou en situation de handicap.
+			</p>
+			<div class="mt-6 flex items-center gap-2 text-teal-200 text-sm">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+				<span>{ssiads.length} SSIAD référencés</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Intro SEO -->
+	<section class="py-12 bg-gray-50 border-b border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Qu'est-ce qu'un SSIAD ?</h2>
+			<p class="text-gray-600 leading-relaxed mb-4">
+				Les <strong>Services de Soins Infirmiers à Domicile (SSIAD)</strong> sont des structures médico-sociales qui interviennent directement chez les patients pour assurer des soins infirmiers et d'hygiène. À Toulon, ils sont essentiels pour les personnes âgées de plus de 60 ans, les adultes en situation de handicap et les patients atteints de maladies chroniques, notamment ceux souffrant d'<strong>incontinence urinaire ou fécale</strong>.
+			</p>
+			<p class="text-gray-600 leading-relaxed mb-4">
+				Les SSIAD assurent la toilette, le change des protections, la pose et la surveillance des sondes urinaires, la prévention des escarres et l'éducation thérapeutique du patient et de ses proches. <strong>Les soins sont pris en charge à 100 % par l'Assurance Maladie</strong>, sans avance de frais.
+			</p>
+			<p class="text-gray-600 leading-relaxed">
+				Pour bénéficier d'un SSIAD, il faut une prescription médicale de votre médecin traitant. <a href={`${base}#contact`} class="text-teal-600 underline hover:text-teal-800">Contactez Var Incontinence</a> pour être orienté(e) vers le SSIAD le plus adapté à votre situation.
+			</p>
+		</div>
+	</section>
+
+	<!-- Navigation rapide -->
+	<section class="py-6 bg-white border-b border-gray-100 sticky top-16 z-30">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="flex flex-wrap gap-2">
+				{ssiads.map((s, i) => (
+					<a href={`#ssiad-${i}`} class="text-xs bg-gray-100 hover:bg-teal-50 text-gray-600 hover:text-teal-700 px-3 py-1.5 rounded-full transition-all">
+						{s.nom.split(' - ')[0].replace('SSIAD ', '').replace('SPASAD ', '')}
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Liste des SSIAD -->
+	<section class="py-16 bg-white">
+		<div class="max-w-6xl mx-auto px-4">
+			<div class="grid gap-6">
+				{ssiads.map((s, i) => (
+					<article id={`ssiad-${i}`} class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-teal-300 hover:shadow-md transition-all scroll-mt-32">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+							<div class="flex-1">
+								<div class="flex items-center gap-3 mb-3">
+									<span class="w-8 h-8 bg-cyan-100 text-cyan-700 rounded-lg flex items-center justify-center text-sm font-bold">{i + 1}</span>
+									<h3 class="text-xl font-bold text-gray-900">{s.nom}</h3>
+								</div>
+								<p class="text-gray-600 mb-4">{s.description}</p>
+								<div class="flex flex-wrap gap-2">
+									{s.specialites.map(spec => (
+										<span class="bg-cyan-50 text-cyan-700 text-xs font-medium px-3 py-1 rounded-full">{spec}</span>
+									))}
+									<span class="bg-teal-50 text-teal-700 text-xs font-medium px-3 py-1 rounded-full">{s.secteur}</span>
+								</div>
+							</div>
+							<div class="md:text-right shrink-0 space-y-2">
+								<div class="flex items-center gap-2 text-sm text-gray-600">
+									<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+									<span>{s.adresse}</span>
+								</div>
+								{s.telephone && (
+									<div class="flex items-center gap-2 text-sm">
+										<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+										<a href={`tel:${s.telephone.replace(/\s/g, '')}`} class="text-teal-600 font-medium hover:text-teal-800">{s.telephone}</a>
+									</div>
+								)}
+								<div class="flex flex-wrap gap-2 mt-2">
+									<button data-nom={s.nom} class="btn-modifier inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-800 font-medium border border-teal-200 hover:border-teal-400 px-3 py-1.5 rounded-full hover:bg-teal-50 transition-all">
+										<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+										Modifier cette fiche
+									</button>
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Info pratique : comment bénéficier d'un SSIAD -->
+	<section class="py-12 bg-gray-50">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">Comment bénéficier d'un SSIAD à Toulon ?</h2>
+			<div class="grid sm:grid-cols-2 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center text-lg font-bold mb-3">1</div>
+					<h3 class="font-bold text-gray-900 mb-2">Prescription médicale</h3>
+					<p class="text-gray-600 text-sm">Demandez à votre médecin traitant une prescription pour des soins infirmiers à domicile. Cette ordonnance est indispensable pour l'admission en SSIAD.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center text-lg font-bold mb-3">2</div>
+					<h3 class="font-bold text-gray-900 mb-2">Contacter le SSIAD</h3>
+					<p class="text-gray-600 text-sm">Appelez le SSIAD de votre secteur (voir annuaire ci-dessus). Un infirmier coordinateur évaluera vos besoins et la disponibilité des places.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center text-lg font-bold mb-3">3</div>
+					<h3 class="font-bold text-gray-900 mb-2">Évaluation à domicile</h3>
+					<p class="text-gray-600 text-sm">L'infirmier coordinateur se déplace à votre domicile pour évaluer votre état de santé, vos besoins en soins et établir un plan de soins personnalisé.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<div class="w-10 h-10 bg-teal-100 text-teal-700 rounded-lg flex items-center justify-center text-lg font-bold mb-3">4</div>
+					<h3 class="font-bold text-gray-900 mb-2">Prise en charge à 100 %</h3>
+					<p class="text-gray-600 text-sm">Les soins du SSIAD sont intégralement pris en charge par l'Assurance Maladie. Aucun frais à avancer, pas de reste à charge pour le patient.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SSIAD et incontinence -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-4xl mx-auto px-4">
+			<h2 class="text-2xl font-bold text-gray-900 mb-6">SSIAD et incontinence : un accompagnement spécialisé</h2>
+			<div class="grid sm:grid-cols-2 gap-6">
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Soins quotidiens</h3>
+					<p class="text-gray-600 text-sm">Les aides-soignants du SSIAD assurent la toilette, le change des protections urinaires, les soins d'hygiène intime et la surveillance de l'état cutané (prévention des irritations et escarres).</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Gestion des dispositifs</h3>
+					<p class="text-gray-600 text-sm">Pose, surveillance et entretien des sondes urinaires, des poches de recueil, des étuis péniens et des dispositifs de stomie, en coordination avec le médecin traitant.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Éducation du patient</h3>
+					<p class="text-gray-600 text-sm">Conseils sur le choix des protections adaptées, les exercices de rééducation périnéale, l'hydratation et l'alimentation favorable au contrôle vésical.</p>
+				</div>
+				<div class="bg-white rounded-xl p-6 border border-gray-100">
+					<h3 class="font-bold text-gray-900 mb-2">Soutien aux aidants</h3>
+					<p class="text-gray-600 text-sm">Formation des proches aidants aux gestes techniques, conseils pour la gestion quotidienne de l'incontinence et relais pour limiter l'épuisement des aidants.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Maillage interne -->
+	<section class="py-12 bg-white border-t border-gray-100">
+		<div class="max-w-6xl mx-auto px-4">
+			<h2 class="text-xl font-bold text-gray-900 mb-4">Voir aussi</h2>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+				<a href={`${base}toulon-infirmiere/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Infirmières à Toulon</p><p class="text-xs text-gray-500">Cabinets infirmiers libéraux</p>
+				</a>
+				<a href={`${base}toulon-materiel-medical/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Matériel médical</p><p class="text-xs text-gray-500">Fournisseurs à Toulon</p>
+				</a>
+				<a href={`${base}aidants-toulon-83000/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Soutien aux aidants</p><p class="text-xs text-gray-500">Accompagnement des proches</p>
+				</a>
+				<a href={`${base}toulon-association/`} class="bg-gray-50 rounded-xl p-4 hover:bg-teal-50 transition-all text-sm">
+					<p class="font-semibold text-gray-900">Associations santé</p><p class="text-xs text-gray-500">Annuaire des associations</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Bouton professionnel -->
+	<section class="py-10 bg-gradient-to-r from-teal-50 to-cyan-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<p class="text-gray-600 text-sm mb-3">Vous travaillez dans un SSIAD ?</p>
+			<button id="open-modal-ssiad" class="inline-flex items-center gap-2 bg-teal-600 text-white font-semibold px-8 py-4 rounded-full hover:bg-teal-700 shadow-lg hover:shadow-xl transition-all text-base">
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+				Modifier les informations de votre SSIAD
+			</button>
+		</div>
+	</section>
+
+	<!-- Modal professionnel -->
+	<div id="modal-ssiad" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50">
+		<div class="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 relative">
+			<button id="close-modal-ssiad" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+			</button>
+			<h3 class="text-xl font-bold text-gray-900 mb-2">Modifier les informations</h3>
+			<p class="text-gray-500 text-sm mb-6">Mettez à jour la fiche de votre SSIAD ou signalez une erreur.</p>
+			<form id="modal-form-ssiad" class="space-y-4">
+				<input type="text" name="_honey" style="display:none">
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Nom du SSIAD</label>
+					<input type="text" name="nom" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all" placeholder="Nom de votre SSIAD">
+				</div>
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+					<input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all" placeholder="votre@email.fr">
+				</div>
+				<div>
+					<label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+					<textarea name="message" rows="3" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all" placeholder="Informations à modifier..."></textarea>
+				</div>
+				<button type="submit" id="modal-submit-ssiad" class="w-full bg-teal-600 text-white font-semibold py-3 rounded-xl hover:bg-teal-700 transition-colors">Envoyer la demande</button>
+				<p id="modal-msg-ssiad" class="text-center text-sm hidden"></p>
+			</form>
+		</div>
+	</div>
+
+	<!-- CTA final -->
+	<section class="py-16 bg-teal-50">
+		<div class="max-w-4xl mx-auto px-4 text-center">
+			<h2 class="text-2xl font-bold text-gray-900 mb-4">Besoin d'aide pour trouver un SSIAD ?</h2>
+			<p class="text-gray-600 mb-8">L'association Var Incontinence vous aide à identifier le SSIAD adapté à votre secteur et à vos besoins, en toute confidentialité.</p>
+			<a href={`${base}#contact`} class="inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-full hover:bg-teal-700 transition-colors">Contactez-nous</a>
+		</div>
+	</section>
+
+	<script>
+		const closeBtn = document.getElementById('close-modal-ssiad');
+		const modal = document.getElementById('modal-ssiad');
+		const nomInput = modal?.querySelector('input[name="nom"]') as HTMLInputElement | null;
+
+		function openModal(nom?: string) {
+			if (nomInput && nom) nomInput.value = nom;
+			modal?.classList.remove('hidden');
+			modal?.classList.add('flex');
+		}
+
+		document.getElementById('open-modal-ssiad')?.addEventListener('click', () => openModal());
+
+		document.querySelectorAll('.btn-modifier').forEach(btn => {
+			btn.addEventListener('click', () => openModal((btn as HTMLElement).dataset.nom));
+		});
+
+		closeBtn?.addEventListener('click', () => { modal?.classList.add('hidden'); modal?.classList.remove('flex'); });
+		modal?.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.add('hidden'); modal.classList.remove('flex'); } });
+
+		document.getElementById('modal-form-ssiad')?.addEventListener('submit', async (ev) => {
+			ev.preventDefault();
+			const form = ev.target as HTMLFormElement;
+			const btn = document.getElementById('modal-submit-ssiad') as HTMLButtonElement;
+			const msg = document.getElementById('modal-msg-ssiad')!;
+			const data: Record<string, string> = {};
+			new FormData(form).forEach((v, k) => { data[k] = v as string; });
+			data._subject = 'Demande modification annuaire SSIAD';
+			btn.disabled = true; btn.textContent = 'Envoi...'; msg.classList.add('hidden');
+			try {
+				const res = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+				if (res.ok) { msg.textContent = 'Demande envoyée !'; msg.className = 'text-center text-sm text-green-600 font-medium'; form.reset(); }
+				else { msg.textContent = 'Erreur. Réessayez.'; msg.className = 'text-center text-sm text-red-600 font-medium'; }
+			} catch { msg.textContent = 'Erreur réseau.'; msg.className = 'text-center text-sm text-red-600 font-medium'; }
+			btn.disabled = false; btn.textContent = 'Envoyer la demande';
+		});
+	</script>
+
+</Layout>
